@@ -3,24 +3,30 @@ import IA.Comparticion.Usuarios;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+
+
 
 public class ComparticionState {
 
     //attributes
     private ArrayList<ArrayList<Integer>> assignments;
     private ArrayList<Integer> distances;
+    private Usuarios users;
 
 
     // CONSTRUCTORS
 
-    public ComparticionState(){
+    public ComparticionState(Usuarios users){
         this.assignments = new ArrayList<>();
         this.distances= new ArrayList<>();
+        this.users = users;
     }
 
-    public ComparticionState(ArrayList<ArrayList<Integer>> assignments, ArrayList<Integer> distances){
+    public ComparticionState(ArrayList<ArrayList<Integer>> assignments, ArrayList<Integer> distances, Usuarios users){
         this.assignments = assignments;
         this.distances = distances;
+        this.users = users;
     }
 
     //SETTERS AND GETTERS
@@ -94,25 +100,70 @@ public class ComparticionState {
 
 
     //UTILS
-    
+
+    public int calc_distance(int x, int y, int x2, int y2){
+        return Math.abs(x2-x)+Math.abs(y2-y);
+    }
+
+//CONFIEM
     public int distance(ArrayList<Integer> car){
-        //TODO
-        return 20;
+        HashSet aux = new HashSet<Integer>();
+        int previousx = users.get(car.get(0)).getCoordOrigenX();
+        int previousy = users.get(car.get(0)).getCoordOrigenY();
+        int target_x, target_y;
+        int distance = 0;
+        for(int i = 0; i < car.size(); ++i){
+
+            if(aux.contains(car.get(i))){
+                target_x = users.get(car.get(i)).getCoordDestinoX();
+                target_y =  users.get(car.get(i)).getCoordDestinoY();
+            } else{
+                target_x = users.get(car.get(i)).getCoordOrigenX();
+                target_y=  users.get(car.get(i)).getCoordOrigenY();
+                aux.add(car.get(i));
+            }
+            distance += calc_distance(previousx,previousy, target_x, target_y);
+            previousx = target_x;
+            previousy = target_y;
+        }
+        return distance;
     }
 
 
     //INITIAL SOLUTIONS
 
-    public void generateInitSol1(Usuarios us){
-        int last_car = 0;
-        for(Usuario u : us){
-            if(u.isConductor());
+    //DEIXAR UNA PERSONA EN UN COTXE
+    public void generateInitSol1(){
+        ArrayList<ArrayList<Integer>> cars = new ArrayList<>(users.size());
+
+        for(int i = 0; i< users.size(); ++i){
+            ArrayList<Integer> paxs = new ArrayList<>();
+            Usuario u = users.get(i);
+            if(u.isConductor()){
+                paxs.add(i);
+                paxs.add(i);
+            }
+            cars.add(paxs);
+        }
+        int count = 0;
+        for(int i = 0; i<users.size(); ++i){
+
+            Usuario u = users.get(i);
+            if(!u.isConductor()){
+                cars.get(count%cars.size()).add(1,i);
+                cars.get(count%cars.size()).add(1,i);
+                ++count;
+            }
 
         }
+        for(ArrayList<Integer> car : cars){
+            distances.add(distance(car));
+        }
+        this.assignments = cars;
     }
 
-    public void generateInitSol2(){
-
-    }
+//    public void generateInitSol2(){
+//
+//    }
 }
 
