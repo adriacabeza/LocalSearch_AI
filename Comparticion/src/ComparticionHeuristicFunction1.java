@@ -4,7 +4,7 @@
 
 import aima.search.framework.HeuristicFunction;
 
-public class ComparticionHeuristicFunction implements HeuristicFunction {
+public class ComparticionHeuristicFunction1 implements HeuristicFunction {
 
     public double getHeuristicValue(Object n){
         ComparticionState state = (ComparticionState) n;

@@ -29,6 +29,14 @@ public class ComparticionState {
         this.users = users;
     }
 
+    public ComparticionState(ComparticionState n){
+        this.distances = new ArrayList<>(n.distances);
+        this.users = users;
+        this.assignments = new ArrayList(n.assignments.size());
+        for (int i = 0; i < n.assignments.size(); ++i){
+            this.assignments.add(new ArrayList<Integer>(n.getassignments().get(i)));
+        }
+    }
     //SETTERS AND GETTERS
     public ArrayList<ArrayList<Integer>> getassignments() {
         return assignments;
