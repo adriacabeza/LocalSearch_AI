@@ -31,10 +31,11 @@ public class ComparticionState {
 
     public ComparticionState(ComparticionState n){
         this.distances = new ArrayList<>(n.distances);
-        this.users = users;
+        this.users = n.users;
         this.assignments = new ArrayList(n.assignments.size());
         for (int i = 0; i < n.assignments.size(); ++i){
             this.assignments.add(new ArrayList<Integer>(n.getassignments().get(i)));
+
         }
     }
     //SETTERS AND GETTERS
@@ -150,8 +151,9 @@ public class ComparticionState {
             if(u.isConductor()){
                 paxs.add(i);
                 paxs.add(i);
+                cars.add(paxs);
             }
-            cars.add(paxs);
+
         }
         int count = 0;
         for(int i = 0; i<users.size(); ++i){

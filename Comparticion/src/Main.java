@@ -13,10 +13,11 @@ import IA.Comparticion.Usuarios;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Usuarios users = new Usuarios(100,50,1);
-
-
-
+        Usuarios users = new Usuarios(90,30,1);
+        ComparticionState estado = new ComparticionState(users);
+        estado.generateInitSol1();
+        ComparticionSuccesorFunction comparticion = new ComparticionSuccesorFunction();
+        comparticion.getSuccessors(estado);
     }
 
 }
