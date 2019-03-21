@@ -42,41 +42,45 @@ public class ComparticionSuccesorFunction2 implements SuccessorFunction{
         }
         // else swap outside
         else if(o == 1) {
-            int i = randInt(0,state.getassignments().size()-1); //cotxe 1
-            int j = randInt(i+1,state.getassignments().size());  //cotxe 2
-            if(state.getassignments().get(i).size() > 2) {
-                int m = randInt(1, state.getassignments().get(i).size() - 1);
-                int k = 1;
-                int l = 2;
-                if(state.getassignments().get(j).size()>2){
-                    k = randInt(1, state.getassignments().get(j).size() - 2); //on el deixem recollida
-                    l = randInt(k + 1, state.getassignments().get(j).size() - 1); //on el deixem deixada
+            int i = randInt(0,state.getassignments().size()); //cotxe 1
+            int j = randInt(0,state.getassignments().size());  //cotxe 2
+            if (i != j) {
+                if (state.getassignments().get(i).size() > 2) {
+                    int m = randInt(1, state.getassignments().get(i).size() - 1);
+                    int k = 1;
+                    int l = 2;
+                    if (state.getassignments().get(j).size() > 2) {
+                        k = randInt(1, state.getassignments().get(j).size() - 2); //on el deixem recollida
+                        l = randInt(k + 1, state.getassignments().get(j).size() - 1); //on el deixem deixada
+                    }
+                    ComparticionState temp_state = new ComparticionState(state);
+                    temp_state.swapOutside2(i, j, state.getassignments().get(i).get(m), k, l);
+                    StringBuffer s = new StringBuffer();
+                    s.append("swap outside:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + l); //+"\n"+ state.toString();
+                    retval.add(new Successor(s.toString(), temp_state));
+                    // System.out.println(s.toString());
+                    //System.out.println(count);
                 }
-                ComparticionState temp_state = new ComparticionState(state);
-                temp_state.swapOutside2(i, j, state.getassignments().get(i).get(m), k, l);
-                StringBuffer s = new StringBuffer();
-                s.append("swap outside:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + l); //+"\n"+ state.toString();
-                retval.add(new Successor(s.toString(), temp_state));
-                // System.out.println(s.toString());
-                //System.out.println(count);
             }
         }
 
         else {
             int i = randInt(0,state.getassignments().size()); //cotxe 1
                 if (state.getassignments().get(i).size() == 2) {
-                    int j = randInt(i+1, state.getassignments().size()); //cotxe 2
-                    int k = 1;
-                    int l = 2;
-                    if(state.getassignments().get(j).size()>2) {
-                        k = randInt(1, state.getassignments().get(j).size() - 2); //on el deixem recollida
-                        l = randInt(k + 1, state.getassignments().get(j).size() - 1); //on el deixem deixada
+                    int j = randInt(0, state.getassignments().size()); //cotxe 2
+                    if (i != j) {
+                        int k = 1;
+                        int l = 2;
+                        if (state.getassignments().get(j).size() > 2) {
+                            k = randInt(1, state.getassignments().get(j).size() - 2); //on el deixem recollida
+                            l = randInt(k + 1, state.getassignments().get(j).size() - 1); //on el deixem deixada
+                        }
+                        ComparticionState temp_state = new ComparticionState(state);
+                        temp_state.deleteCar(i, j, k, l);
+                        StringBuffer s = new StringBuffer();
+                        s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l); //+"\n"+ state.toString();
+                        retval.add(new Successor(s.toString(), temp_state));
                     }
-                    ComparticionState temp_state = new ComparticionState(state);
-                    temp_state.deleteCar(i, j, k, l);
-                    StringBuffer s = new StringBuffer();
-                    s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l); //+"\n"+ state.toString();
-                    retval.add(new Successor(s.toString(), temp_state));
                 }
 
         }

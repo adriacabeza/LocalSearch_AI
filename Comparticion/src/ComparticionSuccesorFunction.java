@@ -29,17 +29,19 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
             }
         }
         for(int i = 0; i < state.getassignments().size(); ++i){ //cotxe 1
-            for(int j = i+1; j < state.getassignments().size(); ++j) { //cotxe 2
-                for (int m = 1; m < state.getassignments().get(i).size() - 1; ++m) {
-                    for (int k = 1; k < state.getassignments().get(j).size() - 2; ++k) { //on el deixem recollida
-                        for (int l = k+1; l < state.getassignments().get(j).size() - 1; ++l) { //on el deixem deixada
-                            ComparticionState temp_state = new ComparticionState(state);
-                            temp_state.swapOutside2(i, j,state.getassignments().get(i).get(m), k, l);
-                            StringBuffer s = new StringBuffer();
-                            s.append("swap outside:  Car " + i + " to Car " + j + " changing user " +m +" from "+ k + " to " + l); //+"\n"+ state.toString();
-                            retval.add(new Successor(s.toString(), temp_state));
-                           // System.out.println(s.toString());
-                            //System.out.println(count);
+            for(int j = 0; j < state.getassignments().size(); ++j) { //cotxe 2
+                if (i != j) {
+                    for (int m = 1; m < state.getassignments().get(i).size() - 1; ++m) {
+                        for (int k = 1; k < state.getassignments().get(j).size() - 2; ++k) { //on el deixem recollida
+                            for (int l = k + 1; l < state.getassignments().get(j).size() - 1; ++l) { //on el deixem deixada
+                                ComparticionState temp_state = new ComparticionState(state);
+                                temp_state.swapOutside2(i, j, state.getassignments().get(i).get(m), k, l);
+                                StringBuffer s = new StringBuffer();
+                                s.append("swap outside:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + l); //+"\n"+ state.toString();
+                                retval.add(new Successor(s.toString(), temp_state));
+                                // System.out.println(s.toString());
+                                //System.out.println(count);
+                            }
                         }
                     }
                 }
@@ -49,16 +51,18 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
 //l ultim de la llista no es pot borrar amb cap
         for(int i = 0; i < state.getassignments().size(); ++i) { //cotxe 1
             if (state.getassignments().get(i).size() == 2) {
-                for (int j = i + 1; j < state.getassignments().size(); ++j) { //cotxe 2
-                    for (int k = 1; k < state.getassignments().get(j).size() - 2; ++k) { //on el deixem recollida
-                        for (int l = k + 1; l < state.getassignments().get(j).size() - 1; ++l) { //on el deixem deixada
-                            ComparticionState temp_state = new ComparticionState(state);
-                            temp_state.deleteCar(i, j, k, l);
-                            StringBuffer s = new StringBuffer();
-                            s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l); //+"\n"+ state.toString();
-                            retval.add(new Successor(s.toString(), temp_state));
-                        }
+                for (int j = 0; j < state.getassignments().size(); ++j) { //cotxe 2
+                    if (j != i) {
+                        for (int k = 1; k < state.getassignments().get(j).size() - 2; ++k) { //on el deixem recollida
+                            for (int l = k + 1; l < state.getassignments().get(j).size() - 1; ++l) { //on el deixem deixada
+                                ComparticionState temp_state = new ComparticionState(state);
+                                temp_state.deleteCar(i, j, k, l);
+                                StringBuffer s = new StringBuffer();
+                                s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l); //+"\n"+ state.toString();
+                                retval.add(new Successor(s.toString(), temp_state));
+                            }
 
+                        }
                     }
                 }
             }

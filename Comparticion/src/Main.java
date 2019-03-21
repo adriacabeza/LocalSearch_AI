@@ -50,7 +50,7 @@ public class Main {
     private static void ComparticionHillClimbingSearch(ComparticionState state) {
         try {
             Problem problem;
-            problem = new Problem(state, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
+            problem = new Problem(state, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
             Search search = new HillClimbingSearch();
             SearchAgent agent = new SearchAgent(problem, search);
 
@@ -69,8 +69,8 @@ public class Main {
     private static void ComparticionSimulatedAnnealingSearch(ComparticionState estat) {
         try {
             Problem problem;
-            problem = new Problem(estat, new ComparticionSuccesorFunction2(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
-            Search search = new SimulatedAnnealingSearch(20000, 10, 5, 0.01);
+            problem = new Problem(estat, new ComparticionSuccesorFunction2(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
+            Search search = new SimulatedAnnealingSearch(100000, 10, 5, 0.01);
             SearchAgent agent = new SearchAgent(problem, search);
 
             ComparticionGoalTest test = new ComparticionGoalTest();
