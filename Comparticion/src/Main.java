@@ -70,7 +70,7 @@ public class Main {
         try {
             Problem problem;
             problem = new Problem(estat, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
-            Search search = new SimulatedAnnealingSearch(100, 10, 5, 0.01);
+            Search search = new SimulatedAnnealingSearch(1000, 10, 5, 0.01);
             SearchAgent agent = new SearchAgent(problem, search);
 
             ComparticionGoalTest test = new ComparticionGoalTest();

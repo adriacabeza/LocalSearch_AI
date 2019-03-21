@@ -188,6 +188,26 @@ public class ComparticionState {
         return sortida.toString();
     }
 
+    //Maxim nombre de persones en un cotxe
+    public int getMaxSimultaneous(ArrayList<Integer> car){
+        HashSet aux = new HashSet<Integer>();
+        int max = 0;
+        for(int i = 1; i < car.size()-1;++i){
+            int id = car.get(i);
+            if (aux.contains(id)){
+                aux.remove(id);
+            }
+            else{
+                aux.add(id);
+                if (aux.size() > max){
+                    max = aux.size();
+                }
+            }
+        }
+        return max;
+    }
+    
+
     //ens falta mirar si es una solució correcta
 //    public void generateInitSol2(){
 //
