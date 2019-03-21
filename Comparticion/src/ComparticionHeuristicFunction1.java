@@ -10,8 +10,8 @@ public class ComparticionHeuristicFunction1 implements HeuristicFunction {
         ComparticionState state = (ComparticionState) n;
         int count = 0;
         for(Integer dist : state.getdistances()){
-            count += dist;
+            if(dist > 30) count += 10*(dist-30);
         }
-        return (double) count;
+        return count;
     }
 }

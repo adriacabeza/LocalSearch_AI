@@ -56,32 +56,31 @@ public class Main {
 
             printActions(agent.getActions());
             printInstrumentation(agent.getInstrumentation());
+            ComparticionGoalTest test = new ComparticionGoalTest();
             System.out.print(((ComparticionState) search.getGoalState()).toString());
+            System.out.println(test.isGoalState(search.getGoalState()));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-    /**
-     * private static void ComparticionSimulatedAnnealingSearch(ComparticionState estat, boolean felicitat, boolean succ1) {
-     * try {
-     * Problem problem;
-     * if (felicitat && succ1) problem = new Problem(estat, new AzamonSuccessorFunction(), new AzamonGoalTest(), new AzamonHeuristicFunction2());
-     * else if (felicitat) problem = new Problem(estat, new AzamonSuccessorFunction2(), new AzamonGoalTest(), new AzamonHeuristicFunction2());
-     * else if (succ1) problem = new Problem(estat, new AzamonSuccessorFunction(), new AzamonGoalTest(), new AzamonHeuristicFunction1());
-     * else problem = new Problem(estat, new AzamonSuccessorFunction2(), new AzamonGoalTest(), new AzamonHeuristicFunction1());
-     * Search search = new SimulatedAnnealingSearch(10000, 100, 5, 0.001);
-     * SearchAgent agent = new SearchAgent(problem, search);
-     * <p>
-     * System.out.println("\n" + ((AzamonEstado) search.getGoalState()).toString());
-     * System.out.println("\n" + ((AzamonEstado) search.getGoalState()).correspondenciasToString());
-     * <p>
-     * } catch (Exception e) {
-     * e.printStackTrace();
-     * }
-     * }
-     **/
+
+    private static void ComparticionSimulatedAnnealingSearch(ComparticionState estat) {
+        try {
+            Problem problem;
+            problem = new Problem(estat, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
+            Search search = new SimulatedAnnealingSearch(100, 10, 5, 0.01);
+            SearchAgent agent = new SearchAgent(problem, search);
+
+            ComparticionGoalTest test = new ComparticionGoalTest();
+            System.out.print(((ComparticionState) search.getGoalState()).toString());
+            System.out.println(test.isGoalState(search.getGoalState()));
+          } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws Exception {
 
         /*
@@ -104,14 +103,20 @@ public class Main {
             }
 
         }*/
-
+        //12 7 1234
         Usuarios users = new Usuarios(90, 30, 1234);
         ComparticionState state = new ComparticionState(users);
         state.generateInitSol1();
-        ComparticionGoalTest test = new ComparticionGoalTest();
-        System.out.println(test.isGoalState(state));
+        //System.out.println(state);
+        // Mirar la solucio inicial: System.out.println("Initial solution:\n" + state.toString());
+
+        //System.out.println(test.isGoalState(state));
+        System.out.println("\nHill Climbing\n");
         ComparticionHillClimbingSearch(state);
-        System.out.println(test.isGoalState(state));
+        //System.out.println(state.toString());
+        System.out.println("\nSimulated Annealing Search\n");
+        ComparticionSimulatedAnnealingSearch(state);
+
 
     }
 

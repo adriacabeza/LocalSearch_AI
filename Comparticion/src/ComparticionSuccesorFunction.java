@@ -21,7 +21,7 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                         ComparticionState temp_state = new ComparticionState(state);
                         temp_state.swapInside(i,j,k);
                         StringBuffer s = new StringBuffer();
-                        s.append("swap inside "+i+" "+j+" "+k);
+                        s.append("swap inside: Car "+i+" changing user "+j+" to position "+k); //+"\n"+ state.toString();
                         retval.add(new Successor(s.toString(),temp_state));
                     //    System.out.println(s.toString());
                       //  System.out.println(count);
@@ -39,7 +39,7 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                             ComparticionState temp_state = new ComparticionState(state);
                             temp_state.swapOutside2(i, j,state.getassignments().get(i).get(m), k, l);
                             StringBuffer s = new StringBuffer();
-                            s.append("swap outside " + i + " " + j + " " +m +" "+ k + " " + l);
+                            s.append("swap outside:  Car " + i + " to Car " + j + " changing user " +m +" from "+ k + " to " + l); //+"\n"+ state.toString();
                             retval.add(new Successor(s.toString(), temp_state));
                            // System.out.println(s.toString());
                             //System.out.println(count);

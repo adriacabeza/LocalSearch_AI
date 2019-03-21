@@ -91,6 +91,7 @@ public class ComparticionState {
             if(assignments.get(car1).get(j) == id){
                 ++b;
                 assignments.get(car1).remove(j);
+                --j;
             }
         }
 
