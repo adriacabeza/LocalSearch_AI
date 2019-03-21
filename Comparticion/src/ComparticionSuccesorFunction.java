@@ -13,7 +13,6 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
     public List getSuccessors(Object n){
         ComparticionState state = (ComparticionState) n;
         ArrayList<Successor> retval = new ArrayList<>();
-        int count = 0;
         for(int i = 0 ; i < state.getassignments().size(); ++i) { //cotxes
             for (int j = 1; j < state.getassignments().get(i).size() - 1; ++j) { //primera persona
                 for (int k = j + 1; k < state.getassignments().get(i).size() - 1; ++k) {
@@ -23,9 +22,8 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                         StringBuffer s = new StringBuffer();
                         s.append("swap inside: Car "+i+" changing user "+j+" to position "+k); //+"\n"+ state.toString();
                         retval.add(new Successor(s.toString(),temp_state));
-                    //    System.out.println(s.toString());
+                      //    System.out.println(s.toString());
                       //  System.out.println(count);
-                        ++count;
                     }
                 }
             }
@@ -33,7 +31,6 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
         for(int i = 0; i < state.getassignments().size(); ++i){ //cotxe 1
             for(int j = i+1; j < state.getassignments().size(); ++j) { //cotxe 2
                 for (int m = 1; m < state.getassignments().get(i).size() - 1; ++m) {
-                    //TODO: puta bida els repetits
                     for (int k = 1; k < state.getassignments().get(j).size() - 2; ++k) { //on el deixem recollida
                         for (int l = k+1; l < state.getassignments().get(j).size() - 1; ++l) { //on el deixem deixada
                             ComparticionState temp_state = new ComparticionState(state);
@@ -43,8 +40,25 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                             retval.add(new Successor(s.toString(), temp_state));
                            // System.out.println(s.toString());
                             //System.out.println(count);
-                            ++count;
                         }
+                    }
+                }
+            }
+        }
+
+//l ultim de la llista no es pot borrar amb cap
+        for(int i = 0; i < state.getassignments().size(); ++i) { //cotxe 1
+            if (state.getassignments().get(i).size() == 2) {
+                for (int j = i + 1; j < state.getassignments().size(); ++j) { //cotxe 2
+                    for (int k = 1; k < state.getassignments().get(j).size() - 2; ++k) { //on el deixem recollida
+                        for (int l = k + 1; l < state.getassignments().get(j).size() - 1; ++l) { //on el deixem deixada
+                            ComparticionState temp_state = new ComparticionState(state);
+                            temp_state.deleteCar(i, j, k, l);
+                            StringBuffer s = new StringBuffer();
+                            s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l); //+"\n"+ state.toString();
+                            retval.add(new Successor(s.toString(), temp_state));
+                        }
+
                     }
                 }
             }

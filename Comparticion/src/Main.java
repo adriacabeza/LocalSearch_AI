@@ -69,8 +69,8 @@ public class Main {
     private static void ComparticionSimulatedAnnealingSearch(ComparticionState estat) {
         try {
             Problem problem;
-            problem = new Problem(estat, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
-            Search search = new SimulatedAnnealingSearch(1000, 10, 5, 0.01);
+            problem = new Problem(estat, new ComparticionSuccesorFunction2(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
+            Search search = new SimulatedAnnealingSearch(20000, 10, 5, 0.01);
             SearchAgent agent = new SearchAgent(problem, search);
 
             ComparticionGoalTest test = new ComparticionGoalTest();
@@ -104,20 +104,44 @@ public class Main {
 
         }*/
         //12 7 1234
-        Usuarios users = new Usuarios(90, 30, 1234);
+
+        Usuarios users = new Usuarios(200, 100, 1234);
         ComparticionState state = new ComparticionState(users);
-        state.generateInitSol1();
-        //System.out.println(state);
-        // Mirar la solucio inicial: System.out.println("Initial solution:\n" + state.toString());
+        int option = 0;
 
-        //System.out.println(test.isGoalState(state));
-        System.out.println("\nHill Climbing\n");
-        ComparticionHillClimbingSearch(state);
-        //System.out.println(state.toString());
-        System.out.println("\nSimulated Annealing Search\n");
-        ComparticionSimulatedAnnealingSearch(state);
+        switch (option){
+            case 0:
+                System.out.println("Using first generate intial solution");
+                state.generateInitSol1();
+                System.out.println("\nHill Climbing\n");
+                ComparticionHillClimbingSearch(state);
+                System.out.println("\nSimulated Annealing Search\n");
+                ComparticionSimulatedAnnealingSearch(state);
+                break;
+            case 1:
+                System.out.println("Using second generate intial solution");
+                state.generateInitSol2();
+                System.out.println("\nHill Climbing\n");
+                ComparticionHillClimbingSearch(state);
+                System.out.println("\nSimulated Annealing Search\n");
+                ComparticionSimulatedAnnealingSearch(state);
 
-
+                break;
+            case 2:
+                System.out.println("Using third generate intial solution");
+                state.generateInitSol3();
+                System.out.println("\nHill Climbing\n");
+                ComparticionHillClimbingSearch(state);
+                System.out.println("\nSimulated Annealing Search\n");
+                ComparticionSimulatedAnnealingSearch(state);
+            case 3:
+                System.out.println("Using forth generate intial solution");
+                state.generateInitSol4();
+                System.out.println("\nHill Climbing\n");
+                ComparticionHillClimbingSearch(state);
+                System.out.println("\nSimulated Annealing Search\n");
+                ComparticionSimulatedAnnealingSearch(state);
+        }
     }
 
 }

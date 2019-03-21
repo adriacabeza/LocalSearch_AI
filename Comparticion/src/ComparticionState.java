@@ -98,8 +98,13 @@ public class ComparticionState {
         assignments.get(car2).add(i,id);
         assignments.get(car2).add(k,id);
 
-        distances.set(car1, distance(assignments.get(car1)));
+        if(assignments.get(car1).size() != 0) distances.set(car1, distance(assignments.get(car1)));
         distances.set(car2, distance(assignments.get(car2)));
+    }
+
+    public void deleteCar(int car, int car2,int i, int j){
+        swapOutside2(car,car2,assignments.get(car).get(0), i,j);
+        assignments.remove(car);
     }
 
 
@@ -168,6 +173,7 @@ public class ComparticionState {
             }
 
         }
+        distances.clear();
         for(ArrayList<Integer> car : cars){
             distances.add(distance(car));
         }
@@ -206,11 +212,100 @@ public class ComparticionState {
         }
         return max;
     }
-    
+
 
     //ens falta mirar si es una solució correcta
-//    public void generateInitSol2(){
-//
-//    }
+    public void generateInitSol2(){
+
+        ArrayList<ArrayList<Integer>> cars = new ArrayList<>(users.size());
+        //INSERT DRIVER
+        for(int i = 0; i< users.size(); ++i){
+            ArrayList<Integer> paxs = new ArrayList<>();
+            Usuario u = users.get(i);
+            if(u.isConductor()){
+                paxs.add(i);
+                paxs.add(i);
+                cars.add(paxs);
+            }
+        }
+
+        int count = 0;
+        for(int i = 0; i<users.size(); ++i){
+
+            Usuario u = users.get(i);
+            if(!u.isConductor()){
+                int j = count%cars.size();
+                cars.get(j).add(1,i);
+                cars.get(j).add(cars.get(j).size()-1,i);
+                ++count;
+            }
+
+        }
+        distances.clear();
+        for(ArrayList<Integer> car : cars){
+            distances.add(distance(car));
+        }
+        this.assignments = cars;
+
+
+    }
+
+    public void generateInitSol4(){
+
+        ArrayList<ArrayList<Integer>> cars = new ArrayList<>(users.size());
+        //INSERT DRIVER
+        for(int i = 0; i< users.size(); ++i){
+            ArrayList<Integer> paxs = new ArrayList<>();
+            Usuario u = users.get(i);
+            if(u.isConductor()){
+                paxs.add(i);
+                paxs.add(i);
+                cars.add(paxs);
+            }
+        }
+        for(int i = 0; i<users.size(); ++i){
+            Usuario u = users.get(i);
+            if(!u.isConductor()){
+                cars.get(0).add(1,i);
+                cars.get(0).add(cars.get(0).size()-1,i);
+            }
+
+        }
+        distances.clear();
+        for(ArrayList<Integer> car : cars){
+            distances.add(distance(car));
+        }
+        this.assignments = cars;
+    }
+
+    public void generateInitSol3(){
+
+        ArrayList<ArrayList<Integer>> cars = new ArrayList<>(users.size());
+        //INSERT DRIVER
+        for(int i = 0; i< users.size(); ++i){
+            ArrayList<Integer> paxs = new ArrayList<>();
+            Usuario u = users.get(i);
+            if(u.isConductor()){
+                paxs.add(i);
+                paxs.add(i);
+                cars.add(paxs);
+            }
+
+        }
+        for(int i = 0; i<users.size(); ++i){
+
+            Usuario u = users.get(i);
+            if(!u.isConductor()){
+                cars.get(0).add(1,i);
+                cars.get(0).add(1,i);
+            }
+
+        }
+        distances.clear();
+        for(ArrayList<Integer> car : cars){
+            distances.add(distance(car));
+        }
+        this.assignments = cars;
+    }
 }
 
