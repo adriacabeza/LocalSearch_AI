@@ -5,8 +5,13 @@ import aima.search.framework.GoalTest;
  */
 public class ComparticionGoalTest implements GoalTest {
 
-    public boolean isGoalState(Object state){
+    public boolean isGoalState(Object n){
 
-        return((ComparticionBoard) state).is_goal();
+        ComparticionState state = (ComparticionState) n;
+        for(Integer dist : state.getdistances()){
+            if (dist > 30) return false;
+        }
+        return true;
+
     }
 }

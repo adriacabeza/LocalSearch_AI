@@ -4,20 +4,115 @@ import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
 import aima.search.informed.AStarSearch;
+import aima.search.informed.HillClimbingSearch;
+import aima.search.informed.SimulatedAnnealingSearch;
+import aima.search.framework.Problem;
+import aima.search.framework.Search;
+import aima.search.framework.SearchAgent;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
+
 import IA.Comparticion.Usuarios;
 
 public class Main {
 
+
+    public static void opcions(int op) {
+        if (op == 0) {
+            System.out.println("Hill Climbing: -1");
+            System.out.println("Simulated Annealing: -2");
+            System.out.println("Exit: -3");
+        }
+
+    }
+
+    /////////AIXO HO HE COPIAT MAYBE ENS ÉS UTIL
+    private static void printActions(List actions) {
+        for (int i = 0; i < actions.size(); i++) {
+            String action = (String) actions.get(i);
+            System.out.println(action);
+        }
+    }
+
+
+    private static void printInstrumentation(Properties properties) {
+        Iterator keys = properties.keySet().iterator();
+        while (keys.hasNext()) {
+            String key = (String) keys.next();
+            String property = properties.getProperty(key);
+            System.out.println(key + " : " + property);
+        }
+
+    }
+    ///////////
+
+
+    private static void ComparticionHillClimbingSearch(ComparticionState state) {
+        try {
+            Problem problem;
+            problem = new Problem(state, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
+            Search search = new HillClimbingSearch();
+            SearchAgent agent = new SearchAgent(problem, search);
+
+            printActions(agent.getActions());
+            printInstrumentation(agent.getInstrumentation());
+            System.out.print(((ComparticionState) search.getGoalState()).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * private static void ComparticionSimulatedAnnealingSearch(ComparticionState estat, boolean felicitat, boolean succ1) {
+     * try {
+     * Problem problem;
+     * if (felicitat && succ1) problem = new Problem(estat, new AzamonSuccessorFunction(), new AzamonGoalTest(), new AzamonHeuristicFunction2());
+     * else if (felicitat) problem = new Problem(estat, new AzamonSuccessorFunction2(), new AzamonGoalTest(), new AzamonHeuristicFunction2());
+     * else if (succ1) problem = new Problem(estat, new AzamonSuccessorFunction(), new AzamonGoalTest(), new AzamonHeuristicFunction1());
+     * else problem = new Problem(estat, new AzamonSuccessorFunction2(), new AzamonGoalTest(), new AzamonHeuristicFunction1());
+     * Search search = new SimulatedAnnealingSearch(10000, 100, 5, 0.001);
+     * SearchAgent agent = new SearchAgent(problem, search);
+     * <p>
+     * System.out.println("\n" + ((AzamonEstado) search.getGoalState()).toString());
+     * System.out.println("\n" + ((AzamonEstado) search.getGoalState()).correspondenciasToString());
+     * <p>
+     * } catch (Exception e) {
+     * e.printStackTrace();
+     * }
+     * }
+     **/
     public static void main(String[] args) throws Exception {
-        Usuarios users = new Usuarios(90,30,1);
-        ComparticionState estado = new ComparticionState(users);
-        estado.generateInitSol1();
-        ComparticionSuccesorFunction comparticion = new ComparticionSuccesorFunction();
-        comparticion.getSuccessors(estado);
+
+        /*
+        Scanner in = new Scanner(System.in);
+        Random random = new Random();
+        int ops = 0;
+        while (ops != -3) {
+            opcions(0);
+            ops = in.nextInt();
+            if (ops == -1) {
+                System.out.println("Introduce a seed number or '-1'  if you want to use a random seed");
+                Integer seed = in.nextInt();
+                if (seed < 0) seed = random.nextInt();
+                else seed = random.nextInt(10000);
+                Usuarios users = new Usuarios(90, 30, 1234);
+                ComparticionState state = new ComparticionState(users);
+                state.generateInitSol1();
+                ComparticionHillClimbingSearch(state);
+
+            }
+
+        }*/
+
+        Usuarios users = new Usuarios(90, 30, 1234);
+        ComparticionState state = new ComparticionState(users);
+        state.generateInitSol1();
+        ComparticionGoalTest test = new ComparticionGoalTest();
+        System.out.println(test.isGoalState(state));
+        ComparticionHillClimbingSearch(state);
+        System.out.println(test.isGoalState(state));
+
     }
 
 }

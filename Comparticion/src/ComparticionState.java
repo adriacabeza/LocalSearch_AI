@@ -1,6 +1,7 @@
 import IA.Comparticion.Usuario;
 import IA.Comparticion.Usuarios;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -135,7 +136,7 @@ public class ComparticionState {
             previousx = target_x;
             previousy = target_y;
         }
-        return distance;
+        return distance/10;
     }
 
 
@@ -172,6 +173,21 @@ public class ComparticionState {
         this.assignments = cars;
     }
 
+
+    public String toString(){
+        StringBuffer sortida = new StringBuffer();
+        for(int i = 0; i<assignments.size(); ++i){
+            sortida.append("Cotxe "+ i + ":"+"\tdist: "+distances.get(i)+ " km");
+            for(int j : assignments.get(i)){
+                sortida.append(" "+j);
+            }
+            sortida.append("\n");
+
+        }
+        return sortida.toString();
+    }
+
+    //ens falta mirar si es una solució correcta
 //    public void generateInitSol2(){
 //
 //    }

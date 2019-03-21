@@ -23,8 +23,8 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                         StringBuffer s = new StringBuffer();
                         s.append("swap inside "+i+" "+j+" "+k);
                         retval.add(new Successor(s.toString(),temp_state));
-                        System.out.println(s.toString());
-                        System.out.println(count);
+                    //    System.out.println(s.toString());
+                      //  System.out.println(count);
                         ++count;
                     }
                 }
@@ -41,8 +41,8 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                             StringBuffer s = new StringBuffer();
                             s.append("swap outside " + i + " " + j + " " +m +" "+ k + " " + l);
                             retval.add(new Successor(s.toString(), temp_state));
-                            System.out.println(s.toString());
-                            System.out.println(count);
+                           // System.out.println(s.toString());
+                            //System.out.println(count);
                             ++count;
                         }
                     }
