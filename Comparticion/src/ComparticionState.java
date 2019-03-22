@@ -5,6 +5,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 
 
 
@@ -105,6 +106,7 @@ public class ComparticionState {
     public void deleteCar(int car, int car2,int i, int j){
         swapOutside2(car,car2,assignments.get(car).get(0), i,j);
         assignments.remove(car);
+        distances.remove(car);
     }
 
 
@@ -122,14 +124,14 @@ public class ComparticionState {
     }
 
 //CONFIEM
-    public int distance(ArrayList<Integer> car){
+    public int distance(List<Integer> car){
         HashSet aux = new HashSet<Integer>();
         int previousx = users.get(car.get(0)).getCoordOrigenX();
         int previousy = users.get(car.get(0)).getCoordOrigenY();
         int target_x, target_y;
         int distance = 0;
-        for(int i = 0; i < car.size(); ++i){
-
+        aux.add(car.get(0));
+        for(int i = 1; i < car.size(); ++i){
             if(aux.contains(car.get(i))){
                 target_x = users.get(car.get(i)).getCoordDestinoX();
                 target_y =  users.get(car.get(i)).getCoordDestinoY();
@@ -142,7 +144,7 @@ public class ComparticionState {
             previousx = target_x;
             previousy = target_y;
         }
-        return distance/10;
+        return distance;
     }
 
 
@@ -184,7 +186,7 @@ public class ComparticionState {
     public String toString(){
         StringBuffer sortida = new StringBuffer();
         for(int i = 0; i<assignments.size(); ++i){
-            sortida.append("Cotxe "+ i + ":"+"\tdist: "+distances.get(i)+ " km");
+            sortida.append("Cotxe "+ i + ":"+"\tdist: "+(distances.get(i)/10f)+ " km");
             for(int j : assignments.get(i)){
                 sortida.append(" "+j);
             }

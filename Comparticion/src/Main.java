@@ -1,17 +1,12 @@
-import IA.Comparticion.Usuario;
-import aima.search.framework.GraphSearch;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
-import aima.search.informed.AStarSearch;
 import aima.search.informed.HillClimbingSearch;
 import aima.search.informed.SimulatedAnnealingSearch;
-import aima.search.framework.Problem;
-import aima.search.framework.Search;
-import aima.search.framework.SearchAgent;
-
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.util.*;
-
+import javax.swing.JFrame;
 import IA.Comparticion.Usuarios;
 
 public class Main {
@@ -47,7 +42,7 @@ public class Main {
     ///////////
 
 
-    private static void ComparticionHillClimbingSearch(ComparticionState state) {
+    private static ComparticionState ComparticionHillClimbingSearch(ComparticionState state) {
         try {
             Problem problem;
             problem = new Problem(state, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
@@ -59,14 +54,17 @@ public class Main {
             ComparticionGoalTest test = new ComparticionGoalTest();
             System.out.print(((ComparticionState) search.getGoalState()).toString());
             System.out.println(test.isGoalState(search.getGoalState()));
+            
+            return (ComparticionState) search.getGoalState();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }
 
 
 
-    private static void ComparticionSimulatedAnnealingSearch(ComparticionState estat) {
+    private static ComparticionState ComparticionSimulatedAnnealingSearch(ComparticionState estat) {
         try {
             Problem problem;
             problem = new Problem(estat, new ComparticionSuccesorFunction2(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
@@ -76,8 +74,11 @@ public class Main {
             ComparticionGoalTest test = new ComparticionGoalTest();
             System.out.print(((ComparticionState) search.getGoalState()).toString());
             System.out.println(test.isGoalState(search.getGoalState()));
+            
+            return (ComparticionState) search.getGoalState();
           } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }
 
@@ -103,20 +104,20 @@ public class Main {
             }
 
         }*/
-        //12 7 1234
 
         Usuarios users = new Usuarios(200, 100, 1234);
         ComparticionState state = new ComparticionState(users);
         int option = 0;
-
+        ComparticionState finalState = null;
+        
         switch (option){
             case 0:
                 System.out.println("Using first generate intial solution");
                 state.generateInitSol1();
-                System.out.println("\nHill Climbing\n");
-                ComparticionHillClimbingSearch(state);
+                //System.out.println("\nHill Climbing\n");
+                //finalState = ComparticionHillClimbingSearch(state);
                 System.out.println("\nSimulated Annealing Search\n");
-                ComparticionSimulatedAnnealingSearch(state);
+                finalState = ComparticionSimulatedAnnealingSearch(state);
                 break;
             case 1:
                 System.out.println("Using second generate intial solution");
@@ -125,7 +126,6 @@ public class Main {
                 ComparticionHillClimbingSearch(state);
                 System.out.println("\nSimulated Annealing Search\n");
                 ComparticionSimulatedAnnealingSearch(state);
-
                 break;
             case 2:
                 System.out.println("Using third generate intial solution");
@@ -142,6 +142,34 @@ public class Main {
                 System.out.println("\nSimulated Annealing Search\n");
                 ComparticionSimulatedAnnealingSearch(state);
         }
+        
+        //Opening Display Window for Final State:
+        if(finalState != null) displayState(users, finalState);
+    }
+    
+    private static void displayState(Usuarios usuarios, ComparticionState state) {
+    	EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					JFrame frame = new JFrame();
+					frame.setVisible(true);
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					int w = 800;
+					int h = 800;
+					frame.getContentPane().setPreferredSize(new Dimension(w, h));
+					frame.pack();
+					CityStatePanel city = new CityStatePanel(usuarios, state, w, h);
+					frame.add(city);
+					frame.pack();
+					frame.setLocationRelativeTo(null);
+					frame.setTitle("State Display");
+					frame.setResizable(false);		
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
     }
 
 }
