@@ -1,0 +1,258 @@
+\documentclass[12]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\author{Carlos Bergillos, Roger Vilaseca, Adrià Cabeza}
+\title{Especial Experiment}
+\date{\today \medskip}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{orange},
+  keywordstyle=\color{blue},
+	frame=tb,language=C,breaklines=true,numbers=none,  stringstyle=\color{red}, tabsize=3,   showstringspaces=false,
+  columns=flexible, 
+}
+\usepackage{graphicx}
+\begin{document}
+\maketitle
+\section{Hill Climbing}
+
+The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
+\\
+
+We would like to add that these results are a valid solution because no car drives more than 30 km and there is not any moment where a car carries more than 2 people. 
+\\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline  & \textbf{Time} \\  \hline
+\#1 & 6054 ms \\ \hline
+\#2 & 3258 ms \\ \hline
+\#3 & 2896 ms \\ \hline
+\#4 & 3561 ms \\ \hline
+\#5 & 4529 ms \\ \hline
+\#6 & 3788 ms \\ \hline
+\#7 & 3817 ms \\ \hline
+\#8 & 3503 ms \\ \hline
+\#9 & 3356 ms \\ \hline
+\#10 & 3589 ms \\ \hline
+\end{tabular}
+\caption{Hill Climbing execution time}
+\label{Results}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline \textbf{Mean Time} &
+ \textbf{Nodes expanded} & \textbf{Cars} & \textbf{Distance}\\  \hline
+3835 ms &  17 & 92 & 1834.3 km \\ \hline
+\end{tabular}
+\caption{Results of our experiments with Hill Climbing}
+\label{Results}
+\end{table}
+
+\section{Simulated annealing}
+The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
+\\
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline & \textbf{Time}  & \textbf{Cars} & \textbf{Distance} & \textbf{Solution}\\  \hline
+ \#1 & 2596 ms  & 62 & 1671.3 km & Yes \\ \hline
+ \#2 & 1218 ms & 64 & 1678.2 km & Yes \\ \hline
+  \#3 & 1044 ms & 67 & 1753.3 km & Yes \\ \hline
+ \#4 & 1088 ms & 65 & 1734.8 km & Yes \\ \hline
+ \#5 & 1058 ms & 63 & 1731.1 km & No \\ \hline
+ \#6 & 1131 ms & 65 & 1685.2 km & Yes \\ \hline
+ \#7 & 1029 ms & 65 & 1720.5 km & Yes \\ \hline
+ \#8 & 1067 ms & 66 & 1777.1 km & Yes \\ \hline
+ \#9 & 1088 ms & 64 & 1657.6 km & Yes\\ \hline
+ \#10 & 2596 ms & 65 & 1688.5 km & Yes \\ \hline
+
+\end{tabular}
+\caption{Results of our experiments with Simulated Annealing}
+\label{Results2}
+\end{table}
+
+The mean time of our executions using Simulated Annealing is 1709.76 ms. 
+
+\section{Annex 1: Hill Climbing Output}
+This is the output that we get with our program.
+
+
+\begin{lstlisting}[frame=single]
+Cotxe 0:	dist: 29.5 km 0 6 6 1 1 0
+Cotxe 1:	dist: 28.9 km 2 83 23 83 23 3 3 2
+Cotxe 2:	dist: 29.6 km 5 4 4 5
+Cotxe 3:	dist: 27.9 km 8 164 164 10 10 8
+Cotxe 4:	dist: 28.1 km 9 122 122 12 12 9
+Cotxe 5:	dist: 18.0 km 11 119 119 13 13 11
+Cotxe 6:	dist: 29.5 km 14 36 36 16 16 14
+Cotxe 7:	dist: 29.0 km 15 18 18 15
+Cotxe 8:	dist: 14.3 km 17 20 20 17
+Cotxe 9:	dist: 23.8 km 19 113 113 21 21 19
+Cotxe 10:	dist: 12.1 km 24 25 25 24
+Cotxe 11:	dist: 10.9 km 26 30 30 26
+Cotxe 12:	dist: 28.5 km 27 22 22 31 31 27
+Cotxe 13:	dist: 14.9 km 28 32 32 28
+Cotxe 14:	dist: 24.6 km 29 33 33 29
+Cotxe 15:	dist: 27.8 km 34 169 169 37 37 34
+Cotxe 16:	dist: 17.9 km 35 38 38 35
+Cotxe 17:	dist: 17.3 km 39 43 43 39
+Cotxe 18:	dist: 23.2 km 40 45 45 40
+Cotxe 19:	dist: 15.4 km 41 48 48 41
+Cotxe 20:	dist: 29.5 km 44 7 7 49 49 44
+Cotxe 21:	dist: 24.8 km 46 50 50 46
+Cotxe 22:	dist: 26.4 km 47 131 131 53 53 47
+Cotxe 23:	dist: 20.8 km 51 54 54 51
+Cotxe 24:	dist: 9.8 km 52 56 56 52
+Cotxe 25:	dist: 10.8 km 55 57 57 55
+Cotxe 26:	dist: 23.8 km 58 62 62 58
+Cotxe 27:	dist: 30.0 km 59 134 134 63 63 59
+Cotxe 28:	dist: 22.5 km 60 65 65 60
+Cotxe 29:	dist: 13.9 km 61 67 67 61
+Cotxe 30:	dist: 25.5 km 64 68 68 64
+Cotxe 31:	dist: 22.4 km 66 72 72 66
+Cotxe 32:	dist: 17.9 km 69 74 74 69
+Cotxe 33:	dist: 8.5 km 70 75 75 70
+Cotxe 34:	dist: 27.0 km 71 76 76 71
+Cotxe 35:	dist: 26.9 km 73 103 42 103 42 80 80 73
+Cotxe 36:	dist: 18.6 km 78 84 84 78
+Cotxe 37:	dist: 23.5 km 79 85 85 79
+Cotxe 38:	dist: 14.7 km 81 87 87 81
+Cotxe 39:	dist: 23.2 km 82 88 88 82
+Cotxe 40:	dist: 23.0 km 86 89 89 86
+Cotxe 41:	dist: 16.2 km 90 93 93 90
+Cotxe 42:	dist: 20.5 km 91 95 95 91
+Cotxe 43:	dist: 18.1 km 92 99 99 92
+Cotxe 44:	dist: 13.2 km 94 100 100 94
+Cotxe 45:	dist: 23.2 km 96 101 101 96
+Cotxe 46:	dist: 23.3 km 97 102 102 97
+Cotxe 47:	dist: 11.9 km 98 105 105 98
+Cotxe 48:	dist: 16.2 km 104 114 114 104
+Cotxe 49:	dist: 18.9 km 106 115 115 106
+Cotxe 50:	dist: 20.7 km 107 116 116 107
+Cotxe 51:	dist: 16.3 km 108 118 118 108
+Cotxe 52:	dist: 18.0 km 109 121 121 109
+Cotxe 53:	dist: 21.0 km 110 125 125 110
+Cotxe 54:	dist: 7.9 km 111 127 127 111
+Cotxe 55:	dist: 27.8 km 112 128 128 112
+Cotxe 56:	dist: 18.8 km 117 129 129 117
+Cotxe 57:	dist: 16.2 km 120 132 132 120
+Cotxe 58:	dist: 24.8 km 123 135 135 123
+Cotxe 59:	dist: 25.9 km 124 77 77 137 137 124
+Cotxe 60:	dist: 20.4 km 126 139 139 126
+Cotxe 61:	dist: 14.4 km 130 143 143 130
+Cotxe 62:	dist: 10.2 km 133 147 147 133
+Cotxe 63:	dist: 26.8 km 136 148 148 136
+Cotxe 64:	dist: 10.9 km 138 150 150 138
+Cotxe 65:	dist: 11.0 km 140 153 153 140
+Cotxe 66:	dist: 19.7 km 141 155 155 141
+Cotxe 67:	dist: 12.9 km 142 156 156 142
+Cotxe 68:	dist: 20.1 km 144 157 157 144
+Cotxe 69:	dist: 12.3 km 145 158 158 145
+Cotxe 70:	dist: 26.9 km 146 159 159 146
+Cotxe 71:	dist: 24.5 km 149 160 160 149
+Cotxe 72:	dist: 10.2 km 151 161 161 151
+Cotxe 73:	dist: 16.2 km 152 163 163 152
+Cotxe 74:	dist: 11.8 km 154 166 166 154
+Cotxe 75:	dist: 21.6 km 162 168 168 162
+Cotxe 76:	dist: 18.2 km 165 171 171 165
+Cotxe 77:	dist: 24.6 km 167 173 173 167
+Cotxe 78:	dist: 22.0 km 170 174 174 170
+Cotxe 79:	dist: 20.6 km 172 176 176 172
+Cotxe 80:	dist: 28.9 km 175 177 177 175
+Cotxe 81:	dist: 19.6 km 179 178 178 179
+Cotxe 82:	dist: 16.3 km 181 180 180 181
+Cotxe 83:	dist: 12.8 km 182 183 183 182
+Cotxe 84:	dist: 28.7 km 185 184 184 185
+Cotxe 85:	dist: 15.0 km 188 186 186 188
+Cotxe 86:	dist: 9.0 km 190 187 187 190
+Cotxe 87:	dist: 15.4 km 192 189 189 192
+Cotxe 88:	dist: 15.7 km 195 191 191 195
+Cotxe 89:	dist: 15.3 km 197 193 193 197
+Cotxe 90:	dist: 24.9 km 198 194 194 198
+Cotxe 91:	dist: 23.8 km 199 196 196 199
+Finally we have 92 cars.
+The total distance is 1834.3 km
+\end{lstlisting}
+
+\section{Annex 2: Simulated Annealing Output}
+
+This is the output that we get with our program.
+
+\begin{lstlisting}[frame=single]
+Cotxe 0:	dist: 26.3 km 7 33 133 33 133 7
+Cotxe 1:	dist: 27.7 km 8 10 10 8
+Cotxe 2:	dist: 28.2 km 11 176 141 176 102 141 102 11
+Cotxe 3:	dist: 26.8 km 15 80 12 80 12 15
+Cotxe 4:	dist: 26.9 km 17 194 194 43 43 17
+Cotxe 5:	dist: 25.8 km 23 48 42 48 42 23
+Cotxe 6:	dist: 29.1 km 24 155 142 155 158 142 158 24
+Cotxe 7:	dist: 25.3 km 27 193 1 193 1 27
+Cotxe 8:	dist: 28.3 km 28 137 71 137 32 32 71 28
+Cotxe 9:	dist: 29.6 km 29 118 118 171 171 29
+Cotxe 10:	dist: 27.0 km 34 55 55 34
+Cotxe 11:	dist: 28.5 km 35 25 148 25 148 57 57 35
+Cotxe 12:	dist: 29.5 km 39 61 184 61 184 39
+Cotxe 13:	dist: 25.4 km 40 189 45 45 189 40
+Cotxe 14:	dist: 22.6 km 41 16 183 183 16 41
+Cotxe 15:	dist: 29.7 km 44 77 77 44
+Cotxe 16:	dist: 29.8 km 51 65 65 196 196 51
+Cotxe 17:	dist: 21.0 km 52 175 175 52
+Cotxe 18:	dist: 29.0 km 59 159 30 159 170 170 30 59
+Cotxe 19:	dist: 28.5 km 60 53 152 53 152 60
+Cotxe 20:	dist: 29.8 km 66 62 62 21 21 66
+Cotxe 21:	dist: 27.5 km 69 150 150 147 74 147 74 69
+Cotxe 22:	dist: 24.7 km 70 38 38 70
+Cotxe 23:	dist: 29.7 km 73 56 56 76 76 73
+Cotxe 24:	dist: 29.4 km 78 130 174 130 195 174 195 78
+Cotxe 25:	dist: 28.9 km 79 85 75 85 75 79
+Cotxe 26:	dist: 28.1 km 81 135 97 97 168 135 168 81
+Cotxe 27:	dist: 29.4 km 82 139 84 84 114 139 114 82
+Cotxe 28:	dist: 28.2 km 86 163 163 146 146 86
+Cotxe 29:	dist: 24.2 km 90 180 0 0 180 90
+Cotxe 30:	dist: 22.1 km 91 187 95 187 95 91
+Cotxe 31:	dist: 28.9 km 92 169 169 92
+Cotxe 32:	dist: 29.8 km 94 36 36 173 173 94
+Cotxe 33:	dist: 30.0 km 96 99 101 99 101 96
+Cotxe 34:	dist: 25.1 km 98 117 191 117 191 98
+Cotxe 35:	dist: 26.8 km 103 31 68 68 31 103
+Cotxe 36:	dist: 26.4 km 104 37 37 22 22 104
+Cotxe 37:	dist: 26.1 km 108 64 162 162 64 108
+Cotxe 38:	dist: 30.0 km 109 3 3 4 4 109
+Cotxe 39:	dist: 28.6 km 110 88 123 123 88 143 143 110
+Cotxe 40:	dist: 29.1 km 111 156 156 127 127 9 107 9 107 111
+Cotxe 41:	dist: 25.8 km 112 54 58 58 129 54 129 112
+Cotxe 42:	dist: 29.4 km 120 105 105 125 125 120
+Cotxe 43:	dist: 24.4 km 122 83 19 19 83 122
+Cotxe 44:	dist: 27.1 km 124 128 128 178 178 124
+Cotxe 45:	dist: 25.2 km 126 161 115 115 161 126
+Cotxe 46:	dist: 29.4 km 136 87 72 87 72 50 50 136
+Cotxe 47:	dist: 23.0 km 140 5 5 140
+Cotxe 48:	dist: 23.7 km 144 157 13 13 157 144
+Cotxe 49:	dist: 29.3 km 145 18 121 121 18 6 6 145
+Cotxe 50:	dist: 29.5 km 149 26 113 26 113 149
+Cotxe 51:	dist: 27.6 km 151 177 89 89 166 177 166 151
+Cotxe 52:	dist: 25.2 km 165 93 164 93 164 165
+Cotxe 53:	dist: 14.0 km 167 2 2 167
+Cotxe 54:	dist: 29.6 km 172 20 20 190 190 172
+Cotxe 55:	dist: 29.0 km 179 154 154 119 119 67 67 179
+Cotxe 56:	dist: 29.3 km 181 63 134 63 134 181
+Cotxe 57:	dist: 26.4 km 182 131 131 182
+Cotxe 58:	dist: 23.3 km 185 46 106 106 46 185
+Cotxe 59:	dist: 23.4 km 188 116 116 14 14 188
+Cotxe 60:	dist: 21.8 km 192 132 160 160 132 192
+Cotxe 61:	dist: 16.1 km 197 49 49 197
+Cotxe 62:	dist: 26.9 km 198 153 153 186 186 198
+Cotxe 63:	dist: 27.0 km 199 47 100 47 100 138 138 199
+Finally we have 64 cars.
+The total distance is 1714.2 km
+
+\end{lstlisting}
+\end {document}
