@@ -1,0 +1,168 @@
+\documentclass[12]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\author{Carlos Bergillos, Roger Vilaseca, Adrià Cabeza}
+\title{\textbf{Sharing cars to get to work:\\ A Local Search approach}\\ \bigskip Artificial Intelligence}
+\date{\today}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{orange},
+  keywordstyle=\color{blue},
+	frame=tb,language=C,breaklines=true,numbers=none,  stringstyle=\color{red}, tabsize=3,   showstringspaces=false,
+  columns=flexible, 
+}
+\usepackage{graphicx}
+\begin{document}
+\maketitle
+\vspace*{\fill}
+\begin{center}
+\includegraphics[scale=0.5]{images/UPClogo.png}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\section{Introduction}
+
+
+\section{Description of the problem}
+
+The calculation of the distance between two points of the city will be made using the following function: 
+
+$$ d(i,j) = \midi_x - j_x\mid+ \midi_y - j_y\mid $$
+where $i_x$ and $i_y$ are the coordinates $x$ and $y$ of the $i$ point in the grid. 
+\section{Representation of a problem state}
+\section{Generating an initial solution}
+\section{Analysis of our operators}
+\section{Generating successor states}
+\section{Representation of the Goal State}
+\section{Heuristics Function}
+Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analysing the heuristic function. 
+
+In order to solve the two solution criteria stated in the statement of the wording (nse com dir-HO), we must perform two different heuristics, because the final result that must be returned has different priorities. The heuristic function that will solve the first criterion will be called Heuristic Function 1, and the one that resolves the second, Heuristic Function 2. 
+
+\subsection{Heuristic Function 1}
+
+The criterion that this function must follow is quite simple, the objective is to minimize the sum of all the distances that each car has to do.
+
+To follow this criterion, we...
+
+\subsection{Heuristic Function 2}
+
+For the second heuristic we have added another criterion in order to minimize also the number of cars that are driving. 
+
+
+\section{Experiment 1}
+In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. In order to perform it, we have set the initial state generator for all the samples performed. The initial state generates a set of cars....
+
+\section{Experiment 2}
+We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the  ALGO operators we have discussed in the previous experiment which as we have shown are the best ones...
+
+\section{Experiment 3}
+
+A really important part about this project is to be able to determine the parameters thata are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
+\\
+\medskip
+
+The algorithm works with 4 parameters:
+\begin{enumerate}
+\item \textbf{Steps}: The total number of iterations that the algorithm will perform. 
+\item \textbf{Number of iterations for each temperature change}: Whenever there is a temperature change, a constant number of iterations will be made in which the probability of choosing a worse successor is kept. 
+\\
+Each time this number of iterations is executed, the probability of choosing a worse state decreases. 
+\item \textbf{k}: parameter of the state acceptance function that affects the probability of choosing a worse succesor state. We know that the higher the value of the parameter, the longer it takes for the probability of staying with a worse successor state to decrease. 
+
+\item \textbf{$\lambda$}: Another parameter of the state acceptance function that affects the probability of choosing a worse successor. The higher the value of $\lambda$, the less it will take to decrease the probability of accepting a worse successor state. 
+
+
+\end{enumerate}
+
+\section{Experiment 4}
+
+
+
+\section{Experiment 5}
+
+
+\section{Experiment 6}
+
+
+\section{Experiment 7}
+
+
+\section{Especial Experiment}
+
+At this point we have degined the best initial state, its operators, the heuristic algorithm and Hill Climbing and Simulated Annealing with the most appropiate parameters, so we can proceed to compare algorithms. 
+
+
+\subsection{Hill Climbing}
+
+The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
+\\
+
+We would like to add that these results are a valid solution because no car drives more than 30 km and there is not any moment where a car carries more than 2 people. 
+\\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline  & \textbf{Time} \\  \hline
+\#1 & 6054 ms \\ \hline
+\#2 & 3258 ms \\ \hline
+\#3 & 2896 ms \\ \hline
+\#4 & 3561 ms \\ \hline
+\#5 & 4529 ms \\ \hline
+\#6 & 3788 ms \\ \hline
+\#7 & 3817 ms \\ \hline
+\#8 & 3503 ms \\ \hline
+\#9 & 3356 ms \\ \hline
+\#10 & 3589 ms \\ \hline
+\end{tabular}
+\caption{Hill Climbing execution time}
+\label{Results}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline \textbf{Mean Time} &
+ \textbf{Nodes expanded} & \textbf{Cars} & \textbf{Distance}\\  \hline
+3835 ms &  17 & 92 & 1834.3 km \\ \hline
+\end{tabular}
+\caption{Results of our experiments with Hill Climbing}
+\label{Results}
+\end{table}
+
+\subsection{Simulated annealing}
+The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
+\\
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline & \textbf{Time}  & \textbf{Cars} & \textbf{Distance} & \textbf{Solution}\\  \hline
+ \#1 & 2596 ms  & 62 & 1671.3 km & Yes \\ \hline
+ \#2 & 1218 ms & 64 & 1678.2 km & Yes \\ \hline
+  \#3 & 1044 ms & 67 & 1753.3 km & Yes \\ \hline
+ \#4 & 1088 ms & 65 & 1734.8 km & Yes \\ \hline
+ \#5 & 1058 ms & 63 & 1731.1 km & No \\ \hline
+ \#6 & 1131 ms & 65 & 1685.2 km & Yes \\ \hline
+ \#7 & 1029 ms & 65 & 1720.5 km & Yes \\ \hline
+ \#8 & 1067 ms & 66 & 1777.1 km & Yes \\ \hline
+ \#9 & 1088 ms & 64 & 1657.6 km & Yes\\ \hline
+ \#10 & 2596 ms & 65 & 1688.5 km & Yes \\ \hline
+
+\end{tabular}
+\caption{Results of our experiments with Simulated Annealing}
+\label{Results2}
+\end{table}
+
+The mean time of our executions using Simulated Annealing is 1709.76 ms. 
+
+
+
+
+\end {document}
