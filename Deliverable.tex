@@ -31,11 +31,25 @@
 
 The calculation of the distance between two points of the city will be made using the following function: 
 
-$$ d(i,j) = \midi_x - j_x\mid+ \midi_y - j_y\mid $$
+$$ d(i,j) = \mid i_x - j_x\mid+ \mid i_y - j_y\mid $$
 where $i_x$ and $i_y$ are the coordinates $x$ and $y$ of the $i$ point in the grid. 
 \section{Representation of a problem state}
 \section{Generating an initial solution}
+We have to make a representation fo the initial state, which at the same time is a solution state(MIRAR PQ EN AQUESTA MAYBE NO). We have thought in several possibilities: 
+ 
+
 \section{Analysis of our operators}
+
+Once we have defined the structure we will work with, we have to decide which operators will modify our structure to move from one solution state to another. To do this, we must take into account several factors, so that when executing our algorith, the best possible solution is found in a failry reasonbale execution time. 
+\\
+Our operators indicate all the possible paths that can be taken given a solution state and with the objective that his becomes a solution state with some favorable characteristics. This is called a branch factor and it changes the way it is applied depending on which algorithm we are using. In the \textbf{Hill Climbing}, we generate all the successors and the heuristic decides if it is good enough to stay with him, in the \textbf{Simulated Annealing} we generate a successor status in a random way and the heuristic decides if it is good enough to stay with him. 
+\\
+\medskip
+It is really important to cover all the space of solutions with our operators because if we are not doing it, there may exist solutions that will be lost, which could prevent us from reaching an optimal solution. Also we be cautious about creating repeated solutions because our execution time would be affected. 
+\\
+At the beginning of everything we made a brainstorming session with all the operators we could think of, which we believed that could be useful and serve for something. We came up with...
+
+
 \section{Generating successor states}
 \section{Representation of the Goal State}
 \section{Heuristics Function}

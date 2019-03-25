@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.23)  25 MAR 2019 22:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.23)  26 MAR 2019 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -519,43 +519,46 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `Deliverable.toc'.
 
  [2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 119--121
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
 
  []
 
-[5] [6] (./Deliverable.aux)
+[6] (./Deliverable.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3247 strings out of 492982
- 44500 string characters out of 6134896
- 115092 words of memory out of 5000000
- 6781 multiletter control sequences out of 15000+600000
- 8202 words of font info for 29 fonts, out of 8000000 for 9000
+ 3249 strings out of 492982
+ 44521 string characters out of 6134896
+ 118091 words of memory out of 5000000
+ 6782 multiletter control sequences out of 15000+600000
+ 8548 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,49p,390b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,49p,600b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Deliverable.pdf (6 pages, 98473 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti10.pfb>
+Output written on Deliverable.pdf (6 pages, 128172 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

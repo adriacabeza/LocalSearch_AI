@@ -3,12 +3,12 @@
 \contentsline {section}{\numberline {3}Representation of a problem state}{3}
 \contentsline {section}{\numberline {4}Generating an initial solution}{3}
 \contentsline {section}{\numberline {5}Analysis of our operators}{3}
-\contentsline {section}{\numberline {6}Generating successor states}{3}
-\contentsline {section}{\numberline {7}Representation of the Goal State}{3}
-\contentsline {section}{\numberline {8}Heuristics Function}{3}
-\contentsline {subsection}{\numberline {8.1}Heuristic Function 1}{3}
-\contentsline {subsection}{\numberline {8.2}Heuristic Function 2}{3}
-\contentsline {section}{\numberline {9}Experiment 1}{3}
+\contentsline {section}{\numberline {6}Generating successor states}{4}
+\contentsline {section}{\numberline {7}Representation of the Goal State}{4}
+\contentsline {section}{\numberline {8}Heuristics Function}{4}
+\contentsline {subsection}{\numberline {8.1}Heuristic Function 1}{4}
+\contentsline {subsection}{\numberline {8.2}Heuristic Function 2}{4}
+\contentsline {section}{\numberline {9}Experiment 1}{4}
 \contentsline {section}{\numberline {10}Experiment 2}{4}
 \contentsline {section}{\numberline {11}Experiment 3}{4}
 \contentsline {section}{\numberline {12}Experiment 4}{5}
