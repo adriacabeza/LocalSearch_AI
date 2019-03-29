@@ -1,6 +1,6 @@
 JFLAGS = -g
-#JC = javac
-JC = /usr/java/jdk1.8.0_45/bin/javac
+JC = javac
+#JC = /usr/java/jdk1.8.0_45/bin/javac
 JVM= java
 
 BIN = ./exe/
