@@ -1,0 +1,227 @@
+
+Seed 37
+N = 200, M = 100
+
+Generació Solució inicial 1
+
+nodesExpanded : 5
+Cotxe 0:	dist: 29.6 km 0 196 196 1 122 122 1 0
+Cotxe 1:	dist: 28.0 km 4 2 2 4
+Cotxe 2:	dist: 29.7 km 8 197 197 3 3 8
+Cotxe 3:	dist: 21.5 km 9 5 5 9
+Cotxe 4:	dist: 15.1 km 14 6 6 14
+Cotxe 5:	dist: 23.2 km 15 7 7 15
+Cotxe 6:	dist: 29.6 km 18 10 133 10 133 18
+Cotxe 7:	dist: 15.0 km 19 11 11 19
+Cotxe 8:	dist: 28.3 km 21 12 12 21
+Cotxe 9:	dist: 15.3 km 22 13 13 22
+Cotxe 10:	dist: 28.7 km 26 16 16 26
+Cotxe 11:	dist: 29.2 km 27 17 17 27
+Cotxe 12:	dist: 25.9 km 29 20 20 29
+Cotxe 13:	dist: 21.8 km 30 23 23 30
+Cotxe 14:	dist: 26.1 km 31 24 24 31
+Cotxe 15:	dist: 18.4 km 36 25 25 36
+Cotxe 16:	dist: 13.1 km 37 28 28 37
+Cotxe 17:	dist: 17.3 km 38 32 32 38
+Cotxe 18:	dist: 13.8 km 39 33 33 39
+Cotxe 19:	dist: 13.4 km 40 34 34 40
+Cotxe 20:	dist: 21.8 km 41 35 35 41
+Cotxe 21:	dist: 22.8 km 42 43 43 42
+Cotxe 22:	dist: 19.1 km 44 48 48 44
+Cotxe 23:	dist: 22.1 km 45 49 49 45
+Cotxe 24:	dist: 25.7 km 46 52 52 46
+Cotxe 25:	dist: 21.4 km 47 55 55 47
+Cotxe 26:	dist: 16.6 km 50 57 57 50
+Cotxe 27:	dist: 15.9 km 51 61 61 51
+Cotxe 28:	dist: 25.8 km 53 63 63 53
+Cotxe 29:	dist: 19.6 km 54 65 65 54
+Cotxe 30:	dist: 21.4 km 56 67 67 56
+Cotxe 31:	dist: 9.8 km 58 71 71 58
+Cotxe 32:	dist: 19.9 km 59 72 72 59
+Cotxe 33:	dist: 22.4 km 60 73 73 60
+Cotxe 34:	dist: 17.5 km 62 77 77 62
+Cotxe 35:	dist: 18.3 km 64 79 79 64
+Cotxe 36:	dist: 19.5 km 66 80 80 66
+Cotxe 37:	dist: 12.6 km 68 81 81 68
+Cotxe 38:	dist: 25.9 km 69 82 82 69
+Cotxe 39:	dist: 27.5 km 70 83 83 70
+Cotxe 40:	dist: 15.7 km 74 88 88 74
+Cotxe 41:	dist: 18.5 km 75 89 89 75
+Cotxe 42:	dist: 20.5 km 76 91 91 76
+Cotxe 43:	dist: 21.9 km 78 92 92 78
+Cotxe 44:	dist: 16.1 km 84 94 94 84
+Cotxe 45:	dist: 9.8 km 85 95 95 85
+Cotxe 46:	dist: 22.3 km 86 97 97 86
+Cotxe 47:	dist: 13.6 km 87 98 98 87
+Cotxe 48:	dist: 16.2 km 90 99 99 90
+Cotxe 49:	dist: 21.4 km 93 101 101 93
+Cotxe 50:	dist: 16.1 km 96 102 102 96
+Cotxe 51:	dist: 18.7 km 100 103 103 100
+Cotxe 52:	dist: 20.4 km 105 104 104 105
+Cotxe 53:	dist: 11.8 km 106 108 108 106
+Cotxe 54:	dist: 24.2 km 107 109 109 107
+Cotxe 55:	dist: 26.3 km 110 112 112 110
+Cotxe 56:	dist: 18.2 km 111 113 113 111
+Cotxe 57:	dist: 18.0 km 114 115 115 114
+Cotxe 58:	dist: 29.7 km 116 117 117 116
+Cotxe 59:	dist: 24.1 km 118 126 126 118
+Cotxe 60:	dist: 17.8 km 119 128 128 119
+Cotxe 61:	dist: 20.2 km 120 129 129 120
+Cotxe 62:	dist: 26.3 km 121 130 130 121
+Cotxe 63:	dist: 21.7 km 123 134 134 123
+Cotxe 64:	dist: 22.4 km 124 138 138 124
+Cotxe 65:	dist: 19.1 km 125 139 139 125
+Cotxe 66:	dist: 7.7 km 127 140 140 127
+Cotxe 67:	dist: 22.3 km 131 141 141 131
+Cotxe 68:	dist: 17.3 km 132 143 143 132
+Cotxe 69:	dist: 16.7 km 135 144 144 135
+Cotxe 70:	dist: 26.1 km 136 146 146 136
+Cotxe 71:	dist: 22.9 km 137 149 149 137
+Cotxe 72:	dist: 13.8 km 142 151 151 142
+Cotxe 73:	dist: 21.9 km 145 152 152 145
+Cotxe 74:	dist: 22.5 km 147 153 153 147
+Cotxe 75:	dist: 24.6 km 148 154 154 148
+Cotxe 76:	dist: 13.2 km 150 155 155 150
+Cotxe 77:	dist: 28.6 km 156 159 159 156
+Cotxe 78:	dist: 20.7 km 157 161 161 157
+Cotxe 79:	dist: 8.7 km 158 163 163 158
+Cotxe 80:	dist: 16.4 km 160 164 164 160
+Cotxe 81:	dist: 26.0 km 162 165 165 162
+Cotxe 82:	dist: 21.2 km 170 166 166 170
+Cotxe 83:	dist: 14.3 km 172 167 167 172
+Cotxe 84:	dist: 21.5 km 174 168 168 174
+Cotxe 85:	dist: 12.3 km 176 169 169 176
+Cotxe 86:	dist: 22.4 km 178 171 171 178
+Cotxe 87:	dist: 15.4 km 180 173 173 180
+Cotxe 88:	dist: 18.1 km 181 175 175 181
+Cotxe 89:	dist: 8.4 km 183 177 177 183
+Cotxe 90:	dist: 18.2 km 184 179 179 184
+Cotxe 91:	dist: 14.9 km 185 182 182 185
+Cotxe 92:	dist: 18.4 km 189 186 186 189
+Cotxe 93:	dist: 16.5 km 191 187 187 191
+Cotxe 94:	dist: 7.6 km 193 188 188 193
+Cotxe 95:	dist: 12.8 km 194 190 190 194
+Cotxe 96:	dist: 11.8 km 195 192 192 195
+Cotxe 97:	dist: 9.3 km 199 198 198 199
+Finally we have 98 cars.
+The total distance is 1912.1 km
+true
+Time Hill Climbing: 5.989
+
+
+Generació solució inicial 2
+
+
+Move:  Car 98 to Car 2 changing user 1 from 1 to 2
+delete : Deleting car 98 and adding to Car 0 user from 1 to 11
+Move:  Car 63 to Car 6 changing user 1 from 2 to 4
+delete : Deleting car 63 and adding to Car 0 user from 4 to 41
+nodesExpanded : 5
+Cotxe 0:	dist: 29.6 km 0 196 196 1 122 122 1 0
+Cotxe 1:	dist: 28.0 km 4 2 2 4
+Cotxe 2:	dist: 29.7 km 8 197 197 3 3 8
+Cotxe 3:	dist: 21.5 km 9 5 5 9
+Cotxe 4:	dist: 15.1 km 14 6 6 14
+Cotxe 5:	dist: 23.2 km 15 7 7 15
+Cotxe 6:	dist: 29.6 km 18 10 133 10 133 18
+Cotxe 7:	dist: 15.0 km 19 11 11 19
+Cotxe 8:	dist: 28.3 km 21 12 12 21
+Cotxe 9:	dist: 15.3 km 22 13 13 22
+Cotxe 10:	dist: 28.7 km 26 16 16 26
+Cotxe 11:	dist: 29.2 km 27 17 17 27
+Cotxe 12:	dist: 25.9 km 29 20 20 29
+Cotxe 13:	dist: 21.8 km 30 23 23 30
+Cotxe 14:	dist: 26.1 km 31 24 24 31
+Cotxe 15:	dist: 18.4 km 36 25 25 36
+Cotxe 16:	dist: 13.1 km 37 28 28 37
+Cotxe 17:	dist: 17.3 km 38 32 32 38
+Cotxe 18:	dist: 13.8 km 39 33 33 39
+Cotxe 19:	dist: 13.4 km 40 34 34 40
+Cotxe 20:	dist: 21.8 km 41 35 35 41
+Cotxe 21:	dist: 22.8 km 42 43 43 42
+Cotxe 22:	dist: 19.1 km 44 48 48 44
+Cotxe 23:	dist: 22.1 km 45 49 49 45
+Cotxe 24:	dist: 25.7 km 46 52 52 46
+Cotxe 25:	dist: 21.4 km 47 55 55 47
+Cotxe 26:	dist: 16.6 km 50 57 57 50
+Cotxe 27:	dist: 15.9 km 51 61 61 51
+Cotxe 28:	dist: 25.8 km 53 63 63 53
+Cotxe 29:	dist: 19.6 km 54 65 65 54
+Cotxe 30:	dist: 21.4 km 56 67 67 56
+Cotxe 31:	dist: 9.8 km 58 71 71 58
+Cotxe 32:	dist: 19.9 km 59 72 72 59
+Cotxe 33:	dist: 22.4 km 60 73 73 60
+Cotxe 34:	dist: 17.5 km 62 77 77 62
+Cotxe 35:	dist: 18.3 km 64 79 79 64
+Cotxe 36:	dist: 19.5 km 66 80 80 66
+Cotxe 37:	dist: 12.6 km 68 81 81 68
+Cotxe 38:	dist: 25.9 km 69 82 82 69
+Cotxe 39:	dist: 27.5 km 70 83 83 70
+Cotxe 40:	dist: 15.7 km 74 88 88 74
+Cotxe 41:	dist: 18.5 km 75 89 89 75
+Cotxe 42:	dist: 20.5 km 76 91 91 76
+Cotxe 43:	dist: 21.9 km 78 92 92 78
+Cotxe 44:	dist: 16.1 km 84 94 94 84
+Cotxe 45:	dist: 9.8 km 85 95 95 85
+Cotxe 46:	dist: 22.3 km 86 97 97 86
+Cotxe 47:	dist: 13.6 km 87 98 98 87
+Cotxe 48:	dist: 16.2 km 90 99 99 90
+Cotxe 49:	dist: 21.4 km 93 101 101 93
+Cotxe 50:	dist: 16.1 km 96 102 102 96
+Cotxe 51:	dist: 18.7 km 100 103 103 100
+Cotxe 52:	dist: 20.4 km 105 104 104 105
+Cotxe 53:	dist: 11.8 km 106 108 108 106
+Cotxe 54:	dist: 24.2 km 107 109 109 107
+Cotxe 55:	dist: 26.3 km 110 112 112 110
+Cotxe 56:	dist: 18.2 km 111 113 113 111
+Cotxe 57:	dist: 18.0 km 114 115 115 114
+Cotxe 58:	dist: 29.7 km 116 117 117 116
+Cotxe 59:	dist: 24.1 km 118 126 126 118
+Cotxe 60:	dist: 17.8 km 119 128 128 119
+Cotxe 61:	dist: 20.2 km 120 129 129 120
+Cotxe 62:	dist: 26.3 km 121 130 130 121
+Cotxe 63:	dist: 21.7 km 123 134 134 123
+Cotxe 64:	dist: 22.4 km 124 138 138 124
+Cotxe 65:	dist: 19.1 km 125 139 139 125
+Cotxe 66:	dist: 7.7 km 127 140 140 127
+Cotxe 67:	dist: 22.3 km 131 141 141 131
+Cotxe 68:	dist: 17.3 km 132 143 143 132
+Cotxe 69:	dist: 16.7 km 135 144 144 135
+Cotxe 70:	dist: 26.1 km 136 146 146 136
+Cotxe 71:	dist: 22.9 km 137 149 149 137
+Cotxe 72:	dist: 13.8 km 142 151 151 142
+Cotxe 73:	dist: 21.9 km 145 152 152 145
+Cotxe 74:	dist: 22.5 km 147 153 153 147
+Cotxe 75:	dist: 24.6 km 148 154 154 148
+Cotxe 76:	dist: 13.2 km 150 155 155 150
+Cotxe 77:	dist: 28.6 km 156 159 159 156
+Cotxe 78:	dist: 20.7 km 157 161 161 157
+Cotxe 79:	dist: 8.7 km 158 163 163 158
+Cotxe 80:	dist: 16.4 km 160 164 164 160
+Cotxe 81:	dist: 26.0 km 162 165 165 162
+Cotxe 82:	dist: 21.2 km 170 166 166 170
+Cotxe 83:	dist: 14.3 km 172 167 167 172
+Cotxe 84:	dist: 21.5 km 174 168 168 174
+Cotxe 85:	dist: 12.3 km 176 169 169 176
+Cotxe 86:	dist: 22.4 km 178 171 171 178
+Cotxe 87:	dist: 15.4 km 180 173 173 180
+Cotxe 88:	dist: 18.1 km 181 175 175 181
+Cotxe 89:	dist: 8.4 km 183 177 177 183
+Cotxe 90:	dist: 18.2 km 184 179 179 184
+Cotxe 91:	dist: 14.9 km 185 182 182 185
+Cotxe 92:	dist: 18.4 km 189 186 186 189
+Cotxe 93:	dist: 16.5 km 191 187 187 191
+Cotxe 94:	dist: 7.6 km 193 188 188 193
+Cotxe 95:	dist: 12.8 km 194 190 190 194
+Cotxe 96:	dist: 11.8 km 195 192 192 195
+Cotxe 97:	dist: 9.3 km 199 198 198 199
+Finally we have 98 cars.
+The total distance is 1912.1 km
+true
+Time Hill Climbing: 4.874
+
+
+Generació solució inicial 3
+
+
+

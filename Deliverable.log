@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.11)  29 MAR 2019 17:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.11)  29 MAR 2019 20:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -521,28 +521,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--53
  []
 
 [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 134--136
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--139
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--154
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6] [7] (./Deliverable.aux) ) 
 Here is how much of TeX's memory you used:
  3249 strings out of 494880
  44521 string characters out of 6179600
- 112310 words of memory out of 5000000
+ 110310 words of memory out of 5000000
  6539 multiletter control sequences out of 15000+600000
  8548 words of font info for 30 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
@@ -556,7 +553,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Deliverable.pdf (7 pages, 131482 bytes).
+Output written on Deliverable.pdf (7 pages, 132970 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
