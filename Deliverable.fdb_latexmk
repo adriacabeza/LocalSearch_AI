@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1553895940 "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.tex" "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.pdf" "Deliverable" 1553896016
+["pdflatex"] 1553896095 "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.tex" "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.pdf" "Deliverable" 1553896097
   "/etc/texmf/web2c/texmf.cnf" 1551606201 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.aux" 1553895942 2487 ff0752d0193d48f1045889301a3b1d51 ""
-  "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.tex" 1553896015 10291 ac8c4d14506deb63a99dc5b84cb61ee3 ""
+  "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.aux" 1553896097 2487 ced42f069638876bd046c74927e48bac ""
+  "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.tex" 1553896089 11831 48ecc5443329cc19827e74ef5f816349 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -58,14 +58,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1551350117 34566 ab5be96bde1a5acfd4f881dbe566b5fb ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1551606325 3236060 fd056e42459c13cbcb0cc6e0a7cae8d4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1551606350 4225745 f81e50e1c3e56ff2e645af25dbb19770 ""
-  "Deliverable.aux" 1553895942 2487 ff0752d0193d48f1045889301a3b1d51 ""
-  "Deliverable.tex" 1553896015 10291 ac8c4d14506deb63a99dc5b84cb61ee3 ""
-  "Deliverable.toc" 1553895942 1328 95f0070a0b50a86b3ddd4b9180ae3538 ""
+  "Deliverable.aux" 1553896097 2487 ced42f069638876bd046c74927e48bac ""
+  "Deliverable.tex" 1553896089 11831 48ecc5443329cc19827e74ef5f816349 ""
+  "Deliverable.toc" 1553896097 1328 abd4c42893ed21b94f1f49123abbff09 ""
   "images/UPClogo.png" 1553887335 9583 67772a9e25a1d8c4e9be185846e9efc7 ""
   (generated)
   "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.pdf"
   "Deliverable.aux"
-  "Deliverable.log"
-  "Deliverable.pdf"
   "Deliverable.toc"
   "/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.log"
+  "Deliverable.log"
+  "Deliverable.pdf"

@@ -61,29 +61,48 @@ We will have two criteria in order to evaluate the quality of the solution:
 
 \section{Representation of a problem state}
 \section{Generating an initial solution}
-We have to make a representation fo the initial state, which at the same time is a solution state(MIRAR PQ EN AQUESTA MAYBE NO). We have thought in several possibilities: 
- 
-
+We have to make a representation fo the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state:
+\begin{enumerate}
+\item 
+\item 
+\item Taking all the people that are not drivers inside the first car's queue.
+\item Taking all the people that are not drivers inside the first car's queue.
+\end{enumerate} 
 \section{Analysis of our operators}
 
-Once we have defined the structure we will work with, we have to decide which operators will modify our structure to move from one solution state to another. To do this, we must take into account several factors, so that when executing our algorith, the best possible solution is found in a failry reasonbale execution time. 
+Once we have defined the structure we will work with, we have to decide which operators will modify our structure to move from one  state to another. To do this, we must take into account several factors, so that when executing our algorithm, the best possible solution is found in a fairly reasonable execution time. 
 \\
-Our operators indicate all the possible paths that can be taken given a solution state and with the objective that his becomes a solution state with some favorable characteristics. This is called a branch factor and it changes the way it is applied depending on which algorithm we are using. In the \textbf{Hill Climbing}, we generate all the successors and the heuristic decides if it is good enough to stay with him, in the \textbf{Simulated Annealing} we generate a successor status in a random way and the heuristic decides if it is good enough to stay with him. 
+Our operators indicate all the possible paths that can be taken given any state. Then we will use all these possibilities with the objective that this becomes a state with some favorable characteristics. This is called a branch factor and it changes the way it is applied depending on which algorithm we are using. In the \textbf{Hill Climbing}, we generate all the successors and the heuristic decides if it is good enough to stay with him, in the \textbf{Simulated Annealing} we generate a successor status in a random way and the heuristic decides if it is good enough to stay with him. 
 \\
 \medskip
 
 It is really important to cover all the space of solutions with our operators because if we are not doing it, there may exist solutions that will be lost, which could prevent us from reaching an optimal solution. Also we be cautious about creating repeated solutions because our execution time would be affected. 
 \\
 
-At the beginning of everything we made a brainstorming session with all the operators we could think of, which we believed that could be useful and serve for something. We came up with...
+At the beginning of everything we made a brainstorming session with all the operators we could think of, which we believed that could be useful and serve for something: swap the order of the people inside a car, swap outside people between cars, deleting cars, moving a person into another car, etc...
+
+Finally we decided to implement these 3 operators, which we think they would reach to all the possible solutions:
+
+\begin{enumerate}
+\item \textbf{Move}: this operator lets us move any person that is not a driver from the car $i$ to another car $j$, in a pickup place $k$ and a drop off place $l$.  
+\item \textbf{Swap inside}: this operator lets us swap the order of the people inside a car $i$.
+\item \textbf{Delete car}: this operator lets us delete a car whenever the car is only occuped by the driver. When the deletion is made the driver is inserted into another car. 
+\end{enumerate}
+
 
 
 \section{Generating successor states}
+The way we generate all the successor states really varies depending on the algorithm:
+\begin{itemize}
+\item \textbf{Hill Climbing}: we create a list with all the possible states that can be found from the given one. To do it, we create all the possible states that can be created using our operators, previously explained in section above. Then Hill Climbing will use our Heuristic Function to choose the best successor.
+\item \textbf{Simulated Annealing}: we return a random state that is a succesor of the given one. To do it, we choose a random operator with random values. Then we use it in order to change the initial state.  
+\end{itemize}
+
 \section{Representation of the Goal State}
 \section{Heuristics Function}
 Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analysing the heuristic function. 
 
-In order to solve the two solution criteria stated in the statement of the wording (nse com dir-HO), we must perform two different heuristics, because the final result that must be returned has different priorities. The heuristic function that will solve the first criterion will be called Heuristic Function 1, and the one that resolves the second, Heuristic Function 2. 
+In order to solve the two solution criteria given in the statement, we must perform two different heuristics, because the final result that must be returned has different priorities. The heuristic function that will solve the first criterion will be called Heuristic Function 1, and the one that resolves the second, Heuristic Function 2. 
 
 \subsection{Heuristic Function 1}
 

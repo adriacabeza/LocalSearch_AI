@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.3.3)  29 MAR 2019 22:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.3.3)  29 MAR 2019 22:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -174,39 +174,42 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
 
  []
 
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
+[4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
-[7] (/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.aux) ) 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7] [8] (/home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.aux) ) 
 Here is how much of TeX's memory you used:
  2947 strings out of 492615
  42721 string characters out of 6131391
- 285748 words of memory out of 5000000
+ 286748 words of memory out of 5000000
  6835 multiletter control sequences out of 15000+600000
  8548 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,49p,641b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,49p,664b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.pdf (7 pages, 136160 bytes).
+Output written on /home/rovi98/Documents/IA/LocalSearch_AI/Deliverable.pdf (8 pages, 137308 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
