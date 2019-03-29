@@ -1,12 +1,7 @@
 import IA.Comparticion.Usuario;
 import IA.Comparticion.Usuarios;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-
+import java.util.*;
 
 
 public class ComparticionState {
@@ -86,7 +81,7 @@ public class ComparticionState {
 
     //TOTS AMB TOTS
 
-    public void swapOutside2(int car1, int car2, int id, int i, int k){
+    public void move(int car1, int car2, int id, int i, int k){
         int b = 0;
         for (int j = 0; j < assignments.get(car1).size() && b != 2; ++j){
             if(assignments.get(car1).get(j) == id){
@@ -104,7 +99,7 @@ public class ComparticionState {
     }
 
     public void deleteCar(int car, int car2,int i, int j){
-        swapOutside2(car,car2,assignments.get(car).get(0), i,j);
+        move(car,car2,assignments.get(car).get(0), i,j);
         assignments.remove(car);
         distances.remove(car);
     }
@@ -180,6 +175,43 @@ public class ComparticionState {
             distances.add(distance(car));
         }
         this.assignments = cars;
+    }
+
+    public static int randInt(int min, int max){
+        Random rand = new Random();
+        int randomNum = rand.nextInt(max-min)+min;
+        return randomNum;
+    }
+
+    public void generateInitSol5() {
+
+        ArrayList<ArrayList<Integer>> cars = new ArrayList<>(users.size());
+
+        for(int i = 0; i< users.size(); ++i){
+            ArrayList<Integer> paxs = new ArrayList<>();
+            Usuario u = users.get(i);
+            if(u.isConductor()){
+                paxs.add(i);
+                paxs.add(i);
+                cars.add(paxs);
+            }
+
+        }
+        for(int i = 0; i<users.size(); ++i){
+
+            Usuario u = users.get(i);
+            if(!u.isConductor()){
+                cars.get(randInt(0,cars.size())).add(1,i);
+                cars.get(randInt(0,cars.size())).add(1,i);
+            }
+
+        }
+        distances.clear();
+        for(ArrayList<Integer> car : cars){
+            distances.add(distance(car));
+        }
+        this.assignments = cars;
+
     }
 
 

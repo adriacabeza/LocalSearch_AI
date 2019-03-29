@@ -54,7 +54,7 @@ public class ComparticionSuccesorFunction2 implements SuccessorFunction{
                         l = randInt(k + 1, state.getassignments().get(j).size() - 1); //on el deixem deixada
                     }
                     ComparticionState temp_state = new ComparticionState(state);
-                    temp_state.swapOutside2(i, j, state.getassignments().get(i).get(m), k, l);
+                    temp_state.move(i, j, state.getassignments().get(i).get(m), k, l);
                     StringBuffer s = new StringBuffer();
                     s.append("swap outside:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + l); //+"\n"+ state.toString();
                     retval.add(new Successor(s.toString(), temp_state));

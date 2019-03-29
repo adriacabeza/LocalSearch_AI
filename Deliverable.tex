@@ -25,7 +25,9 @@
 \tableofcontents
 \newpage
 \section{Introduction}
+For this assignment we are assuming a car sharing system where all the users are sharing the car. We have $N$ people and $M$ drivers. which is a subset of $N$. 
 
+Our city is a $10\times10\ km$ square and each street is disposed...
 
 \section{Description of the problem}
 
@@ -45,8 +47,10 @@ Once we have defined the structure we will work with, we have to decide which op
 Our operators indicate all the possible paths that can be taken given a solution state and with the objective that his becomes a solution state with some favorable characteristics. This is called a branch factor and it changes the way it is applied depending on which algorithm we are using. In the \textbf{Hill Climbing}, we generate all the successors and the heuristic decides if it is good enough to stay with him, in the \textbf{Simulated Annealing} we generate a successor status in a random way and the heuristic decides if it is good enough to stay with him. 
 \\
 \medskip
+
 It is really important to cover all the space of solutions with our operators because if we are not doing it, there may exist solutions that will be lost, which could prevent us from reaching an optimal solution. Also we be cautious about creating repeated solutions because our execution time would be affected. 
 \\
+
 At the beginning of everything we made a brainstorming session with all the operators we could think of, which we believed that could be useful and serve for something. We came up with...
 
 
@@ -69,14 +73,28 @@ For the second heuristic we have added another criterion in order to minimize al
 
 
 \section{Experiment 1}
-In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. In order to perform it, we have set the initial state generator for all the samples performed. The initial state generates a set of cars....
+In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. 
+\\
+\medskip
+
+This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$) and only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we have generated an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the first one, which BLABLABLA since we believe that is the one that gives us the best results. 
+
+As we mentioned in the previous section \textit{Analysis of our operators}, we have three different operators. In order to try out which set of operators is the best one, we have automatized a process where all different operators are applied to the scenery using different seeds to see which one gives us better results and better time. 
+
+Our \textbf{hypothesis} is that a combination of all of them will gives us the best results. 
+
 
 \section{Experiment 2}
-We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the  ALGO operators we have discussed in the previous experiment which as we have shown are the best ones...
+We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
+
+We will use the same scenery that was used in the first experiment ($N=200$ and $M=100$).  In order to try all the different initial solution generators we have created a process where the same scenary is applied to different initial solution methods to see which one gives us better results and better time. 
+
+Our \textbf{hypothesis} is that...
+
 
 \section{Experiment 3}
 
-A really important part about this project is to be able to determine the parameters thata are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
+A really important part about this project is to be able to determine the parameters that are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
 \\
 \medskip
 
@@ -121,29 +139,10 @@ We would like to add that these results are a valid solution because no car driv
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|}
-\hline  & \textbf{Time} \\  \hline
-\#1 & 6054 ms \\ \hline
-\#2 & 3258 ms \\ \hline
-\#3 & 2896 ms \\ \hline
-\#4 & 3561 ms \\ \hline
-\#5 & 4529 ms \\ \hline
-\#6 & 3788 ms \\ \hline
-\#7 & 3817 ms \\ \hline
-\#8 & 3503 ms \\ \hline
-\#9 & 3356 ms \\ \hline
-\#10 & 3589 ms \\ \hline
-\end{tabular}
-\caption{Hill Climbing execution time}
-\label{Results}
-\end{table}
-
-\begin{table}[h]
-\centering
 \begin{tabular}{|l|l|l|l|}
-\hline \textbf{Mean Time} &
+\hline \textbf{Time} &
  \textbf{Nodes expanded} & \textbf{Cars} & \textbf{Distance}\\  \hline
-3835 ms &  17 & 92 & 1834.3 km \\ \hline
+6054 ms &  17 & 92 & 1834.3 km \\ \hline
 \end{tabular}
 \caption{Results of our experiments with Hill Climbing}
 \label{Results}
