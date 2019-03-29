@@ -25,16 +25,40 @@
 \tableofcontents
 \newpage
 \section{Introduction}
-For this assignment we are assuming a car sharing system where all the users are sharing the car. We have $N$ people and $M$ drivers. which is a subset of $N$. 
 
-Our city is a $10\times10\ km$ square and each street is disposed...
+The objective of this assignment is to learn different problem-solving techniques based on Local Search using the AIMA library in Java.
+In particular, the Hill Climbing and Simulated Annealing.
+
+After implementing states and operators for the algorithms, we have to do the second objective, which is comparing the different results obtained with both algorithms.
+Making different experiments and extracting results.
 
 \section{Description of the problem}
 
-The calculation of the distance between two points of the city will be made using the following function: 
+For this assignment we are assuming a car sharing system where all the users are sharing the car. We have $N$ people and $M$ drivers. which is a subset of $N$. 
+
+Our city is a $10\times10\ km$ square and each street is disposed every $100\ m$ (horizontally and vertically). This disposition creates a grid of $100\times100\ blocs$ with each bloc of $100\times100\ m$.
+
+\textbf{TODO: PUT GRID IMAGE}
+
+The calculation of the distance between two points of the city will be made using the Manhattan function: 
 
 $$ d(i,j) = \mid i_x - j_x\mid+ \mid i_y - j_y\mid $$
 where $i_x$ and $i_y$ are the coordinates $x$ and $y$ of the $i$ point in the grid. 
+
+Each user of the service will leave home at 7am and has to arrive work before 8am and the highest speed in the city is $30\ Km/h$.
+With the previous restrictions, supposing that the speed always is $30\ Km/h$ and supposing that picking up and dropping off people don't have penalization time, we can do the following reasoning.
+
+$$ dist = speed * time = 30\ Km/h * 1\ h = 30 Km $$
+So each driver at most can drive $30\ Km$.
+
+Also, in each car can be at most three people at the same time (including the driver.
+
+We will have two criteria in order to evaluate the quality of the solution:
+\begin{itemize}
+  \item Minimize the distance traveled for each driver.
+  \item Minimize the distance traveled for each driver and minimize the number of drivers.
+\end{itemize}
+
 \section{Representation of a problem state}
 \section{Generating an initial solution}
 We have to make a representation fo the initial state, which at the same time is a solution state(MIRAR PQ EN AQUESTA MAYBE NO). We have thought in several possibilities: 

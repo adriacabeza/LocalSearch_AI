@@ -1,20 +1,20 @@
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Description of the problem}{3}
-\contentsline {section}{\numberline {3}Representation of a problem state}{3}
-\contentsline {section}{\numberline {4}Generating an initial solution}{3}
-\contentsline {section}{\numberline {5}Analysis of our operators}{3}
-\contentsline {section}{\numberline {6}Generating successor states}{4}
-\contentsline {section}{\numberline {7}Representation of the Goal State}{4}
-\contentsline {section}{\numberline {8}Heuristics Function}{4}
-\contentsline {subsection}{\numberline {8.1}Heuristic Function 1}{4}
-\contentsline {subsection}{\numberline {8.2}Heuristic Function 2}{4}
-\contentsline {section}{\numberline {9}Experiment 1}{4}
-\contentsline {section}{\numberline {10}Experiment 2}{5}
-\contentsline {section}{\numberline {11}Experiment 3}{5}
-\contentsline {section}{\numberline {12}Experiment 4}{6}
-\contentsline {section}{\numberline {13}Experiment 5}{6}
-\contentsline {section}{\numberline {14}Experiment 6}{6}
-\contentsline {section}{\numberline {15}Experiment 7}{6}
-\contentsline {section}{\numberline {16}Especial Experiment}{6}
-\contentsline {subsection}{\numberline {16.1}Hill Climbing}{6}
-\contentsline {subsection}{\numberline {16.2}Simulated annealing}{6}
+\contentsline {section}{\numberline {1}Introduction}{3}% 
+\contentsline {section}{\numberline {2}Description of the problem}{3}% 
+\contentsline {section}{\numberline {3}Representation of a problem state}{3}% 
+\contentsline {section}{\numberline {4}Generating an initial solution}{3}% 
+\contentsline {section}{\numberline {5}Analysis of our operators}{4}% 
+\contentsline {section}{\numberline {6}Generating successor states}{4}% 
+\contentsline {section}{\numberline {7}Representation of the Goal State}{4}% 
+\contentsline {section}{\numberline {8}Heuristics Function}{4}% 
+\contentsline {subsection}{\numberline {8.1}Heuristic Function 1}{5}% 
+\contentsline {subsection}{\numberline {8.2}Heuristic Function 2}{5}% 
+\contentsline {section}{\numberline {9}Experiment 1}{5}% 
+\contentsline {section}{\numberline {10}Experiment 2}{5}% 
+\contentsline {section}{\numberline {11}Experiment 3}{5}% 
+\contentsline {section}{\numberline {12}Experiment 4}{6}% 
+\contentsline {section}{\numberline {13}Experiment 5}{6}% 
+\contentsline {section}{\numberline {14}Experiment 6}{6}% 
+\contentsline {section}{\numberline {15}Experiment 7}{6}% 
+\contentsline {section}{\numberline {16}Especial Experiment}{6}% 
+\contentsline {subsection}{\numberline {16.1}Hill Climbing}{6}% 
+\contentsline {subsection}{\numberline {16.2}Simulated annealing}{7}% 
