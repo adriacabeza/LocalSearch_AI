@@ -51,10 +51,10 @@ public class Main {
             Search search = new HillClimbingSearch();
             SearchAgent agent = new SearchAgent(problem, search);
 
-            printActions(agent.getActions());
-            printInstrumentation(agent.getInstrumentation());
+            //printActions(agent.getActions());
+           // printInstrumentation(agent.getInstrumentation());
             ComparticionGoalTest test = new ComparticionGoalTest();
-            System.out.print(((ComparticionState) search.getGoalState()).toString());
+           // System.out.print(((ComparticionState) search.getGoalState()).toString());
             System.out.println(test.isGoalState(search.getGoalState()));
 
             return (ComparticionState) search.getGoalState();
@@ -107,16 +107,19 @@ public class Main {
 
         }*/
 
-        users = new Usuarios(70, 30, 1234);
-        ComparticionState state = new ComparticionState(users);
-        double time4= System.currentTimeMillis();
-        state.generateInitSol3();
-         finalstate = ComparticionHillClimbingSearch(state);
-        time4 = (System.currentTimeMillis() - time4);
-        System.out.println("Hill Climbing time: "+ time4);
 
-        displayState(users, finalstate);
+            int i = 50;
+            double time4 = System.currentTimeMillis();
+            users = new Usuarios(i, i/2, 1234);
+            ComparticionState state = new ComparticionState(users);
+            state.generateInitSol3();
+            finalstate = ComparticionHillClimbingSearch(state);
+            time4 = (System.currentTimeMillis() - time4);
+            System.out.println("people "+ i + " \ndrivers:"+ i/2+ "\ntime:" + time4+ " ms\n\n");
+             displayState(users, finalstate);
+            System.exit(0);
         /*
+        }
 
         for(int i = 0; i < 5; ++i) {
             switch (i) {

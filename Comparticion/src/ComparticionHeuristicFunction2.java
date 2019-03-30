@@ -13,7 +13,7 @@ public class ComparticionHeuristicFunction2 implements HeuristicFunction {
             int distExtra = Math.max(0, state.getdistances().get(i)-300);
             count += 2*(distExtra);
             int maxPExtra = Math.max(state.getMaxSimultaneous(state.getassignments().get(i)) -2,0);
-            count += 150*(maxPExtra);
+            count += 152*(maxPExtra);
         }
         count += 100*state.getassignments().size();
         return count;
