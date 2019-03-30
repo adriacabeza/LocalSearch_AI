@@ -81,8 +81,9 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
         }
        //System.out.println("Swap inside nodes created: "+ count1+ "\n Move nodes created: "+ count2+ "\n Delete Cars nodes created: "+ count3 );
         //System.out.println("\n");
-        return retval;
 
+
+        return retval;
     }
 
 }
