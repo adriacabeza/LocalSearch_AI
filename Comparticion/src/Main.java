@@ -107,7 +107,7 @@ public class Main {
 
         }*/
 
-        users = new Usuarios(50, 20, 1234);
+        users = new Usuarios(70, 30, 1234);
         ComparticionState state = new ComparticionState(users);
         double time4= System.currentTimeMillis();
         state.generateInitSol3();
