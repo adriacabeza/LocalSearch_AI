@@ -41,6 +41,13 @@ Our city is a $10\times10\ km$ square and each street is disposed every $100\ m$
 
 \textbf{TODO: PUT GRID IMAGE}
 
+For each person in the set N we will have two points of the grid:
+
+\begin{enumerate}
+  \item Point $i$: Is the origin place for each user (Home).
+  \item Point $j$: Is the destination place for each user (Work). 
+\end{enumerate}
+
 The calculation of the distance between two points of the city will be made using the Manhattan function: 
 
 $$ d(i,j) = \mid i_x - j_x\mid+ \mid i_y - j_y\mid $$
@@ -52,14 +59,16 @@ With the previous restrictions, supposing that the speed always is $30\ Km/h$ an
 $$ dist = speed * time = 30\ Km/h * 1\ h = 30 Km $$
 So each driver at most can drive $30\ Km$.
 
-Also, in each car can be at most three people at the same time (including the driver.
+Everyone who drives a car will be the first to leave and the last ones to arrive.
+
+Also, in each car can be at most three people at the same time (including the driver).
 
 We will have two criteria in order to evaluate the quality of the solution:
 \begin{itemize}
   \item Minimize the distance traveled for each driver.
   \item Minimize the distance traveled for each driver and minimize the number of drivers.
-\end{itemize}
-
+\end{itemize} 
+ 
 \section{Representation of a problem state}
 We need a way to represent a state of the problem that is small in memory, but at the same time easy and quick to work with.
 We want to avoid storing unuseful or redundant information, unless we clearly think that that information will help us reduce the computation time. Also, we want to be able to represent all the possible states that could exist.
@@ -117,13 +126,25 @@ Although not strictly necessary (because this could be computed at runtime from 
 
 
 \section{Generating an initial solution}
-We have to make a representation fo the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state:
+We have to make a representation fo the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state: (The following examples will be done with 4 people Pi (excluding drivers), 2 drivers Di and each List will represent a car. The first time that a person appears in a List is when it is picked up and the second one when it is dropped out)
 \begin{enumerate}
-\item 
-\item 
-\item Taking all the people that are not drivers inside the first car's queue.
-\item Taking all the people that are not drivers inside the first car's queue.
+\item Assigning in a balanced way all the people that are not drivers in all cars, each car has the same number of people. Each person that isn't a driver will be picked up and droped of consecutively.
+$$[D1,P1,P1,P2,P2,D1]$$
+$$[D2,P3,P3,P4,P4,D2]$$
+\item Assigning in a balanced way all the people that are not drivers in all cars, each car has the same number of people. Each car will pick up all the people and then will drop thme in the inverse order.
+$$[D1,P1,P2,P2,P1,D1]$$
+$$[D2,P3,P4,P4,P3,D2]$$
+If the number of people that are not a driver is more than 2 times the number of drivers, this initial state will not be a goal state because the number of people in the same time in a car will be greater than 3.
+\item Taking all the people that are not drivers inside the first car's list. Each person that isn't a driver will be picked up and droped of consecutively.
+$$[D1,P1,P1,P2,P2,P3,P3,P4,P4,D1]$$
+$$[D2,D2]$$
+Because of the fact that everybody that is not a driver is in the first car it is very probable that the distance traveled by the first car will be more than $30\ Km$ and that initial state won't be a goal state.
+\item Taking all the people that are not drivers inside the first car's list. Each car will pick up all the people and then will drop thme in the inverse order.
+$$[D1,P1,P2,P3,P4,P4,P3,P2,P1,D1]$$
+$$[D2,D2]$$
+If the number of people that are not a driver is more than 2, this initial state will not be a goal state because the number of people in the first car will be greater than 3. Although, because of the fact that everybody that is not a driver is in the first car it is very probable that the distance traveled by the first car will be more than $30\ Km$ and also, that initial state won't be a goal state.
 \end{enumerate} 
+
 \section{Analysis of our operators}
 
 Once we have defined the structure we will work with, we have to decide which operators will modify our structure to move from one  state to another. To do this, we must take into account several factors, so that when executing our algorithm, the best possible solution is found in a fairly reasonable execution time. 
@@ -154,7 +175,15 @@ The way we generate all the successor states really varies depending on the algo
 \item \textbf{Simulated Annealing}: we return a random state that is a succesor of the given one. To do it, we choose a random operator with random values. Then we use it in order to change the initial state.  
 \end{itemize}
 
-\section{Representation of the Goal State}
+\section{Goal State}
+
+In our experiment we will have two conditions in order to determinate if a state is a goal state:
+
+\begin{enumerate}
+  \item The distance of each car has to be at most $30\ Km$. In order to do this, we have a variable in state objects with his distance, and we obtain it directly.
+  \item At the same time can be at most three people in each car. In this case, we have a function in the object state, which computes the exceed of simultaneous people in a car. The penalization will be worst as higher is the value.
+\end{enumerate}
+
 \section{Heuristics Function}
 Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analysing the heuristic function. 
 
@@ -162,19 +191,29 @@ In order to solve the two solution criteria given in the statement, we must perf
 
 \subsection{Heuristic Function 1}
 
-The criterion that this function must follow is quite simple, the objective is to minimize the sum of all the distances that each car has to do.
+The criterion that this function must follow is quite simple, the objective is to minimize the sum of all the distances that each car has to do and minimize the maximum number of people at the same time in each car.
 
-To follow this criterion, we...
+To follow this criterion, we will compute the heuristic value of each state following this criteria.
+
+\begin{enumerate}
+  \item Compute the sum of distances that each car exceed. Each state has an ArrayList with the distance that every car drives, so iterating this array we will obtain the distance of all cars. We will only catch the ones that exceeds the limit of $30\ Km$, penalizing this situations.
+  \item Compute the sum of people that each car carries in a certain moment of the travel. Here for each car with the list of pick up and drop out people we can find the maxim number of people in a certain moment. The values that exceeds the maximum of 3 people for car at the same time, are used in order to penalize this situations.
+\end{enumerate}
 
 \subsection{Heuristic Function 2}
 
 For the second heuristic we have added another criterion in order to minimize also the number of cars that are driving. 
 
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Get the number of cars in each state. Adding the sum of previus criterias a ponderate value of the number of cars, we obtain this second heuristic.
+\end{enumerate}
+
 
 \section{Experiment 1}
 In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. 
 \\
-\medskip
+\medskip 
 
 This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$) and only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we have generated an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the first one, which BLABLABLA since we believe that is the one that gives us the best results. 
 
@@ -182,7 +221,7 @@ As we mentioned in the previous section \textit{Analysis of our operators}, we h
 
 Our \textbf{hypothesis} is that a combination of all of them will gives us the best results. 
 
-
+ 
 \section{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
@@ -288,7 +327,7 @@ The experiment was made configuring our environment with 200 people, 100 drivers
 
 The mean time of our executions using Simulated Annealing is 1709.76 ms. 
 
-\section{Conclusions}
+
 
 
 \end {document}
