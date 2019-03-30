@@ -11,6 +11,8 @@ import IA.Comparticion.Usuarios;
 
 public class Main {
 
+    static ComparticionState finalstate;
+    static Usuarios users;
 
     public static void opcions(int op) {
         if (op == 0) {
@@ -105,9 +107,16 @@ public class Main {
 
         }*/
 
-        /*
-        Usuarios users = new Usuarios(200, 100, 1998);
+        users = new Usuarios(50, 20, 1234);
         ComparticionState state = new ComparticionState(users);
+        double time4= System.currentTimeMillis();
+        state.generateInitSol3();
+         finalstate = ComparticionHillClimbingSearch(state);
+        time4 = (System.currentTimeMillis() - time4);
+        System.out.println("Hill Climbing time: "+ time4);
+
+        displayState(users, finalstate);
+        /*
 
         for(int i = 0; i < 5; ++i) {
             switch (i) {

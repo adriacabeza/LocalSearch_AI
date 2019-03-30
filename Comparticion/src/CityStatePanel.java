@@ -59,7 +59,7 @@ public class CityStatePanel extends JPanel implements Runnable{
 	
 	public void paintComponent(Graphics g) {
         super.paintComponent(g); 
-        ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        //((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setFont(new Font("default", Font.BOLD, 12));
         
         drawSimpleCityBlocks(g);
