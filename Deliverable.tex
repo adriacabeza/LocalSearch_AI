@@ -4,8 +4,10 @@
 \author{Carlos Bergillos, Roger Vilaseca, Adrià Cabeza}
 \title{\textbf{Sharing cars to get to work:\\ A Local Search approach}\\ \bigskip Artificial Intelligence}
 \date{\today}
+\usepackage[margin=1.25in]{geometry}
 \usepackage{graphicx}
 \usepackage{subcaption}
+
 \usepackage{listings}
 \lstset{
   language=Java,
@@ -231,7 +233,7 @@ In this experiment we will decide which is the best operator of the different on
 \\
 \medskip 
 
-This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$), using 10 random seeds and executing only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we will have to generate an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the third one, since we believe that is the one that gives us the best results (this fact is going to be proven in the \textit{Experiment 2}). 
+This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$), using \textbf{10 random seeds} and executing only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we will have to generate an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the third one, since we believe that is the one that gives us the best results (this fact is going to be proven in the \textit{Experiment 2}). 
 
 As we mentioned in the previous section \textit{Analysis of our operators}, we have three different operators. In order to try out which set of operators is the best one, we have automatized a process where all different operators are applied to the scenery using different seeds to see which one gives us better results and better time. 
 \\
@@ -245,20 +247,25 @@ Our \textbf{hypothesis} is that a combination of all of them will gives us the b
 %\end{figure}
 \vspace{1cm}
 
-Finally after seeing the results, clearly seen in the figure \ref{FER REFERENCIA A LA FIGURA DE DALT}, we can see that it really depends on the seed and on the configuration but it seems that our hypothesis is a pretty acceptable way to use our operators.
+Finally after getting \textbf{the results}, clearly seen in the figure \ref{FER REFERENCIA A LA FIGURA DE DALT}, we can see that it really depends on the seed and on the configuration but it seems that our hypothesis is a pretty acceptable way to use our operators.
 
-However it is interesting to observe that we did not tried some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too much people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}. 
+However it is interesting to observe that we did not tried some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too much people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}). 
+\\
+\smallskip
 
 Moreover, we can see that swap outside and swap inside gives us pretty good solutions if we just take care of total distance. Also, since it is not able to delete the number of cars created in the initial solution it is not able to minimize the number of cars. 
+\\
+\smallskip
+
 
 Another good combination of operators that could have been a good approach for the problem would be \textit{delete} and \textit{swap outisde}.
 
 \section{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
-We will use the same scenery that was used in the first experiment ($N=200$ and $M=100$).  In order to try all the different initial solution generators we have created a process where the same scenary is applied to different initial solution methods to see which one gives us better results and better time. 
+We will use \textbf{the same scenery that was used in the first experiment} ($N=200$ and $M=100$ and $10$ executions using random seeds).  In order to try all the different initial solution generators we have created a process where the same scenary is applied to different initial solution methods to see which one gives us better results and better time. 
 
-Our \textbf{hypothesis} is that...
+Our \textbf{hypothesis} is that the best solution will be the first or the second one, those solutions assign in a balanced way all the people that are not drivers in all cars (if you want to know more about it please check the section \textit{Generating an initial solution}). Our hypothesis is based on the belief that starts already in an stable place, pretty close to the optimal solution; so it will not last a lot of time finding the best solution. 
 
 \begin{figure}[H]
 \captionsetup{justification=centering}
@@ -268,6 +275,7 @@ Our \textbf{hypothesis} is that...
 \label{operators}
 \end{figure}
 
+FALTA COMENTAR CADA UN DELS PARÀMETRES, SI S'HAN De CANVIAR ELS GRÀFICS JUST ESPERAR 
 
 
 \section{Experiment 3}
@@ -290,6 +298,8 @@ Each time this number of iterations is executed, the probability of choosing a w
 \end{enumerate}
 
 
+Since there are several parameters, our \textbf{hypothesis} is that there must exists an exact combination of them which will allow Simulated Annealing to give us the best solutions. In order to do it, we have used \textbf{same scenary used in the previous experiments} ($N=200$ and $M=100$) but setting the seed to a fixed value (\textbf{1234}) since Simulated Annealing is already random in its core and it will change in every execution. Then we measured different parameters of each execution and created several plots in order to discuss in the best way possible its results. 
+
     \begin{figure}[H]
     \captionsetup{justification=centering}
     \centering
@@ -297,12 +307,19 @@ Each time this number of iterations is executed, the probability of choosing a w
         \caption{Time values ($ms$) related to $\lambda$ and number of iterations}
         \label{fig:data2}
     \end{figure}
-    \begin{figure}[H]
+    
+In the figure \ref{fig:data2} we can see that there is a clear relation between the time and the $\lambda$ and the total number of iterations (or so called steps). We can see that as lambda and number of iterations grows the time also grows with them.     
+    
+    \begin{figure}
     \captionsetup{justification=centering}
    		\centering
         \includegraphics[scale=0.45]{Results/data_B_2.pdf}
         \caption{Number of cars of the final state related to number of iterations and $\lambda$}
         \label{fig:data3}
+        
+        \vspace{1cm}
+In the figure \ref{fig:data3} we can see the relation between the total number of cars and the $\lambda$ and the number of iterations. In this case the relationship is not so  obvious as the previous case, a really small declining tendency is distinguished along the number of iterations, but as the lambda grows it becomes not so obvious. However if we just take a look into the $\lambda$ values we can see a higher number of cars the higher it is. So, taking in account that we want to minimize the numbers of cars, we can conclude that the best values are a small $\lambda$ and a big number of iterations. 
+        
         \end{figure}
        \begin{figure}
        \captionsetup{justification=centering}
@@ -311,6 +328,10 @@ Each time this number of iterations is executed, the probability of choosing a w
         \caption{Total distance of the final state ($hm$) related to the number of iterartions and $\lambda$.}
         \label{fig:data4}
     \end{figure}
+      \vspace{1cm}
+In the figure \ref{fig:data4} we can see the relation between the total distance and the $\lambda$ and the number of iterations. In this case we can conclude that the higher the lambda the higher the total distance. Moreover, it happens exactly the same with the number of iterations. This observation supports the previous analysis with the number of cars since a smaller value of cars is heavily related to a smaller value of total distance. So using this plot we can confirm the affirmation of small values for lambdas and big number of iterations as the best options. 
+    
+    
     \begin{figure}[H]
     \captionsetup{justification=centering}
      \centering
@@ -318,8 +339,11 @@ Each time this number of iterations is executed, the probability of choosing a w
         \caption{Distribution of the final states that were solutions depending on the number of iterations and $\lambda$}
         \label{fig:data5}
     \end{figure}
-    
-
+      \vspace{1cm}
+Also, we wanted to finally conclude with a plot showing how usually is not to arrive to a solution state. We can see in the figure \ref{fig:data5} a plot showing if an execution arrived to a solution (green color) or not (red color). Even though we though that the $lambda$ values and the number of iterations would present a heavy relationship in the distribution, we did no obtain it. 
+ \\
+ \medskip
+About the presence of states that are not solution: we believe that this happens mainly due to the randomness that Simulated Annealing presents and because we pushed to the limit our heuristic in order to get the best solution and sometimes we get a car that drives slightly more than the maximum allowed. 
 
 
 %
