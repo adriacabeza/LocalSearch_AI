@@ -64,7 +64,7 @@ public class Main {
 
 
 
-    private static ComparticionState ComparticionSimulatedAnnealingSearch(ComparticionState estat, int steps, int stiter, int k, int lamb) {
+    private static ComparticionState ComparticionSimulatedAnnealingSearch(ComparticionState estat, int steps, int stiter, int k, double lamb) {
         try {
             Problem problem;
             problem = new Problem(estat, new ComparticionSuccesorFunction2(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
@@ -72,7 +72,7 @@ public class Main {
             SearchAgent agent = new SearchAgent(problem, search);
 
             ComparticionGoalTest test = new ComparticionGoalTest();
-            System.out.print(((ComparticionState) search.getGoalState()).toString());
+            //System.out.print(((ComparticionState) search.getGoalState()).toString());
             System.out.println(test.isGoalState(search.getGoalState()));
             
             return (ComparticionState) search.getGoalState();
@@ -105,9 +105,10 @@ public class Main {
 
         }*/
 
+        /*
         Usuarios users = new Usuarios(200, 100, 1998);
         ComparticionState state = new ComparticionState(users);
-        ComparticionState finalState = null;
+
         for(int i = 0; i < 5; ++i) {
             switch (i) {
                case 0:
@@ -174,27 +175,27 @@ public class Main {
 
         }
 
-/* EXPERIMENT DE LES DIFERENTS CARACTERÍSTIQUES DE SIMULATED ANNEALING
+
+
         state.generateInitSol1();
-        for(int i = 0; i < 1000000; ++i){
-            for(int j = 0; j < 20; ++j){
-                for(int k = 0; k < 10; ++k){
-                    for(double l = 0.01; l < 0.5; l = l+0.05){
+        for(int i = 50000; i < 250000; i+= 25000){
+            for(double l = 0.0001; l < 0.05; l += 0.0025){
                         double timeSIMULATED= System.currentTimeMillis();
-                        System.out.println("\n Steps "+ i+ " Siter "+ j+ " k"+ k + " Lambda "+l);
-                        ComparticionSimulatedAnnealingSearch(state,i,j,k,l);
-                        timeSIMULATED = (System.currentTimeMillis() - timeSIMULATED)/1000;
-                         //System.out.println("Time Simulated Annealing: "+ timeSIMULATED);
+                        System.out.println("\n Steps "+ i+ " Siter "+ 10+ " k "+ 5 + " Lambda "+String.format("%.4f",l));
+                        ComparticionSimulatedAnnealingSearch(state,i,10,5,l);
+                        timeSIMULATED = (System.currentTimeMillis() - timeSIMULATED);
+                        System.out.println("Time Simulated Annealing: "+ timeSIMULATED);
                     }
                 }
             }
-        }
-        */
 
-        //Opening Display Window for Final State:
-        if(finalState != null) displayState(users, finalState);
+
+
+
+    */
+
     }
-    
+
     private static void displayState(Usuarios usuarios, ComparticionState state) {
     	EventQueue.invokeLater(new Runnable() {
 			public void run() {
