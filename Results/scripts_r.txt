@@ -3,13 +3,13 @@
 data = read.csv("data_A.csv", row.names=NULL)  # read csv file
 attach(mtcars)
 par(mfrow=c(2,2))
-plot(t(data['sol']),t(data['time']), pch=21, bg="lightgreen", xaxt="n", xlab="Initial solution Id", ylab="Time (s)")
+plot(t(data['sol']),t(data['time']), cex=1.5, pch=21, bg="lightgreen", xaxt="n", xlab="Initial Solution id", ylab="Computation Time (s)")
 axis(1, at = seq(1, 4, by = 1))
-plot(t(data['sol']),t(data['distance']), pch=21, bg="yellow3", xaxt="n", xlab="Initial solution Id", ylab="Number of nodes expanded")
+plot(t(data['sol']),t(data['nodesExpanded']), cex=1.5, pch=21, bg="yellow3", xaxt="n", xlab="Initial Solution id", ylab="Number of nodes expanded")
 axis(1, at = seq(1, 4, by = 1))
-plot(t(data['sol']),t(data['distance']), pch=21, bg="lightcoral", xaxt="n", xlab="Initial solution Id", ylab="Distance (hm)")
+plot(t(data['sol']),t(data['distance']), cex=1.5, pch=21, bg="lightcoral", xaxt="n", xlab="Initial Solution id", ylab="Distance (km)")
 axis(1, at = seq(1, 4, by = 1))
-plot(t(data['sol']),t(data['cars']), pch=21, bg="lightblue4", xaxt="n", xlab="Initial solution Id", ylab="Number of cars")
+plot(t(data['sol']),t(data['cars']), cex=1.5, pch=21, bg="lightblue4", xaxt="n", xlab="Initial Solution id", ylab="Number of cars")
 axis(1, at = seq(1, 4, by = 1))
 
 dev.copy(pdf,'data_A.pdf')
@@ -17,9 +17,9 @@ dev.off()
 
 %%%%%%%%
 
-data = read.csv("data_B.csv", row.names=NULL)  # read csv file
+library(scatterplot3d) # Requires installing 'scatterplot3d' package.
 
-library(scatterplot3d)
+data = read.csv("data_B.csv", row.names=NULL)  # read csv file
 
 x = t(data['lambda'])
 y = t(data['Nsteps'])
@@ -32,15 +32,17 @@ invalid_x = x[!as.logical(t(data['solucio']))]
 valid_y = y[as.logical(t(data['solucio']))]
 invalid_y = y[!as.logical(t(data['solucio']))]
 
-colors <- c("green", "red")
-
 attach(mtcars)
 par(mfrow=c(2,2))
-scatterplot3d(x,y,z1, pch=21, bg="royalblue4", type="h", ylab="Nº Iterations", xlab="Lambda", zlab="Time (ms)", las=1, xaxt="n")
-scatterplot3d(y,x,z2, pch=21, bg="seagreen4", type="h", xlab="Nº Iterations", ylab="Lambda", zlab="Number of Cars", las=1, xaxt="n")
-scatterplot3d(y,x,z3, pch=21, bg="firebrick4", type="h", xlab="Nº Iterations", ylab="Lambda", zlab="Distance (hm)", las=1, xaxt="n")
-plot(valid_x,valid_y, pch=21, bg="green", type="p", ylab="Nº Iterations", xlab="Lambda", las=1, xaxt="n")
-points(invalid_x,invalid_y, pch=21, bg="red", type="p", ylab="Nº Iterations", xlab="Lambda")
+par(las=2)
+scatterplot3d(x,y/1000,z1/1000, cex.symbol=1.5, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, lab=c(4,5,2), xlim=c(0, 0.05), ylab="Nº Iterations (Thousands)", xlab="Lambda", zlab="Computation Time (s)", las=1, xaxt="n")
+scatterplot3d(y/1000,x,z2, cex.symbol=1.5, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, xlab="Nº Iterations (Thousands)", ylim=c(0, 0.05), ylab="Lambda", zlab="Number of Cars", las=1, xaxt="n")
+scatterplot3d(y/1000,x,z3, cex.symbol=1.5, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, lab=c(5,5,2), xlim=c(50, 250), ylim=c(0, 0.05), xlab="Nº Iterations (Thousands)", ylab="Lambda", zlab="Distance (km)", las=1, xaxt="n")
+
+par(las=1)
+par(mar=c(5,4,4,4))
+plot(valid_x,valid_y/1000, pch=21, bg="green", type="p", ylab="Nº Iterations (Thousands)", xlab="Lambda")
+points(invalid_x,invalid_y/1000, pch=21, bg="red", type="p")
 
 dev.copy(pdf,'data_B.pdf')
 dev.off()
