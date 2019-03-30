@@ -105,7 +105,7 @@ public class Main {
 
         }*/
 
-        Usuarios users = new Usuarios(200, 100, 37);
+        Usuarios users = new Usuarios(200, 100, 1998);
         ComparticionState state = new ComparticionState(users);
         ComparticionState finalState = null;
         for(int i = 0; i < 5; ++i) {
@@ -166,21 +166,6 @@ public class Main {
                     //time41 = (System.currentTimeMillis() - time41)/1000;
                     System.out.println("Time Hill Climbing: "+ time4);
                     //System.out.println("Time Simulated Annealing: "+ time41);
-                case 4:
-                    double time5= System.currentTimeMillis();
-                    System.out.println("Using fifth generate intial solution");
-                    state.generateInitSol5();
-                    System.out.println("\nHill Climbing\n");
-                    ComparticionHillClimbingSearch(state);
-                    time5 = (System.currentTimeMillis() - time5)/1000;
-                    //double time51= System.currentTimeMillis();
-                    //System.out.println("\nSimulated Annealing Search\n");
-                    //ComparticionSimulatedAnnealingSearch(state, 100000, 10, 5, 0.01);
-                    //time51 = (System.currentTimeMillis() - time51)/1000;
-
-                    System.out.println("Time Hill Climbing: "+ time5);
-                    //System.out.println("Time Simulated Annealing: "+ time51);
-                    break;
 
 
             }
