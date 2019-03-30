@@ -380,12 +380,20 @@ About the presence of states that are not solution: we believe that this happens
 
 
 \section{Experiment 4}
-Using the same scenary we have used in the previous experiments we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{drivers}{people}$ of $1/2$. The experiment will be run using the     
- \textit{Hill Climbing} algorithm.
+\textbf{Using the same scenary we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
+ \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
-We have started with $200$ users and then, each iteration, we have incremented by $100$ the users until we have discovered a pattern.  
+We have started with $200$ users and then, each iteration, we have incremented by $50$ the users until we have discovered a pattern.  
 
+%\begin{figure}
+%\centering
+%\includegraphics[scale=0.45]{Results/data_C.pdf}
+%\caption{Time measured (ms) for diferent values of people (N) and drivers (N/2)}
+%\label{timedifferentN}
+%\end{figure}
+\vspace{1cm}
 
+As we can see in the previous figure \ref{timedifferentN}, there is a clear pattern: as the size of N grow the ... TODO 
 
 
 \section{Experiment 5}
@@ -437,7 +445,7 @@ The experiment was made configuring our environment with 200 people, 100 drivers
 \\
 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline & \textbf{Time}  & \textbf{Cars} & \textbf{Distance} & \textbf{Solution}\\  \hline
@@ -459,7 +467,7 @@ The experiment was made configuring our environment with 200 people, 100 drivers
 
 The mean time of our executions using Simulated Annealing is 1709.76 ms. 
 
-
+\section{Conclusion}
 
 
 \end {document}

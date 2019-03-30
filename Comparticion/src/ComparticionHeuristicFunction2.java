@@ -11,11 +11,11 @@ public class ComparticionHeuristicFunction2 implements HeuristicFunction {
         int count = 0;
         for(int i = 0; i< state.getassignments().size(); ++i){
             int distExtra = Math.max(0, state.getdistances().get(i)-300);
-            count += 2*(distExtra);
+            count += 5*(distExtra);
             int maxPExtra = Math.max(state.getMaxSimultaneous(state.getassignments().get(i)) -2,0);
-            count += 152*(maxPExtra);
+            count += 140*(maxPExtra);
         }
-        count += 100*state.getassignments().size();
+        count += 80*state.getassignments().size();
         return count;
     }
 }

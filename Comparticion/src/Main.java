@@ -54,7 +54,7 @@ public class Main {
             //printActions(agent.getActions());
            // printInstrumentation(agent.getInstrumentation());
             ComparticionGoalTest test = new ComparticionGoalTest();
-           // System.out.print(((ComparticionState) search.getGoalState()).toString());
+           System.out.print(((ComparticionState) search.getGoalState()).toString());
             System.out.println(test.isGoalState(search.getGoalState()));
 
             return (ComparticionState) search.getGoalState();
@@ -108,14 +108,14 @@ public class Main {
         }*/
 
 
-            int i = 50;
+            int i = 100;
             double time4 = System.currentTimeMillis();
             users = new Usuarios(i, i/2, 1234);
             ComparticionState state = new ComparticionState(users);
             state.generateInitSol3();
             finalstate = ComparticionHillClimbingSearch(state);
             time4 = (System.currentTimeMillis() - time4);
-            System.out.println("people "+ i + " \ndrivers:"+ i/2+ "\ntime:" + time4+ " ms\n\n");
+            System.out.println(" people "+ i + " drivers:"+ i/2+ " time:" + time4+ " ms\n\n");
              displayState(users, finalstate);
             System.exit(0);
         /*

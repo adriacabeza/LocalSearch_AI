@@ -41,19 +41,19 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                     for (int m = 1; m < state.getassignments().get(i).size() - 1; ++m) {
                         if (!setaux.contains(state.getassignments().get(i).get(m))) {
                             setaux.add(state.getassignments().get(i).get(m));
-                            for (int k = 1; k <= state.getassignments().get(j).size() - 1; ++k) { //on el deixem recollida
-                                for (int l = k + 1; l <= state.getassignments().get(j).size(); ++l) { //on el deixem deixada
+                            for (int k = 1; k <= (state.getassignments().get(j).size() - 1); ++k) { //on el deixem recollida
+
                                     ComparticionState temp_state = new ComparticionState(state);
-                                    temp_state.move(i, j, state.getassignments().get(i).get(m), k, l);
+                                    temp_state.move(i, j, state.getassignments().get(i).get(m), k, k+1);
                                     StringBuffer s = new StringBuffer();
                                     ++count2;
 
                                     //System.out.println("Move:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + l);
-                                    s.append("Move:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + l); //+"\n"+ state.toString();
+                                    s.append("Move:  Car " + i + " to Car " + j + " changing user " + m + " from " + k + " to " + k+1); //+"\n"+ state.toString();
                                     retval.add(new Successor(s.toString(), temp_state));
                                     // System.out.println(s.toString());
                                     //System.out.println(count);
-                                }
+
                             }
                         }
                     }
@@ -66,7 +66,7 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
             if (state.getassignments().get(i).size() == 2) {
                 for (int j = 0; j < state.getassignments().size(); ++j) { //cotxe 2
                     if (j != i) {
-                        for (int k = 1; k <= state.getassignments().get(j).size() - 1; ++k) { //on el deixem recollida
+                        for (int k = 1; k <= (state.getassignments().get(j).size() - 1); ++k) { //on el deixem recollida
                                 ComparticionState temp_state = new ComparticionState(state);
                                 temp_state.deleteCar(i, j, k, k+1); ++count3;
                                 StringBuffer s = new StringBuffer();
@@ -79,7 +79,7 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                     }
                 }
         }
-       //System.out.println("Swap inside nodes created: "+ count1+ "\n Move nodes created: "+ count2+ "\n Delete Cars nodes created: "+ count3 );
+       System.out.println("Swap inside nodes created: "+ count1+ "\n Move nodes created: "+ count2+ "\n Delete Cars nodes created: "+ count3 );
         //System.out.println("\n");
 
 
