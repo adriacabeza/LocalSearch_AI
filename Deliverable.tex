@@ -58,8 +58,8 @@ We will have two criteria in order to evaluate the quality of the solution:
 \begin{itemize}
   \item Minimize the distance traveled for each driver.
   \item Minimize the distance traveled for each driver and minimize the number of drivers.
-\end{itemize}
-
+\end{itemize} 
+ 
 \section{Representation of a problem state}
 We need a way to represent a state of the problem that is small in memory, but at the same time easy and quick to work with.
 We want to avoid storing unuseful or redundant information, unless we clearly think that that information will help us reduce the computation time. Also, we want to be able to represent all the possible states that could exist.
@@ -154,7 +154,15 @@ The way we generate all the successor states really varies depending on the algo
 \item \textbf{Simulated Annealing}: we return a random state that is a succesor of the given one. To do it, we choose a random operator with random values. Then we use it in order to change the initial state.  
 \end{itemize}
 
-\section{Representation of the Goal State}
+\section{Goal State}
+
+In our experiment we will have two conditions in order to determinate if a state is a goal state:
+
+\begin{enumerate}
+  \item The distance of each car has to be at most $30\ Km$. In order to do this, we have a variable in state objects with his distance, and we obtain directly.
+  \item At the same time can be at most three people in each car. In this case, we have a function in the object state, in which 
+\end{enumerate}
+
 \section{Heuristics Function}
 Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analysing the heuristic function. 
 
@@ -174,7 +182,7 @@ For the second heuristic we have added another criterion in order to minimize al
 \section{Experiment 1}
 In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. 
 \\
-\medskip
+\medskip 
 
 This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$) and only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we have generated an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the first one, which BLABLABLA since we believe that is the one that gives us the best results. 
 
