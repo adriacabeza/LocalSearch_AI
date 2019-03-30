@@ -1,0 +1,13 @@
+Using seed 1234
+
+100 people and 50 drivers lasting: 20994.0 ms
+Finally we have 24 cars.
+The total distance is 688.6 km
+nodesExpanded : 82
+
+200 people and 100 drivers lasting: 599204.0 ms
+Finally we have 47 cars
+The total distance is 1366.9 km
+200 people and 100 drivers lasting: 599204.0 ms
+
+

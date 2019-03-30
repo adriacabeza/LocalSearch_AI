@@ -4,6 +4,8 @@
 \author{Carlos Bergillos, Roger Vilaseca, Adrià Cabeza}
 \title{\textbf{Sharing cars to get to work:\\ A Local Search approach}\\ \bigskip Artificial Intelligence}
 \date{\today}
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{listings}
 \lstset{
   language=Java,
@@ -14,7 +16,7 @@
   breaklines=true,numbers=none,  stringstyle=\color{red}, tabsize=3,   showstringspaces=false,
   columns=flexible,
 }
-\usepackage{graphicx}
+\usepackage{float}
 \begin{document}
 \maketitle
 \vspace*{\fill}
@@ -37,9 +39,15 @@ Making different experiments and extracting results.
 
 For this assignment we are assuming a car sharing system where all the users are sharing the car. We have $N$ people and $M$ drivers. which is a subset of $N$. 
 
-Our city is a $10\times10\ km$ square and each street is disposed every $100\ m$ (horizontally and vertically). This disposition creates a grid of $100\times100\ blocs$ with each bloc of $100\times100\ m$.
+Our city is a $10\times10\ km$ square and each street is disposed every $100\ m$ (horizontally and vertically). This disposition creates a grid of $100\times100\ blocs$ with each block of $100\times100\ m$.
 
-\textbf{TODO: PUT GRID IMAGE}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{images/grid.png}
+\captionsetup{justification=centering}
+\caption{Grid representing the city map. Each point represents a pickup or drop off location.}
+\label{grid}
+\end{figure}
 
 For each person in the set N we will have two points of the grid:
 
@@ -53,11 +61,11 @@ The calculation of the distance between two points of the city will be made usin
 $$ d(i,j) = \mid i_x - j_x\mid+ \mid i_y - j_y\mid $$
 where $i_x$ and $i_y$ are the coordinates $x$ and $y$ of the $i$ point in the grid. 
 
-Each user of the service will leave home at 7am and has to arrive work before 8am and the highest speed in the city is $30\ Km/h$.
-With the previous restrictions, supposing that the speed always is $30\ Km/h$ and supposing that picking up and dropping off people don't have penalization time, we can do the following reasoning.
+Each user of the service will leave home at 7am and has to arrive work before 8am and the highest speed in the city is $30\ km/h$.
+With the previous restrictions, supposing that the speed always is $30\ km/h$ and supposing that picking up and dropping off people don't have penalization time, we can do the following reasoning.
 
-$$ dist = speed * time = 30\ Km/h * 1\ h = 30 Km $$
-So each driver at most can drive $30\ Km$.
+$$ dist = speed * time = 30\ km/h * 1\ h = 30 km $$
+So each driver at most can drive $30\ km$.
 
 Everyone who drives a car will be the first to leave and the last ones to arrive.
 
@@ -124,6 +132,14 @@ Where the distance for the route in \raggedright\lstinline{assignments[i]} is st
 
 Although not strictly necessary (because this could be computed at runtime from other existing data), this \lstinline{distances} variable will help us calculate the heuristic value of the state quicker. We just make sure to update these values any time \lstinline{assignments} is changed.
 
+
+\begin{figure}[H]
+\captionsetup{justification=centering}
+\centering
+\includegraphics[scale=0.35]{images/carsMoving.png}
+\caption{Visual respresentation of a moment of the state where the car is picking up and droping off people.}
+\label{grid}
+\end{figure}
 
 \section{Generating an initial solution}
 We have to make a representation fo the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state: (The following examples will be done with 4 people Pi (excluding drivers), 2 drivers Di and each List will represent a car. The first time that a person appears in a List is when it is picked up and the second one when it is dropped out)
@@ -215,19 +231,43 @@ In this experiment we will decide which is the best operator of the different on
 \\
 \medskip 
 
-This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$) and only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we have generated an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the first one, which BLABLABLA since we believe that is the one that gives us the best results. 
+This experiment is going to be made using \textbf{200 people }($N$), and \textbf{100 drivers }($M$), using 10 random seeds and executing only the \textbf{Hill Climbing algorithm}. In order to perform it, firstly, we will have to generate an initial solution. From all the possible initial solution generators that we have implemented, we have chosen the third one, since we believe that is the one that gives us the best results (this fact is going to be proven in the \textit{Experiment 2}). 
 
 As we mentioned in the previous section \textit{Analysis of our operators}, we have three different operators. In order to try out which set of operators is the best one, we have automatized a process where all different operators are applied to the scenery using different seeds to see which one gives us better results and better time. 
+\\
+Our \textbf{hypothesis} is that a combination of all of them will gives us the best results because using all of them will let Hill Climbing find the path to the global maximum. 
+%
+%\begin{figure}
+%\centering
+%\includegraphics[scale=0.45]{Results/data_A.pdf}
+%\caption{Plots with different parameters measured for each operator }
+%\label{operators}
+%\end{figure}
+\vspace{1cm}
 
-Our \textbf{hypothesis} is that a combination of all of them will gives us the best results. 
+Finally after seeing the results, clearly seen in the figure \ref{FER REFERENCIA A LA FIGURA DE DALT}, we can see that it really depends on the seed and on the configuration but it seems that our hypothesis is a pretty acceptable way to use our operators.
 
- 
+However it is interesting to observe that we did not tried some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too much people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}. 
+
+Moreover, we can see that swap outside and swap inside gives us pretty good solutions if we just take care of total distance. Also, since it is not able to delete the number of cars created in the initial solution it is not able to minimize the number of cars. 
+
+Another good combination of operators that could have been a good approach for the problem would be \textit{delete} and \textit{swap outisde}.
+
 \section{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
 We will use the same scenery that was used in the first experiment ($N=200$ and $M=100$).  In order to try all the different initial solution generators we have created a process where the same scenary is applied to different initial solution methods to see which one gives us better results and better time. 
 
 Our \textbf{hypothesis} is that...
+
+\begin{figure}[H]
+\captionsetup{justification=centering}
+\centering
+\includegraphics[scale=0.70]{Results/data_A.pdf}
+\caption{Plots with different parameters measured for each intial solution.}
+\label{operators}
+\end{figure}
+
 
 
 \section{Experiment 3}
@@ -249,8 +289,74 @@ Each time this number of iterations is executed, the probability of choosing a w
 
 \end{enumerate}
 
+
+    \begin{figure}[H]
+    \captionsetup{justification=centering}
+    \centering
+        \includegraphics[scale=0.45]{Results/data_B_1.pdf}
+        \caption{Time values ($ms$) related to $\lambda$ and number of iterations}
+        \label{fig:data2}
+    \end{figure}
+    \begin{figure}[H]
+    \captionsetup{justification=centering}
+   		\centering
+        \includegraphics[scale=0.45]{Results/data_B_2.pdf}
+        \caption{Number of cars of the final state related to number of iterations and $\lambda$}
+        \label{fig:data3}
+        \end{figure}
+       \begin{figure}
+       \captionsetup{justification=centering}
+       \centering
+        \includegraphics[scale=0.45]{Results/data_B_3.pdf}
+        \caption{Total distance of the final state ($hm$) related to the number of iterartions and $\lambda$.}
+        \label{fig:data4}
+    \end{figure}
+    \begin{figure}[H]
+    \captionsetup{justification=centering}
+     \centering
+      \includegraphics[scale=0.45]{Results/data_B_4.pdf}
+        \caption{Distribution of the final states that were solutions depending on the number of iterations and $\lambda$}
+        \label{fig:data5}
+    \end{figure}
+    
+
+
+
+%
+%\begin{figure}
+%\centering
+%
+%    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+%      %(or a blank line to force the subfigure onto a new line)
+%    \begin{subfigure}[b]{0.3\textwidth}
+%        \includegraphics[width=\textwidth]{Results/data_B_1.pdf}
+%        \caption{Time values ($ms$) related to lambda values and number of iterations}
+%        \label{fig:data2}
+%    \end{subfigure}
+%    \begin{subfigure}[b]{0.3\textwidth}
+%        \includegraphics[width=\textwidth]{Results/data_B_2.pdf}
+%        \caption{Number of cars of the final state related to number of iterations and lambda values}
+%        \label{fig:data3}
+%        \end{subfigure}
+%            \\
+%            
+%       \begin{subfigure}[b]{0.3\textwidth}
+%        \includegraphics[width=\textwidth]{Results/data_B_3.pdf}
+%        \caption{Total distance of the final state ($hm$) related to the number of iterartions and lambda values.}
+%        \label{fig:data4}
+%        \end{subfigure}
+%     \begin{subfigure}[b]{0.3\textwidth}
+%      \includegraphics[width=\textwidth]{Results/data_B_4.pdf}
+%        \caption{Distribution of the final states that were solutions depending on the number of iterations and lambda values}
+%        \label{fig:data5}
+%    \end{subfigure}
+%    \caption{Plots of our experiments with Simulated Annealing parameters: Lambda and Number of total iterations (steps)}\label{fig:plotSimulated}
+%\end{figure}
+
+
+
 \section{Experiment 4}
-Using the same scenary we have used in the previous experiments we will be studying how the execution time changes to find the solution  assuming a proportion of drivers/people of $1/2$. The experiment will be run using the     
+Using the same scenary we have used in the previous experiments we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{drivers}{people}$ of $1/2$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm.
 
 We have started with $200$ users and then, each iteration, we have incremented by $100$ the users until we have discovered a pattern.  
