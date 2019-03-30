@@ -12,12 +12,12 @@ public class ComparticionGoalTest implements GoalTest {
             total_dist += dist;
             if (dist > 300){
                 valid = false;
-                System.out.println("WARNING: CAR "+i+ " drives " + (dist/10f) +" km");
+                //System.out.println("WARNING: CAR "+i+ " drives " + (dist/10f) +" km");
             }
             int maxP = state.getMaxSimultaneous(state.getassignments().get(i));
             if(maxP > 2){
                 valid = false;
-                System.out.println("WARNING: CAR "+ i + " carries "+ maxP +" people at once.");
+               // System.out.println("WARNING: CAR "+ i + " carries "+ maxP +" people at once.");
             }
         }
         System.out.println("Finally we have " + state.getassignments().size() + " cars.");
