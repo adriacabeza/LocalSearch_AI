@@ -45,7 +45,7 @@ public class Main {
     private static ComparticionState ComparticionHillClimbingSearch(ComparticionState state) {
         try {
             Problem problem;
-            problem = new Problem(state, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction1());
+            problem = new Problem(state, new ComparticionSuccesorFunction(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
             Search search = new HillClimbingSearch();
             SearchAgent agent = new SearchAgent(problem, search);
 
@@ -105,17 +105,16 @@ public class Main {
 
         }*/
 
-        Usuarios users = new Usuarios(100, 80, 1234);
+        Usuarios users = new Usuarios(200, 100, 1998);
         ComparticionState state = new ComparticionState(users);
         ComparticionState finalState = null;
         for(int i = 0; i < 5; ++i) {
             switch (i) {
-               /*case 0:
+               case 0:
                     double time1 = System.currentTimeMillis();
                     System.out.println("Using first generate intial solution");
                     state.generateInitSol1();
                     System.out.println("\nHill Climbing\n");
-                    System.out.println("Solució inicial:\n "+ state.toString());
                     ComparticionHillClimbingSearch(state);
                     time1 = (System.currentTimeMillis() - time1)/1000;
                     //double time11 = System.currentTimeMillis();
@@ -130,7 +129,6 @@ public class Main {
                     System.out.println("Using second generate intial solution");
                     state.generateInitSol2();
                     System.out.println("\nHill Climbing\n");
-                    System.out.println("Solució inicial:\n "+ state.toString());
                     ComparticionHillClimbingSearch(state);
                    time2 = (System.currentTimeMillis() - time2)/1000;
                     //double time21 = System.currentTimeMillis();
@@ -141,12 +139,11 @@ public class Main {
                     //System.out.println("Time Simulated Annealing: "+ time21);
 
                     break;
-              */  case 2:
+               case 2:
                     double time3 = System.currentTimeMillis();
                     System.out.println("Using third generate intial solution");
                     state.generateInitSol3();
                     System.out.println("\nHill Climbing\n");
-                    System.out.println("Solució inicial:\n "+ state.toString());
                     ComparticionHillClimbingSearch(state);
                     time3 = (System.currentTimeMillis() - time3)/1000;
                     //double time31 =  System.currentTimeMillis();
@@ -161,7 +158,6 @@ public class Main {
                     System.out.println("Using forth generate intial solution");
                     state.generateInitSol4();
                     System.out.println("\nHill Climbing\n");
-                    System.out.println("Solució inicial:\n "+ state.toString());
                     ComparticionHillClimbingSearch(state);
                     time4 = (System.currentTimeMillis() - time4)/1000;
                     //double time41= System.currentTimeMillis();
@@ -170,23 +166,7 @@ public class Main {
                     //time41 = (System.currentTimeMillis() - time41)/1000;
                     System.out.println("Time Hill Climbing: "+ time4);
                     //System.out.println("Time Simulated Annealing: "+ time41);
-                /*case 4:
-                    double time5= System.currentTimeMillis();
-                    System.out.println("Using fifth generate intial solution");
-                    state.generateInitSol5();
-                    System.out.println("\nHill Climbing\n");
-                    System.out.println("Solució inicial:\n "+ state.toString());
-                    ComparticionHillClimbingSearch(state);
-                    time5 = (System.currentTimeMillis() - time5)/1000;
-                    //double time51= System.currentTimeMillis();
-                    //System.out.println("\nSimulated Annealing Search\n");
-                    //ComparticionSimulatedAnnealingSearch(state, 100000, 10, 5, 0.01);
-                    //time51 = (System.currentTimeMillis() - time51)/1000;
 
-                    System.out.println("Time Hill Climbing: "+ time5);
-                    //System.out.println("Time Simulated Annealing: "+ time51);
-                    break;
-                    */
 
             }
             System.out.println("\n\n");

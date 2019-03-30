@@ -6,12 +6,13 @@
 \date{\today}
 \usepackage{listings}
 \lstset{
+  language=Java,
   basicstyle=\ttfamily,
   showstringspaces=false,
   commentstyle=\color{orange},
   keywordstyle=\color{blue},
-	frame=tb,language=C,breaklines=true,numbers=none,  stringstyle=\color{red}, tabsize=3,   showstringspaces=false,
-  columns=flexible, 
+  breaklines=true,numbers=none,  stringstyle=\color{red}, tabsize=3,   showstringspaces=false,
+  columns=flexible,
 }
 \usepackage{graphicx}
 \begin{document}
@@ -60,6 +61,61 @@ We will have two criteria in order to evaluate the quality of the solution:
 \end{itemize} 
  
 \section{Representation of a problem state}
+We need a way to represent a state of the problem that is small in memory, but at the same time easy and quick to work with.
+We want to avoid storing unuseful or redundant information, unless we clearly think that that information will help us reduce the computation time. Also, we want to be able to represent all the possible states that could exist.
+
+Our states contain the following information:
+
+\begin{itemize}
+	\item Which users act as drivers and are providing their cars.
+	\item For each driver, which users (passengers) the driver needs to pick up and drop off, if any.
+	\item The order in which a driver needs to pick up and drop off its assigned passengers.
+	\item The total distance each car will be travelling for its route.
+\end{itemize}
+
+All users (both drivers and non drivers) have a unique identifying number (id), taken from the position they occupy in the users list.
+So in our state representation we will be using these identifiers to refer to users.
+
+We consider that the order in which a car picks up and drops its passengers is important. For example, if driver A is assigned passengers B and C, there are four possible routes after leaving its home, and before arriving at work:
+
+\begin{itemize}
+	\item Pick up B, pick up C, drop off B, drop off C.
+	\item Pick up B, drop off B, pick up C, drop off C.
+    \item Pick up C, pick up B, drop off C, drop off B.
+    \item Pick up C, drop off C, pick up B, drop off B.
+\end{itemize}
+
+These four options will result in different routes with potentially different total distances.
+
+For this reason, we decided to use an ordered list to describe which passengers a driver needs to take care of, and the specific route they will use in the process.
+
+Specifically, for each driver, we use a Java ArrayList listing all the sequential pick ups and drop offs of users that have been assigned, describing unambiguosuly a route that the driver needs to follow.
+
+Continuing with the previous example, if driver A has id 1, and passengers B and C have ids 2 and 3 respectively, the first route proposed before will be stored like this: $$[1, 2, 3, 2, 3, 1]$$
+
+In a different state, maybe the second proposed route is used, in that case the list would look like this: $$[1, 2, 2, 3, 3, 1]$$
+
+Note how each id in the list always needs to appear twice, implicitly the first time it appears indicates that that user is being picked up, and the second one indicates that the user is being droped off.
+
+Also note how the driver of the car is always the first and last element of the list, to represent the fact that the route must start at the driver's home, and end at the driver's workplace.
+
+Because a state can describe the presence of many different cars (each one with its own driver, passengers, and route) we use an ArrayList to contain all the cars lists described before. Thus, we end up with the following data structure:
+
+\begin{lstlisting}lstinlinelstinline
+ArrayList<ArrayList<Integer>> assignments;
+\end{lstlisting}
+
+Apart from this, we also decided to use an extra data structure that contains the total route distances for each car:
+
+\begin{lstlisting}
+ArrayList<Integer> distances;
+\end{lstlisting}
+
+Where the distance for the route in \raggedright\lstinline{assignments[i]} is stotred in \raggedright\lstinline{distances[i]}.
+
+Although not strictly necessary (because this could be computed at runtime from other existing data), this \lstinline{distances} variable will help us calculate the heuristic value of the state quicker. We just make sure to update these values any time \lstinline{assignments} is changed.
+
+
 \section{Generating an initial solution}
 We have to make a representation fo the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state:
 \begin{enumerate}

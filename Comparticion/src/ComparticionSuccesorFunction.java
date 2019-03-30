@@ -67,22 +67,20 @@ public class ComparticionSuccesorFunction implements SuccessorFunction{
                 for (int j = 0; j < state.getassignments().size(); ++j) { //cotxe 2
                     if (j != i) {
                         for (int k = 1; k <= state.getassignments().get(j).size() - 1; ++k) { //on el deixem recollida
-                            for (int l = k + 1; l <= state.getassignments().get(j).size(); ++l) { //on el deixem deixada
                                 ComparticionState temp_state = new ComparticionState(state);
-                                temp_state.deleteCar(i, j, k, l); ++count3;
+                                temp_state.deleteCar(i, j, k, k+1); ++count3;
                                 StringBuffer s = new StringBuffer();
-                               // System.out.println("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l);
-                                s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + l); //+"\n"+ state.toString();
+                               // System.out.println("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + +1);
+                                s.append("delete : Deleting car " + i + " and adding to Car " + j + " user from " + k + " to " + k+1); //+"\n"+ state.toString();
                                 retval.add(new Successor(s.toString(), temp_state));
                             }
 
                         }
                     }
                 }
-            }
         }
-       System.out.println("Swap inside nodes created: "+ count1+ "\n Move nodes created: "+ count2+ "\n Delete Cars nodes created: "+ count3 );
-        System.out.println("\n");
+       //System.out.println("Swap inside nodes created: "+ count1+ "\n Move nodes created: "+ count2+ "\n Delete Cars nodes created: "+ count3 );
+        //System.out.println("\n");
         return retval;
 
     }

@@ -224,4 +224,117 @@ Time Hill Climbing: 4.874
 Generació solució inicial 3
 
 
+nodesExpanded : 167
+Cotxe 0:	dist: 28.6 km 0 57 57 85 85 49 49 43 43 0
+Cotxe 1:	dist: 29.6 km 4 104 89 89 104 77 138 77 143 138 143 4
+Cotxe 2:	dist: 29.9 km 8 97 115 97 115 166 109 109 155 166 155 8
+Cotxe 3:	dist: 29.9 km 9 114 114 48 63 63 13 48 13 9
+Cotxe 4:	dist: 29.9 km 14 103 24 103 6 24 61 61 6 14
+Cotxe 5:	dist: 30.0 km 15 182 182 92 190 92 126 190 126 15
+Cotxe 6:	dist: 29.8 km 18 187 95 187 95 102 10 10 102 18
+Cotxe 7:	dist: 29.8 km 19 76 76 25 171 25 28 171 28 32 32 19
+Cotxe 8:	dist: 29.5 km 21 58 58 165 11 11 197 165 83 83 197 21
+Cotxe 9:	dist: 29.7 km 22 141 94 141 94 130 101 130 101 22
+Cotxe 10:	dist: 29.9 km 26 7 168 7 113 168 113 26
+Cotxe 11:	dist: 29.6 km 27 2 3 3 146 146 2 27
+Cotxe 12:	dist: 29.7 km 29 98 98 81 152 81 175 175 152 1 1 29
+Cotxe 13:	dist: 30.0 km 30 192 154 192 99 99 160 160 154 30
+Cotxe 14:	dist: 29.3 km 31 78 78 112 124 124 153 112 153 31
+Cotxe 15:	dist: 30.0 km 36 198 117 198 173 117 173 36
+Cotxe 16:	dist: 29.7 km 37 164 71 71 164 144 84 84 72 144 72 37
+Cotxe 17:	dist: 29.9 km 38 82 65 65 169 169 82 38
+Cotxe 18:	dist: 29.8 km 39 5 161 5 159 161 159 162 162 39
+Cotxe 19:	dist: 30.0 km 40 139 34 34 91 139 91 33 33 40
+Cotxe 20:	dist: 30.0 km 41 127 127 17 17 128 128 41
+Cotxe 21:	dist: 30.0 km 42 80 133 80 67 67 133 96 188 96 188 42
+Cotxe 22:	dist: 29.3 km 44 23 134 23 179 179 134 44
+Cotxe 23:	dist: 29.3 km 45 129 196 196 129 59 59 88 88 45
+Cotxe 24:	dist: 29.7 km 46 62 62 16 90 90 16 46
+Cotxe 25:	dist: 29.4 km 47 70 70 35 12 35 12 156 156 47
+Cotxe 26:	dist: 30.0 km 50 60 136 136 60 20 195 195 183 183 186 20 186 50
+Cotxe 27:	dist: 29.2 km 53 118 118 51 75 75 51 53
+Cotxe 28:	dist: 29.8 km 56 54 119 119 54 56
+Cotxe 29:	dist: 29.4 km 68 74 116 116 74 64 108 108 64 68
+Cotxe 30:	dist: 29.5 km 69 93 93 66 66 69
+Cotxe 31:	dist: 28.8 km 87 86 86 122 122 87
+Cotxe 32:	dist: 27.8 km 105 100 125 125 110 110 100 105
+Cotxe 33:	dist: 27.8 km 107 123 123 106 111 111 106 107
+Cotxe 34:	dist: 24.5 km 121 180 120 120 180 121
+Cotxe 35:	dist: 29.7 km 135 145 145 132 147 147 132 135
+Cotxe 36:	dist: 28.0 km 142 131 131 73 73 172 172 142
+Cotxe 37:	dist: 29.6 km 150 151 148 151 149 148 177 177 149 150
+Cotxe 38:	dist: 27.7 km 158 157 157 170 199 199 170 158
+Cotxe 39:	dist: 29.1 km 176 163 163 178 178 174 174 176
+Cotxe 40:	dist: 28.7 km 181 52 194 194 184 52 55 184 55 181
+Cotxe 41:	dist: 30.0 km 189 185 140 185 167 140 167 189
+Cotxe 42:	dist: 29.2 km 193 79 191 79 137 137 191 193
+Finally we have 43 cars.
+The total distance is 1261.1 km
+true
+Time Hill Climbing: 787.253
+
+
+Generació solució 4
+
+nodesExpanded : 241
+Cotxe 0:	dist: 30.0 km 0 77 77 129 196 196 129 104 89 89 104 0
+Cotxe 1:	dist: 29.6 km 4 175 13 13 34 175 155 34 155 84 84 4
+Cotxe 2:	dist: 29.9 km 8 115 99 115 109 109 110 110 99 8
+Cotxe 3:	dist: 29.7 km 9 141 164 141 25 25 28 28 164 9
+Cotxe 4:	dist: 29.7 km 14 117 76 76 63 117 55 55 48 48 63 14
+Cotxe 5:	dist: 29.8 km 15 169 169 162 72 162 130 72 114 114 11 130 11 15
+Cotxe 6:	dist: 29.8 km 18 178 178 133 112 133 112 18
+Cotxe 7:	dist: 30.0 km 19 103 103 82 198 198 94 94 82 19
+Cotxe 8:	dist: 29.3 km 21 17 123 123 83 17 159 159 83 21
+Cotxe 9:	dist: 29.9 km 22 128 58 58 98 98 190 128 188 188 161 190 161 22
+Cotxe 10:	dist: 29.7 km 26 192 146 192 149 149 146 26
+Cotxe 11:	dist: 30.4 km 27 65 97 97 173 173 79 65 79 27
+Cotxe 12:	dist: 30.9 km 29 95 95 151 197 151 197 29
+Cotxe 13:	dist: 30.0 km 30 153 2 153 182 182 2 92 41 41 78 78 92 30
+Cotxe 14:	dist: 31.1 km 31 187 187 23 139 139 134 23 168 134 168 31
+Cotxe 15:	dist: 29.8 km 36 152 71 152 10 71 10 91 59 59 91 36
+Cotxe 16:	dist: 30.9 km 37 1 6 6 154 1 154 37
+Cotxe 17:	dist: 30.4 km 39 40 156 156 40 85 85 171 38 38 171 39
+Cotxe 18:	dist: 29.9 km 44 45 62 62 45 42 80 80 144 42 144 44
+Cotxe 19:	dist: 30.2 km 47 54 81 81 87 54 87 46 32 46 32 47
+Cotxe 20:	dist: 29.7 km 51 66 75 75 88 66 50 88 50 51
+Cotxe 21:	dist: 31.4 km 56 53 131 131 179 53 179 60 136 136 60 56
+Cotxe 22:	dist: 30.2 km 68 3 74 3 90 90 67 67 74 64 57 57 64 68
+Cotxe 23:	dist: 28.9 km 70 177 69 69 86 177 86 70
+Cotxe 24:	dist: 29.5 km 96 93 122 122 124 124 93 7 195 195 7 96
+Cotxe 25:	dist: 29.8 km 105 100 143 143 111 111 100 160 160 105
+Cotxe 26:	dist: 31.6 km 107 167 116 167 116 106 199 199 106 107
+Cotxe 27:	dist: 31.0 km 120 158 108 158 119 119 138 108 145 145 138 120
+Cotxe 28:	dist: 30.1 km 127 5 125 5 101 125 157 101 157 127
+Cotxe 29:	dist: 30.7 km 135 147 132 147 166 132 163 163 118 166 118 135
+Cotxe 30:	dist: 30.2 km 142 102 102 191 191 165 113 113 165 142
+Cotxe 31:	dist: 29.8 km 150 73 148 73 186 186 24 148 12 12 24 150
+Cotxe 32:	dist: 30.1 km 172 121 121 170 16 170 16 61 61 172
+Cotxe 33:	dist: 30.1 km 176 49 49 43 43 180 174 180 174 176
+Cotxe 34:	dist: 29.0 km 183 184 181 184 181 20 35 35 20 183
+Cotxe 35:	dist: 28.6 km 189 185 126 185 140 140 126 189
+Cotxe 36:	dist: 30.4 km 193 137 33 33 52 137 194 52 194 193
+WARNING: CAR 11 drives 30.4 km
+WARNING: CAR 12 drives 30.9 km
+WARNING: CAR 14 drives 31.1 km
+WARNING: CAR 16 drives 30.9 km
+WARNING: CAR 17 drives 30.4 km
+WARNING: CAR 19 drives 30.2 km
+WARNING: CAR 21 drives 31.4 km
+WARNING: CAR 22 drives 30.2 km
+WARNING: CAR 26 drives 31.6 km
+WARNING: CAR 27 drives 31.0 km
+WARNING: CAR 28 drives 30.1 km
+WARNING: CAR 29 drives 30.7 km
+WARNING: CAR 30 drives 30.2 km
+WARNING: CAR 32 drives 30.1 km
+WARNING: CAR 33 drives 30.1 km
+WARNING: CAR 36 drives 30.4 km
+Finally we have 37 cars.
+The total distance is 1112.1 km
+false
+Time Hill Climbing: 1966.667
+
+
+
 

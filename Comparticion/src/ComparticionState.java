@@ -183,39 +183,7 @@ public class ComparticionState {
         return randomNum;
     }
 
-    public void generateInitSol5() {
-
-        ArrayList<ArrayList<Integer>> cars = new ArrayList<>(users.size());
-
-        for(int i = 0; i< users.size(); ++i){
-            ArrayList<Integer> paxs = new ArrayList<>();
-            Usuario u = users.get(i);
-            if(u.isConductor()){
-                paxs.add(i);
-                paxs.add(i);
-                cars.add(paxs);
-            }
-
-        }
-        for(int i = 0; i<users.size(); ++i){
-
-            Usuario u = users.get(i);
-            if(!u.isConductor()){
-                cars.get(randInt(0,cars.size())).add(1,i);
-                cars.get(randInt(0,cars.size())).add(1,i);
-            }
-
-        }
-        distances.clear();
-        for(ArrayList<Integer> car : cars){
-            distances.add(distance(car));
-        }
-        this.assignments = cars;
-
-    }
-
-
-    public String toString(){
+     public String toString(){
         StringBuffer sortida = new StringBuffer();
         for(int i = 0; i<assignments.size(); ++i){
             sortida.append("Cotxe "+ i + ":"+"\tdist: "+(distances.get(i)/10f)+ " km");
