@@ -1,0 +1,14 @@
+data = read.csv("data_A.csv", row.names=NULL)  # read csv file
+attach(mtcars)
+par(mfrow=c(2,2))
+plot(t(data['sol']),t(data['time']), pch=21, bg="lightgreen", xaxt="n", xlab="Initial solution Id", ylab="Time (s)")
+axis(1, at = seq(1, 4, by = 1))
+plot(t(data['sol']),t(data['distance']), pch=21, bg="yellow3", xaxt="n", xlab="Initial solution Id", ylab="Number of nodes expanded")
+axis(1, at = seq(1, 4, by = 1))
+plot(t(data['sol']),t(data['distance']), pch=21, bg="lightcoral", xaxt="n", xlab="Initial solution Id", ylab="Distance (hm)")
+axis(1, at = seq(1, 4, by = 1))
+plot(t(data['sol']),t(data['cars']), pch=21, bg="lightblue4", xaxt="n", xlab="Initial solution Id", ylab="Number of cars")
+axis(1, at = seq(1, 4, by = 1))
+
+dev.copy(pdf,'data_A.pdf')
+dev.off()
