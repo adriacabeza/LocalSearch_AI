@@ -275,8 +275,21 @@ Our \textbf{hypothesis} is that the best solution will be the first or the secon
 \label{operators}
 \end{figure}
 
-FALTA COMENTAR CADA UN DELS PARÀMETRES, SI S'HAN De CANVIAR ELS GRÀFICS JUST ESPERAR 
+\paragraph{Observations}\mbox{}\\
+\begin{enumerate}
+\item Initial solutions nº 1 and nº 2 expand a very small number of nodes, as a result, they take very little computation time,
+but also provide very poor final solutions: the number of cars is barely reduced, and the total distance driven is relatively high.
 
+\item Initial solutions nº 3 and nº 4 expand a large number of nodes before stopping, resulting in higher computation time,
+but end up providing a much more optimal final solution, with almost half the number of cars as before, and significantly reducing the total distance driven.
+
+\item Initial solution nº 3 requires less computation time than solution nº4, while still providing similar (if not better) final results.
+
+\end{enumerate}
+
+\paragraph{Conclusion}\mbox{}\\
+Initial solution nº 3 seems to be the best initial solution out of the 4 we proposed.
+From now on, we will be only using initial solution nº 3 for our experiments.
 
 \section{Experiment 3}
 
