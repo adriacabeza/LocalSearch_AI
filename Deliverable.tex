@@ -263,14 +263,14 @@ Another good combination of operators that could have been a good approach for t
 \section{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
-We will use \textbf{the same scenery that was used in the first experiment} ($N=200$ and $M=100$ and $10$ executions using random seeds).  In order to try all the different initial solution generators we have created a process where the same scenary is applied to different initial solution methods to see which one gives us better results and better time. 
+We will use \textbf{the same scenery that was used in the first experiment} ($N=200$ and $M=100$ and $10$ executions using random seeds).  In order to try all the different initial solution generators we have created a process where the same scenery is applied to different initial solution methods to see which one gives us better results and better time. 
 
 Our \textbf{hypothesis} is that the best solution will be the first or the second one, those solutions assign in a balanced way all the people that are not drivers in all cars (if you want to know more about it please check the section \textit{Generating an initial solution}). Our hypothesis is based on the belief that starts already in an stable place, pretty close to the optimal solution; so it will not last a lot of time finding the best solution. 
 
 \begin{figure}[H]
 \captionsetup{justification=centering}
 \centering
-\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{Results/data_A.pdf}
+\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{Results/data_2.pdf}
 \caption{Plots with different parameters measured for each intial solution.}
 \label{operators}
 \end{figure}
@@ -298,7 +298,7 @@ Each time this number of iterations is executed, the probability of choosing a w
 \end{enumerate}
 
 
-Since there are several parameters, our \textbf{hypothesis} is that there must exists an exact combination of them which will allow Simulated Annealing to give us the best solutions. In order to do it, we have used \textbf{same scenary used in the previous experiments} ($N=200$ and $M=100$) but setting the seed to a fixed value (\textbf{1234}) since Simulated Annealing is already random in its core and it will change in every execution. Then we measured different parameters of each execution and created several plots in order to discuss in the best way possible its results. 
+Since there are several parameters, our \textbf{hypothesis} is that there must exists an exact combination of them which will allow Simulated Annealing to give us the best solutions. In order to do it, we have used \textbf{same scenery used in the previous experiments} ($N=200$ and $M=100$) but setting the seed to a fixed value (\textbf{1234}) since Simulated Annealing is already random in its core and it will change in every execution. Then we measured different parameters of each execution and created several plots in order to discuss in the best way possible its results. 
 
     \begin{figure}[H]
     \captionsetup{justification=centering}
@@ -380,7 +380,7 @@ About the presence of states that are not solution: we believe that this happens
 
 
 \section{Experiment 4}
-\textbf{Using the same scenary we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
+\textbf{Using the same scenery we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
 We have started with $200$ users and then, each iteration, we have incremented by $1000$ the users until we have discovered a pattern.  
