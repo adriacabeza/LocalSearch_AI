@@ -1,36 +1,19 @@
 ########## Experiment 2 ##########
 
-data = read.csv("data_A.csv", row.names=NULL)  # read csv file
+data = read.csv("data_2.csv", row.names=NULL)  # read csv file
 attach(mtcars)
 par(mfrow=c(2,2))
 
-boxplot(time~sol, data, cex=1.5, pch=21, bg="lightgreen", xlab="Initial Solution id", ylab="Computation Time (s)")
+boxplot(time/1000~initialS, data, cex=1, xlab="Initial Solution id", ylab="Seconds", main="Computation time")
 
-boxplot(nodesExpanded~sol, data, cex=1.5, pch=21, bg="yellow3", xlab="Initial Solution id", ylab="Number of nodes expanded")
+boxplot(nodesExpanded~initialS, data, cex=1, xlab="Initial Solution id", ylab="Nº Nodes", main="Number of nodes expanded")
 
-boxplot(distance~sol, data, cex=1.5, pch=21, bg="lightcoral", xlab="Initial Solution id", ylab="Total Distance (km)")
+boxplot(distance~initialS, data, cex=1, xlab="Initial Solution id", ylab="km", main="Total distance driven")
 
-boxplot(cars~sol, data, cex=1.5, pch=21, bg="lightblue4", xlab="Initial Solution id", ylab="Number of cars")
+boxplot(cars~initialS, data, cex=1, xlab="Initial Solution id", ylab="Nº Cars", main="Number of required cars")
 
-dev.copy(pdf,'data_A.pdf')
+dev.copy(pdf,'data_2.pdf')
 dev.off()
-
-########## Experiment 2 - Old ##########
-
-#data = read.csv("data_A.csv", row.names=NULL)  # read csv file
-#attach(mtcars)
-#par(mfrow=c(2,2))
-#plot(t(data['sol']),t(data['time']), cex=1.5, pch=21, bg="lightgreen", xaxt="n", xlab="Initial Solution id", ylab="Computation Time (s)")
-#axis(1, at = seq(1, 4, by = 1))
-#plot(t(data['sol']),t(data['nodesExpanded']), cex=1.5, pch=21, bg="yellow3", xaxt="n", xlab="Initial Solution id", ylab="Number of nodes expanded")
-#axis(1, at = seq(1, 4, by = 1))
-#plot(t(data['sol']),t(data['distance']), cex=1.5, pch=21, bg="lightcoral", xaxt="n", xlab="Initial Solution id", ylab="Distance (km)")
-#axis(1, at = seq(1, 4, by = 1))
-#plot(t(data['sol']),t(data['cars']), cex=1.5, pch=21, bg="lightblue4", xaxt="n", xlab="Initial Solution id", ylab="Number of cars")
-#axis(1, at = seq(1, 4, by = 1))
-
-#dev.copy(pdf,'data_A.pdf')
-#dev.off()
 
 ########## Experiment 3 ##########
 
