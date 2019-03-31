@@ -383,7 +383,7 @@ About the presence of states that are not solution: we believe that this happens
 \textbf{Using the same scenary we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
-We have started with $200$ users and then, each iteration, we have incremented by $1000$ the users until we have discovered a pattern.  
+We have started with $200$ users and then, each iteration, we have incremented by $1000$ the users until we have discovered a pattern. Our \textbf{hypothesis} is that the time is going to be heavily influenced by the size of $N$. Actually we think that they are going to be directly proportional. 
 
 \begin{figure}[H]
 \centering
@@ -393,7 +393,7 @@ We have started with $200$ users and then, each iteration, we have incremented b
 \end{figure}
 \vspace{1cm}
 
-As we can see in the previous figure \ref{timedifferentN}, there is a clear pattern: as the size of N grow the ... TODO 
+As we can see in the previous figure \ref{timedifferentN}, there is a clear pattern: as the size of N grows, the time augments really fast (exponentially). We believe that the main reason for this behavior is because the number of nodes that are going to be created for each iteration is expanded exponentially as the $N$ grows. If you want to see more about why the number of successors that are created please check the \textit{Generating successor states} and \textit{Analysis of our operators}
 
 
 \section{Experiment 5}
