@@ -1,7 +1,30 @@
+########## Experiment 1 ##########
+
+data = read.csv("data_1.csv", row.names=NULL, comment.char = '#')  # read csv file
+cnfglist = c("All Operators", "Swap & Move", "Move & Delete", "Move")
+
+par(mfrow=c(2,2))
+par(las=2)
+#par(oma=c(0,0,0,0))
+
+boxplot(time.ms/1000~cnfg, data, cex=1, xaxt = "n", space=1, xlab="", ylab="Seconds", main="Computation time")
+axis(1, at=seq(1, 4, by=1), labels = FALSE)
+text(seq(1, 4, by=1), cex=0.9, par("usr")[3] - 8, labels = cnfglist, srt = 45, adj= 1, xpd = NA)
+
+boxplot(distance.km~cnfg, data, cex=1, xaxt = "n", space=1, xlab="", ylab="km", main="Total distance driven")
+axis(1, at=seq(1, 4, by=1), labels = FALSE)
+text(seq(1, 4, by=1), cex=0.9, par("usr")[3] - 16, labels = cnfglist, srt = 45, adj= 1, xpd = NA)
+
+boxplot(cars~cnfg, data, cex=1, xaxt = "n", space=1, xlab="", ylab="Nº Cars", main="Number of required cars")
+axis(1, at=seq(1, 4, by=1), labels = FALSE)
+text(seq(1, 4, by=1), cex=0.9, par("usr")[3] - 4, labels = cnfglist, srt = 45, adj= 1, xpd = NA)
+
+dev.copy(pdf,'data_1.pdf')
+dev.off()
+
 ########## Experiment 2 ##########
 
 data = read.csv("data_2.csv", row.names=NULL)  # read csv file
-attach(mtcars)
 par(mfrow=c(2,2))
 
 boxplot(time/1000~initialS, data, cex=1, xlab="Initial Solution id", ylab="Seconds", main="Computation time")
