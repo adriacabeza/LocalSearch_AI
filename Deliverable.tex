@@ -238,27 +238,35 @@ This experiment is going to be made using \textbf{200 people }($N$), and \textbf
 As we mentioned in the previous section \textit{Analysis of our operators}, we have three different operators. In order to try out which set of operators is the best one, we have automatized a process where all different operators are applied to the scenery using different seeds to see which one gives us better results and better time. 
 \\
 Our \textbf{hypothesis} is that a combination of all of them will gives us the best results because using all of them will let Hill Climbing find the path to the global maximum. 
-%
-%\begin{figure}
-%\centering
-%\includegraphics[scale=0.45]{Results/data_A.pdf}
-%\caption{Plots with different parameters measured for each operator }
-%\label{operators}
-%\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{Results/data_1.pdf}
+\caption{Plots with different parameters measured for each operator }
+\label{operators}
+\end{figure}
 \vspace{1cm}
 
-Finally after getting \textbf{the results}, clearly seen in the figure \ref{FER REFERENCIA A LA FIGURA DE DALT}, we can see that it really depends on the seed and on the configuration but it seems that our hypothesis is a pretty acceptable way to use our operators.
-
-However it is interesting to observe that we did not tried some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too much people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}). 
+Finally after getting \textbf{the results}, clearly seen in the figure \ref{operators}, we can see that our hypothesis about the operators was wrong. Let's analyse our results for each parameter: 
 \\
 \smallskip
 
-Moreover, we can see that swap outside and swap inside gives us pretty good solutions if we just take care of total distance. Also, since it is not able to delete the number of cars created in the initial solution it is not able to minimize the number of cars. 
+If we take a look into the Computation time, we can see that the worst solution is obviously the one using all the operators since it creates several more successors. So in terms of time we conclude that it is the worst solution. However, to get a correct idea about the best operators we should look before into the solutions we got. 
 \\
 \smallskip
 
+The total distance results are pretty similar in all the methods. The best one is \textbf{Move}, because it is not able to delete the number of cars created in the initial solution so it can only minimize the distance.  
+\\
+\smallskip
 
-Another good combination of operators that could have been a good approach for the problem would be \textit{delete} and \textit{swap outisde}.
+When we analyse the number of required cars we discover that the best solutions are the ones that uses \textbf{All Operators} and \textbf{Move} and \textbf{Delete}. The difference here between solutions is really huge because the other operators are not  able to delete cars. 
+
+
+It is interesting to observe that we did not tried some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too much people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}). 
+\\
+\smallskip
+
+To sum up, we conclude that the best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number or required cars and it gets good results in the total distance driven.
 
 \section{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
