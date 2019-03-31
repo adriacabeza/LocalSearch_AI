@@ -1,4 +1,4 @@
-######
+########## Experiment 2 ##########
 
 data = read.csv("data_A.csv", row.names=NULL)  # read csv file
 attach(mtcars)
@@ -15,7 +15,7 @@ boxplot(cars~sol, data, cex=1.5, pch=21, bg="lightblue4", xlab="Initial Solution
 dev.copy(pdf,'data_A.pdf')
 dev.off()
 
-######
+########## Experiment 2 - Old ##########
 
 #data = read.csv("data_A.csv", row.names=NULL)  # read csv file
 #attach(mtcars)
@@ -32,8 +32,7 @@ dev.off()
 #dev.copy(pdf,'data_A.pdf')
 #dev.off()
 
-######
-
+########## Experiment 3 ##########
 
 library(scatterplot3d) # Requires installing 'scatterplot3d' package.
 
@@ -74,4 +73,14 @@ par(mar=c(5,4,4,4))
 plot(valid_x,valid_y/1000, pch=21, bg="green", type="p", ylab="Nº Iterations (Thousands)", xlab="Lambda")
 points(invalid_x,invalid_y/1000, pch=21, bg="red", type="p")
 dev.copy(pdf,'data_B_4.pdf', width=4,height=4)
+dev.off()
+
+########## Experiment 4 ##########
+
+data = read.csv("data_4.csv", row.names=NULL)  # read csv file
+
+dev.new(width=4, height=4)
+par(las=1)
+plot(data$n, data$time/1000/60, type="l", col="firebrick3", lwd=3, xlab="N", ylab="Time (minutes)")
+dev.copy(pdf,'data_4_1.pdf', width=4,height=4)
 dev.off()

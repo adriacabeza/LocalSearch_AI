@@ -304,7 +304,7 @@ Since there are several parameters, our \textbf{hypothesis} is that there must e
     \captionsetup{justification=centering}
     \centering
         \includegraphics[scale=0.9]{Results/data_B_1.pdf}
-        \caption{Time values ($ms$) related to $\lambda$ and number of iterations}
+        \caption{Time values ($s$) related to $\lambda$ and number of iterations}
         \label{fig:data2}
     \end{figure}
     
@@ -325,7 +325,7 @@ In the figure \ref{fig:data3} we can see the relation between the total number o
        \captionsetup{justification=centering}
        \centering
         \includegraphics[scale=0.9]{Results/data_B_3.pdf}
-        \caption{Total distance of the final state ($hm$) related to the number of iterartions and $\lambda$.}
+        \caption{Total distance of the final state ($km$) related to the number of iterartions and $\lambda$.}
         \label{fig:data4}
     \end{figure}
       \vspace{1cm}
@@ -383,14 +383,14 @@ About the presence of states that are not solution: we believe that this happens
 \textbf{Using the same scenary we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
-We have started with $200$ users and then, each iteration, we have incremented by $50$ the users until we have discovered a pattern.  
+We have started with $200$ users and then, each iteration, we have incremented by $1000$ the users until we have discovered a pattern.  
 
-%\begin{figure}
-%\centering
-%\includegraphics[scale=0.45]{Results/data_C.pdf}
-%\caption{Time measured (ms) for diferent values of people (N) and drivers (N/2)}
-%\label{timedifferentN}
-%\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{Results/data_4_1.pdf}
+\caption{Computation time measured for different numbers of people (N), and drivers (N/2)}
+\label{timedifferentN}
+\end{figure}
 \vspace{1cm}
 
 As we can see in the previous figure \ref{timedifferentN}, there is a clear pattern: as the size of N grow the ... TODO 
