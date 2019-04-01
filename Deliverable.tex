@@ -134,6 +134,14 @@ Where the distance for the route in \raggedright\lstinline{assignments[i]} is st
 
 Although not strictly necessary (because this could be computed at runtime from other existing data), this \lstinline{distances} variable will help us calculate the heuristic value of the state quicker. We just make sure to update these values any time \lstinline{assignments} is changed.
 
+The creation of this problem, will generate a very big amount of states. With some calculus we can arrive to this solution. Assuming that there are N people in total and M drivers, we can know that
+the problem can generate different states with two reasons: the number of possibilities that has every person to be in a different car and the order of each car.
+To compute the solution we calculate a lower bound supposing only the probability for being in each car.
+$$\Omega = M^N$$
+Afterwards to compute an upper bound we can add the probability for being in each place of the car.
+$$O = M^N*(2N)!$$
+So if we consider our total number of states X, we can confirm:
+$$M^N < X < M^N*(2N)!$$
 
 \begin{figure}[H]
 \captionsetup{justification=centering}
