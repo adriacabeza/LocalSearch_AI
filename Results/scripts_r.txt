@@ -177,3 +177,24 @@ points(invalid_x,invalid_y, pch=21, bg="red", type="p")
 dev.copy(pdf,'data_6_4.pdf', width=4,height=4)
 dev.off()
 
+########## Experiment 6.2 ##########
+
+data = read.csv("data_6-2.csv", row.names=NULL)  # read csv file
+par(mfrow=c(2,2))
+
+boxplot(time/1000~initialS, data, cex=1, xlab="Initial Solution id", ylab="Seconds", main="Computation time")
+
+boxplot(distance~initialS, data, cex=1, xlab="Initial Solution id", ylab="km", main="Total distance driven")
+
+boxplot(cars~initialS, data, cex=1, xlab="Initial Solution id", ylab="Nº Cars", main="Number of required cars")
+
+counts <- table(data$valid, data$initialS)*10
+
+barplot(counts[c(2,1),], xlab="Initial Solution id", ylab="%", col=c("springgreen2","firebrick1"), oma=c(0, 0, 0, 4))
+title("Valid Final Solutions", adj=0.2)
+legend("topright", legend = rownames(counts), inset=c(0, -0.28), xpd=TRUE, bty = "n", pch=15, col=c("springgreen2","firebrick1"))
+
+dev.copy(pdf,'data_6.2.pdf')
+dev.off()
+
+
