@@ -154,7 +154,7 @@ public class Main {
                 m = ((Number) cmd.getParsedOptionValue("m")).intValue();
             else
                 m = n/2;
-            if(cmd.hasOption("n"))
+            if(cmd.hasOption("a"))
                 a = cmd.getOptionValue("a");
             if(cmd.hasOption("i"))
                 i = ((Number) cmd.getParsedOptionValue("i")).intValue();
@@ -218,6 +218,7 @@ public class Main {
 					frame.setLocationRelativeTo(null);
 					frame.setTitle("State Display");
 					frame.setResizable(false);
+                    frame.setLocation(0, 0);
 
 				} catch (Exception e) {
 					e.printStackTrace();
