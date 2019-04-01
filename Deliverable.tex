@@ -227,8 +227,9 @@ For the second heuristic we have added another criterion in order to minimize al
   \item Get the number of cars in each state. Adding the sum of previus criterias a ponderate value of the number of cars, we obtain this second heuristic.
 \end{enumerate}
 
+\section{Experiments}
 
-\section{Experiment 1}
+\subsection{Experiment 1}
 In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. 
 \\
 \medskip 
@@ -268,7 +269,7 @@ It is interesting to observe that we did not tried some operators alone like \te
 
 To sum up, we conclude that the best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number or required cars and it gets good results in the total distance driven.
 
-\section{Experiment 2}
+\subsection{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
 We will use \textbf{the same scenery that was used in the first experiment} ($N=200$ and $M=100$ and $10$ executions using random seeds).  In order to try all the different initial solution generators we have created a process where the same scenery is applied to different initial solution methods to see which one gives us better results and better time. 
@@ -299,7 +300,7 @@ but end up providing a much more optimal final solution, with almost half the nu
 Initial solution nº 3 seems to be the best initial solution out of the 4 we proposed.
 From now on, we will be only using initial solution nº 3 for our experiments.
 
-\section{Experiment 3}
+\subsection{Experiment 3}
 
 A really important part about this project is to be able to determine the parameters that are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
 \\
@@ -400,7 +401,7 @@ About the presence of states that are not solution: we believe that this happens
 
 
 
-\section{Experiment 4}
+\subsection{Experiment 4}
 \textbf{Using the same scenery we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
@@ -417,10 +418,14 @@ We have started with $200$ users and then, each iteration, we have incremented b
 As we can see in the previous figure \ref{timedifferentN}, there is a clear pattern: as the size of N grows, the time augments really fast (exponentially). We believe that the main reason for this behavior is because the number of nodes that are going to be created for each iteration is expanded exponentially as the $N$ grows. If you want to see more about why the number of successors that are created please check the \textit{Generating successor states} and \textit{Analysis of our operators}
 
 
-\section{Experiment 5}
+\subsection{Experiment 5}
 In the assignment we had two main objectives: minimize the distance driven and minimize the cars that are needed. To make it we have implemented two heuristic functions. 
 
-In order to study how the heuristic functions work, we will observe the total distance driven and the execution time using both heuristic functions. We will use the \textit{Hill Climbing} algorithm.
+DUring some experiments we find that the best way in order to minimize the distance is minimizing also the cars. So we finally have chosen to apply all of the experiments with the second heuristic.
+
+In order to study how the heuristic functions work, we will observe the total distance driven, the execution time and the total number of cars. We will use the \textit{Hill Climbing} algorithm.
+
+
 
 %MIRAR ENUNCIAT QUE DIU QUE En este caso tendréis que buscar como se han de ponderar los criterios de la segunda heurística. 
 
@@ -460,8 +465,8 @@ In order to study how the heuristic functions work, we will observe the total di
   \end{figure}
     \vspace{1cm}
 
-\section{Experiment 6}
-Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with both heuristics.
+\subsection{Experiment 6}
+Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with the chosen heuristic.
 
 \begin{figure}[H]
   \captionsetup{justification=centering}
@@ -499,19 +504,19 @@ Using the same scenarios used before, we repeated the executions with the Simula
   \end{figure}
     \vspace{1cm}
 
-\section{Experiment 7}
+\subsection{Experiment 7}
 Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
 
 In order to discover the best proportion for each size we will experiment with different values. We have used the heuristic function and algorithm that gave us the best results which are BLABLABLA as we clearly showed in the previous experiments. 
 
 
 
-\section{Especial Experiment}
+\subsection{Especial Experiment}
 
 At this point we have degined the best initial state, its operators, the heuristic algorithm and Hill Climbing and Simulated Annealing with the most appropiate parameters, so we can proceed to compare algorithms. 
 
 
-\subsection{Hill Climbing}
+\subsubsection{Hill Climbing}
 
 The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
 \\
@@ -530,7 +535,7 @@ We would like to add that these results are a valid solution because no car driv
 \label{Results}
 \end{table}
 
-\subsection{Simulated annealing}
+\subsubsection{Simulated annealing}
 The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
 \\
 
