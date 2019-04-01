@@ -231,7 +231,7 @@ For the second heuristic we have added another criterion in order to minimize al
 
 \section{Experiments}
 
-\subsection{Experiment 1}
+\subsection{Experiment 1: Operators}
 In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. 
 \\
 \medskip 
@@ -272,7 +272,7 @@ It is interesting to observe that we did not tried some operators alone like \te
 \paragraph{Conclusion}\mbox{}\\
 The best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number of required cars and it gets good results in the total distance driven.
 
-\subsection{Experiment 2}
+\subsection{Experiment 2: Initial Solutions}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
 We will use \textbf{the same scenery that was used in the first experiment} ($N=200$ and $M=100$ and $10$ executions using random seeds).  In order to try all the different initial solution generators we have created a process where the same scenery is applied to different initial solution methods to see which one gives us better results and better time. 
@@ -303,7 +303,7 @@ but end up providing a much more optimal final solution, with almost half the nu
 Initial solution nº 3 seems to be the best initial solution out of the 4 we proposed.
 From now on, we will be only using initial solution nº 3 for our experiments.
 
-\subsection{Experiment 3}
+\subsection{Experiment 3: Simulated Annealing parameters}
 
 A really important part about this project is to be able to determine the parameters that are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
 \\
@@ -377,7 +377,7 @@ About the presence of states that are not solution: we believe that this happens
 So using this experiment we can confirm the affirmation of small values for lambdas and big number of iterations as the best options.
 From now on, we have chosen a $\lambda$ value of 0.0005 and a value of \emph{Number of Steps} of 250000.
 
-\subsection{Experiment 4}
+\subsection{Experiment 4: Problem size}
 \textbf{Using the same scenery we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
@@ -399,7 +399,7 @@ As we can see in the previous figure \ref{timedifferentN}, there is a clear patt
 
 
 
-\subsection{Experiment 5}
+\subsection{Experiment 5: Heuristic function}
 In the assignment we had two main objectives: minimize the distance driven and minimize the cars that are needed. To make it we have implemented two heuristic functions. 
 
 DUring some experiments we find that the best way in order to minimize the distance is minimizing also the cars. So we finally have chosen to apply all of the experiments with the second heuristic.
@@ -459,13 +459,10 @@ The las Figure of this experiment (Figure \ref{fig:data_5_4}) shows the correctn
 To conclude we will choose a penalty both ponderations. Watching the results we can abstract that a lower value of the number of cars penalty and with a value in the middle of the possible distance exceed penalty it might be the best one.
 Finally we have chosen tha value of 5 in the distance and 80 for the car penalty, because it is a correct solution for this seed and because the complexity and the solutions seems better.
 
-\subsection{Experiment 6}
-Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with the chosen heuristic.
+\subsection{Experiment 6: Simulated Annealing}
+Using the same scenarios as before, we repeated some of the experiments, this time using Simulated Annealing.
 
-This time we have chosen the \emph{Initial Solution 1}, due to the way which are distributed the users of the service give us better results.
-
-Also we have cathced the following parameters for the Simulated Annealing:
-
+The chosen parameters for Simulated Annealing (as found through experimentation in previous sections) are:
 \begin{itemize}
   \item Num Steps: 250000
   \item Number of iterations for each temperature change: 10
@@ -474,6 +471,20 @@ Also we have cathced the following parameters for the Simulated Annealing:
 \end{itemize}
 
 
+
+\subsubsection{Initial solutions}
+\begin{figure}[H]
+  \captionsetup{justification=centering}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{Results/data_6-2.pdf}
+  \caption{Plots with different parameters measured for each intial solution.}
+  \label{operators}
+  \end{figure}
+
+We repeated the experiment to find the best initial solution. This time, initial solutions nº 3 an nº 4 gave no valid answers, while still giving the best results in terms of number of cars, and total distance driven.
+For this reason, initial solutions nº 1 and nº 2, although not giving the apparent optimal, they provided valid solutions (no cars exceeding 30 km, and no cars carrying more than 3 people at once).
+
+\subsubsection{Heuristic function}
 \begin{figure}[H]
   \captionsetup{justification=centering}
    \centering
@@ -514,9 +525,11 @@ Using the Simulated Annealing algorithm we obtained a very similar results than 
 
 \paragraph{Conclusion}\mbox{}\\
 
-The results obtained in this part are very similar than the before, unless the the Computation time. This shows us that in a lot of cases the Simulated Annealing algorithm will be a better decision than Hill Climbing.
+In contrast to when using Hill Climbing, initial solutions nº 1 and nº 2 are preferable when using Simmulated Annealing.
+When it comes to the heuristic function, the results are very similar to when using Hill Climbing.
+Simmulated Annealing reuqires much less time than Hill Climbing, while still providing decent solutions (but slightly worse than the Hill CLimbing ones).
 
-\subsection{Experiment 7}
+\subsection{Experiment 7: Drivers Proportion}
 Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
 
 We have used the heuristic function and algorithm that gave us the best results which are \textbf{Hill Climbing} and the \textbf{Second Heuristic}, the one that minimizes the distance and the number of cars.
