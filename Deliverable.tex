@@ -267,7 +267,8 @@ It is interesting to observe that we did not tried some operators alone like \te
 \\
 \smallskip
 
-To sum up, we conclude that the best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number or required cars and it gets good results in the total distance driven.
+\paragraph{Conclusion}\mbox{}\\
+The best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number or required cars and it gets good results in the total distance driven.
 
 \subsection{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
@@ -338,11 +339,11 @@ In the figure \ref{fig:data2} we can see that there is a clear relation between 
         \includegraphics[scale=0.9]{Results/data_B_2.pdf}
         \caption{Number of cars of the final state related to number of iterations and $\lambda$}
         \label{fig:data3}
+    \end{figure}
         
         \vspace{1cm}
 In the figure \ref{fig:data3} we can see the relation between the total number of cars and the $\lambda$ and the number of iterations. In this case the relationship is not so  obvious as the previous case, a really small declining tendency is distinguished along the number of iterations, but as the lambda grows it becomes not so obvious. However if we just take a look into the $\lambda$ values we can see a higher number of cars the higher it is. So, taking in account that we want to minimize the numbers of cars, we can conclude that the best values are a small $\lambda$ and a big number of iterations. 
-        
-        \end{figure}
+       
        \begin{figure}
        \captionsetup{justification=centering}
        \centering
@@ -399,6 +400,7 @@ About the presence of states that are not solution: we believe that this happens
 %    \caption{Plots of our experiments with Simulated Annealing parameters: Lambda and Number of total iterations (steps)}\label{fig:plotSimulated}
 %\end{figure}
 
+\paragraph{Conclusion}\mbox{}\\
 
 
 \subsection{Experiment 4}
@@ -417,6 +419,7 @@ We have started with $200$ users and then, each iteration, we have incremented b
 
 As we can see in the previous figure \ref{timedifferentN}, there is a clear pattern: as the size of N grows, the time augments really fast (exponentially). We believe that the main reason for this behavior is because the number of nodes that are going to be created for each iteration is expanded exponentially as the $N$ grows. If you want to see more about why the number of successors that are created please check the \textit{Generating successor states} and \textit{Analysis of our operators}
 
+\paragraph{Conclusion}\mbox{}\\
 
 \subsection{Experiment 5}
 In the assignment we had two main objectives: minimize the distance driven and minimize the cars that are needed. To make it we have implemented two heuristic functions. 
@@ -464,6 +467,8 @@ In order to study how the heuristic functions work, we will observe the total di
       \label{fig:data_5_4}
   \end{figure}
     \vspace{1cm}
+    
+\paragraph{Conclusion}\mbox{}\\
 
 \subsection{Experiment 6}
 Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with the chosen heuristic.
@@ -503,13 +508,15 @@ Using the same scenarios used before, we repeated the executions with the Simula
       \label{fig:data_6_4}
   \end{figure}
     \vspace{1cm}
+    
+\paragraph{Conclusion}\mbox{}\\
 
 \subsection{Experiment 7}
 Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
 
 In order to discover the best proportion for each size we will experiment with different values. We have used the heuristic function and algorithm that gave us the best results which are BLABLABLA as we clearly showed in the previous experiments. 
 
-
+\paragraph{Conclusion}\mbox{}\\
 
 \subsection{Especial Experiment}
 
