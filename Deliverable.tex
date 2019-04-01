@@ -187,12 +187,14 @@ At the beginning of everything we made a brainstorming session with all the oper
 Finally we decided to implement these 3 operators, which we think they would reach to all the possible solutions:
 
 \begin{enumerate}
-\item \textbf{Move}: this operator lets us move any person that is not a driver from the car $i$ to another car $j$, in a pickup place $k$ and a drop off place $l$.  
-\item \textbf{Swap inside}: this operator lets us swap the order of the people inside a car $i$.
-\item \textbf{Delete car}: this operator lets us delete a car whenever the car is only occuped by the driver. When the deletion is made the driver is inserted into another car. 
+  \item \textbf{Swap inside}: this operator lets us swap the order of the people inside a car $i$, 
+  taking two indices from the route list of the car, and swapping them (independently of them being pick ups or drop offs).
+  The branching factor for this operator is $c \cdot r^2$, with $c$ being the number of cars and $r$ being the route list size for a particular car (2 times the number of passengers it is carrying).
+  \item \textbf{Move}: this operator lets us move any person that is not a driver from the car $i$ to another car $j$, in a pickup place $k$ and a drop off place $k+1$.  
+  The branching factor for this operator is $c^2 \cdot r_1 \cdot r_2$, with $c$ being the number of cars and $r_1$ and $r_2$ being the route list size for two of the cars.
+  \item \textbf{Delete car}: this operator lets us delete a car whenever the car is only occupied by the driver. When the deletion is made the driver is inserted into another car. 
+  The branching factor for this operator is $c_1 \cdot c_2 \cdot r_1$, with $c_1$ being the number of cars where the driver is the only occupant of the vehicle, $c_2$ being the number of cars with at least one passenger, and $r_1$ being the route list size of a particular car in $c_2$. 
 \end{enumerate}
-
-
 
 \section{Generating successor states}
 The way we generate all the successor states really varies depending on the algorithm:
