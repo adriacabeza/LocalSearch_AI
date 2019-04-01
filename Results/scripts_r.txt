@@ -197,4 +197,34 @@ legend("topright", legend = rownames(counts), inset=c(0, -0.28), xpd=TRUE, bty =
 dev.copy(pdf,'data_6.2.pdf')
 dev.off()
 
+########## Experiment 7 ##########
 
+data = read.csv("data_7.csv", row.names=NULL)  # read csv file
+par(mfrow=c(2,2))
+
+data$Color="black"
+data$Color[data$people/2==data$drivers]="red"
+data$Color[data$people/2!=data$drivers]="blue"
+
+data$Pos=1
+data$Pos[data$people/2==data$drivers]=1
+data$Pos[data$people/2!=data$drivers]=3
+
+plot(time/1000~people, data, cex=1.5, xlab="Number of People", ylab="Seconds", main="Computation time", col=data$Color, pch=20)
+lines(data$people[data$people/2==data$drivers], data$time[data$people/2==data$drivers]/1000, type = "l", col="red", lwd=1.5)
+lines(data$people[data$people/2!=data$drivers], data$time[data$people/2!=data$drivers]/1000, type = "l", col="blue", lwd=1.5)
+text(data$people, data$time/1000, labels=data$drivers, cex= 0.7, pos=data$Pos, xpd=TRUE)
+
+
+plot(distance~people, data, cex=1.5, xlab="Number of People", ylab="km", main="Total distance driven", col=data$Color, pch=20)
+lines(data$people[data$people/2==data$drivers], data$distance[data$people/2==data$drivers], type = "l", col="red", lwd=1.5)
+lines(data$people[data$people/2!=data$drivers], data$distance[data$people/2!=data$drivers], type = "l", col="blue", lwd=1.5)
+text(data$people, data$distance, labels=data$drivers, cex= 0.7, pos=data$Pos, xpd=TRUE)
+
+plot(cars~people, data, cex=1.5, xlab="Number of People", ylab="km", main="Number of required cars", col=data$Color, pch=20)
+lines(data$people[data$people/2==data$drivers], data$cars[data$people/2==data$drivers], type = "l", col="red", lwd=1.5)
+lines(data$people[data$people/2!=data$drivers], data$cars[data$people/2!=data$drivers], type = "l", col="blue", lwd=1.5)
+text(data$people, data$cars, labels=data$drivers, cex= 0.7, pos=data$Pos, xpd=TRUE)
+
+dev.copy(pdf,'data_7.pdf')
+dev.off()
