@@ -90,3 +90,90 @@ par(las=1)
 plot(data$n, data$time/1000/60, type="l", col="firebrick3", lwd=3, xlab="N", ylab="Time (minutes)")
 dev.copy(pdf,'data_4_1.pdf', width=4,height=4)
 dev.off()
+
+########## Experiment 5 ##########
+
+library(scatterplot3d) # Requires installing 'scatterplot3d' package.
+
+data = read.csv("data_5.csv", row.names=NULL)  # read csv file
+
+x = data$dist_exceed
+y = data$car_exceed
+z1 = data$time_ms
+z2 = data$cars
+z3 = data$distance
+
+valid_x = x[as.logical(data$solucio)]
+invalid_x = x[!as.logical(data$solucio)]
+valid_y = y[as.logical(data$solucio)]
+invalid_y = y[!as.logical(data$solucio)]
+
+dev.new(width=4, height=4)
+par(las=1)
+scatterplot3d(x,y,z1/1000, cex.symbol=1.5, cex.lab=0.75, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, lab=c(4,5,2), xlim=c(0, 10), ylab="Cars exceed", xlab="Distance exceed", zlab="Computation Time (s)", xaxt="n")
+dev.copy(pdf,'data_5_1.pdf', width=4,height=4)
+dev.off()
+
+dev.new(width=4, height=4)
+par(las=1)
+scatterplot3d(y,x,z2, cex.symbol=1.5, cex.lab=0.75, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, xlab="Cars exceed", ylim=c(0, 10), ylab="Distance exceed", zlab="Number of Cars", xaxt="n")
+dev.copy(pdf,'data_5_2.pdf', width=4,height=4)
+dev.off()
+
+dev.new(width=4, height=4)
+par(las=1)
+scatterplot3d(y,x,z3, cex.symbol=1.5, cex.lab=0.75, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, lab=c(5,5,2), xlim=c(50, 250), ylim=c(0, 10), xlab="Cars exceed", ylab="Distance exceed", zlab="Total Distance (km)", xaxt="n")
+dev.copy(pdf,'data_5_3.pdf', width=4,height=4)
+dev.off()
+
+dev.new(width=4, height=4)
+par(las=1)
+par(mar=c(5,4,4,4))
+plot(valid_x,valid_y, pch=21, bg="green", type="p", ylab="Cars exceed", xlab="Distance exceed")
+points(invalid_x,invalid_y, pch=21, bg="red", type="p")
+dev.copy(pdf,'data_5_4.pdf', width=4,height=4)
+dev.off()
+
+########## Experiment 6 ##########
+
+library(scatterplot3d) # Requires installing 'scatterplot3d' package.
+
+data = read.csv("data_6.csv", row.names=NULL)  # read csv file
+
+x = data$dist_exceed
+y = data$car_exceed
+z1 = data$time_ms
+z2 = data$cars
+z3 = data$distance
+
+valid_x = x[as.logical(data$solucio)]
+invalid_x = x[!as.logical(data$solucio)]
+valid_y = y[as.logical(data$solucio)]
+invalid_y = y[!as.logical(data$solucio)]
+
+dev.new(width=4, height=4)
+par(las=1)
+scatterplot3d(x,y,z1/1000, cex.symbol=1.5, cex.lab=0.75, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, lab=c(4,5,2), xlim=c(0, 10), ylab="Cars exceed", xlab="Distance exceed", zlab="Computation Time (s)", xaxt="n")
+dev.copy(pdf,'data_6_1.pdf', width=4,height=4)
+dev.off()
+
+dev.new(width=4, height=4)
+par(las=1)
+scatterplot3d(y,x,z2, cex.symbol=1.5, cex.lab=0.75, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, xlab="Cars exceed", ylim=c(0, 10), ylab="Distance exceed", zlab="Number of Cars", xaxt="n")
+dev.copy(pdf,'data_6_2.pdf', width=4,height=4)
+dev.off()
+
+dev.new(width=4, height=4)
+par(las=1)
+scatterplot3d(y,x,z3, cex.symbol=1.5, cex.lab=0.75, cex.axis=0.75, pch=" ", bg="black", highlight.3d = TRUE, type="h", lwd = 3, y.margin.add=0.5, lab=c(5,5,2), xlim=c(50, 250), ylim=c(0, 10), xlab="Cars exceed", ylab="Distance exceed", zlab="Total Distance (km)", xaxt="n")
+dev.copy(pdf,'data_6_3.pdf', width=4,height=4)
+dev.off()
+
+dev.new(width=4, height=4)
+par(las=1)
+par(mar=c(5,4,4,4))
+plot(valid_x,valid_y, pch=21, bg="green", type="p", ylab="Cars exceed", xlab="Distance exceed")
+points(invalid_x,invalid_y, pch=21, bg="red", type="p")
+dev.copy(pdf,'data_6_4.pdf', width=4,height=4)
+dev.off()
+
