@@ -25,7 +25,7 @@
 \begin{center}
 \includegraphics[scale=0.5]{images/UPClogo.png}
 \end{center}
-
+ 
 \newpage
 \tableofcontents
 \newpage
@@ -202,7 +202,7 @@ In our experiment we will have two conditions in order to determinate if a state
   \item At the same time can be at most three people in each car. In this case, we have a function in the object state, which computes the exceed of simultaneous people in a car. The penalization will be worst as higher is the value.
 \end{enumerate}
 
-\section{Heuristics Function}
+\section{Heuristics Function} \label{heuristics}
 Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analysing the heuristic function. 
 
 In order to solve the two solution criteria given in the statement, we must perform two different heuristics, because the final result that must be returned has different priorities. The heuristic function that will solve the first criterion will be called Heuristic Function 1, and the one that resolves the second, Heuristic Function 2. 
@@ -428,47 +428,58 @@ DUring some experiments we find that the best way in order to minimize the dista
 
 In order to study how the heuristic functions work, we will observe the total distance driven, the execution time and the total number of cars. We will use the \textit{Hill Climbing} algorithm.
 
-
+As it is explained in the section \ref{heuristics} we have three diferent types of penalties. To do this experiment we will force the value of the max number of people in the same time and we will be varying the other two.
 
 %MIRAR ENUNCIAT QUE DIU QUE En este caso tendréis que buscar como se han de ponderar los criterios de la segunda heurística. 
 
 \begin{figure}[H]
   \captionsetup{justification=centering}
-   \centering
+   \centering 
     \includegraphics[scale=0.8]{Results/data_5_1.pdf}
-      \caption{}
+      \caption{Computation time measured for different penalties in the number of cars and distances using Hill Climbing}
       \label{fig:data_5_1}
   \end{figure}
     \vspace{1cm}
+
+In the Figure \ref{fig:data_5_1} we can see that the execution time is bigger when the distance exceed penalty is small, when this value increases the time turns constant.
 
 \begin{figure}[H]
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_5_2.pdf}
-      \caption{}
+      \caption{Number of cars measured for different penalties in the number of cars and distances using Hill Climbing}
       \label{fig:data_5_2}
   \end{figure}
     \vspace{1cm}
+
+In the Figure \ref{fig:data_5_2} the important changes are seen when the distance exceed penalty is lower and when the cars penalty is bigger. 
 
 \begin{figure}[H]
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_5_3.pdf}
-      \caption{}
+      \caption{Total distance measured for different penalties in the number of cars and distances using Hill Climbing}
       \label{fig:data_5_3}
   \end{figure}
     \vspace{1cm}
+
+In the Figure \ref{fig:data_5_3} we can see a very similar comparing with the Figure \ref{fig:data_5_2}. When the number of cars penalty increases and when the distance exceeds is being smaller we have better results.
 
 \begin{figure}[H]
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_5_4.pdf}
-      \caption{}
+      \caption{Correctness for different penalties in the number of cars and distances using Hill Climbing}
       \label{fig:data_5_4}
   \end{figure}
     \vspace{1cm}
+
+The las Figure of this experiment (Figure \ref{fig:data_5_4}) shows the correctness of each penalty.
     
 \paragraph{Conclusion}\mbox{}\\
+
+To conclude we will choose a penalty both ponderations. Watching the results we can abstract that a lower value of the number of cars penalty and with a value in the middle of the possible distance exceed penalty it might be the best one.
+Finally we have chosen tha value of 5 in the distance and 80 for the car penalty, because it is a correct solution for this seed and because the complexity and the solutions seems better.
 
 \subsection{Experiment 6}
 Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with the chosen heuristic.
@@ -477,7 +488,7 @@ Using the same scenarios used before, we repeated the executions with the Simula
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_6_1.pdf}
-      \caption{}
+      \caption{Computation time measured for different penalties in the number of cars and distances using Simulated Annealing}
       \label{fig:data_6_1}
   \end{figure}
     \vspace{1cm}
@@ -486,7 +497,7 @@ Using the same scenarios used before, we repeated the executions with the Simula
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_6_2.pdf}
-      \caption{}
+      \caption{Number of cars measured for different penalties in the number of cars and distances using Simulated Annealing}
       \label{fig:data_6_2}
   \end{figure}
     \vspace{1cm}
@@ -495,7 +506,7 @@ Using the same scenarios used before, we repeated the executions with the Simula
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_6_3.pdf}
-      \caption{}
+      \caption{Total distance measured for different penalties in the number of cars and distances using Simulated Annealing}
       \label{fig:data_6_3}
   \end{figure}
     \vspace{1cm}
@@ -504,7 +515,7 @@ Using the same scenarios used before, we repeated the executions with the Simula
   \captionsetup{justification=centering}
    \centering
     \includegraphics[scale=0.8]{Results/data_6_4.pdf}
-      \caption{}
+      \caption{Correctness for different penalties in the number of cars and distances using Simulated Annealing}
       \label{fig:data_6_4}
   \end{figure}
     \vspace{1cm}
@@ -544,7 +555,7 @@ We would like to add that these results are a valid solution because no car driv
 
 \subsubsection{Simulated annealing}
 The experiment was made configuring our environment with 200 people, 100 drivers and seed 1234.
-\\
+\\ 
 
 
 \begin{table}[H]
