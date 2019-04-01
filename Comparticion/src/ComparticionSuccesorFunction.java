@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-/**
- * Created by bejar on 17/01/17
- * Modified on 14/3/18
- */
+
 public class ComparticionSuccesorFunction implements SuccessorFunction{
 
     public List getSuccessors(Object n){

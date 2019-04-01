@@ -1,6 +1,4 @@
-/**
- * Created by bejar on 17/01/17.
- */
+
 public class ComparticionBoard {
     /* Class independent from AIMA classes
        - It has to implement the state of the problem and its operators
