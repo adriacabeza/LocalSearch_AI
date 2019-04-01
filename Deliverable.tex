@@ -39,7 +39,7 @@ Making different experiments and extracting results.
 
 \section{Description of the problem}
 
-For this assignment we are assuming a car sharing system where all the users are sharing the car. We have $N$ people and $M$ drivers. which is a subset of $N$. 
+For this assignment we are assuming a car sharing system where all the users are sharing the car. We have $N$ people and $M$ drivers, which is a subset of $N$. 
 
 Our city is a $10\times10\ km$ square and each street is disposed every $100\ m$ (horizontally and vertically). This disposition creates a grid of $100\times100\ blocs$ with each block of $100\times100\ m$.
 
@@ -81,7 +81,7 @@ We will have two criteria in order to evaluate the quality of the solution:
  
 \section{Representation of a problem state}
 We need a way to represent a state of the problem that is small in memory, but at the same time easy and quick to work with.
-We want to avoid storing unuseful or redundant information, unless we clearly think that that information will help us reduce the computation time. Also, we want to be able to represent all the possible states that could exist.
+We want to avoid storing useless or redundant information, unless we clearly think that that information will help us reduce the computation time. Also, we want to be able to represent all the possible states that could exist.
 
 Our states contain the following information:
 
@@ -89,7 +89,7 @@ Our states contain the following information:
 	\item Which users act as drivers and are providing their cars.
 	\item For each driver, which users (passengers) the driver needs to pick up and drop off, if any.
 	\item The order in which a driver needs to pick up and drop off its assigned passengers.
-	\item The total distance each car will be travelling for its route.
+	\item The total distance each car will be traveling for its route.
 \end{itemize}
 
 All users (both drivers and non drivers) have a unique identifying number (id), taken from the position they occupy in the users list.
@@ -108,13 +108,13 @@ These four options will result in different routes with potentially different to
 
 For this reason, we decided to use an ordered list to describe which passengers a driver needs to take care of, and the specific route they will use in the process.
 
-Specifically, for each driver, we use a Java ArrayList listing all the sequential pick ups and drop offs of users that have been assigned, describing unambiguosuly a route that the driver needs to follow.
+Specifically, for each driver, we use a Java ArrayList listing all the sequential pick-ups and drop offs of users that have been assigned, describing unambiguously a route that the driver needs to follow.
 
 Continuing with the previous example, if driver A has id 1, and passengers B and C have ids 2 and 3 respectively, the first route proposed before will be stored like this: $$[1, 2, 3, 2, 3, 1]$$
 
 In a different state, maybe the second proposed route is used, in that case the list would look like this: $$[1, 2, 2, 3, 3, 1]$$
 
-Note how each id in the list always needs to appear twice, implicitly the first time it appears indicates that that user is being picked up, and the second one indicates that the user is being droped off.
+Note how each id in the list always needs to appear twice, implicitly the first time it appears indicates that that user is being picked up, and the second one indicates that the user is being dropped off.
 
 Also note how the driver of the car is always the first and last element of the list, to represent the fact that the route must start at the driver's home, and end at the driver's workplace.
 
@@ -130,9 +130,9 @@ Apart from this, we also decided to use an extra data structure that contains th
 ArrayList<Integer> distances;
 \end{lstlisting}
 
-Where the distance for the route in \raggedright\lstinline{assignments[i]} is stotred in \raggedright\lstinline{distances[i]}.
+Where the distance for the route in \raggedright\lstinline{assignments[i]} is stored in \raggedright\lstinline{distances[i]}.
 
-Although not strictly necessary (because this could be computed at runtime from other existing data), this \lstinline{distances} variable will help us calculate the heuristic value of the state quicker. We just make sure to update these values any time \lstinline{assignments} is changed.
+Although not strictly necessary (because this could be computed at run time from other existing data), this \lstinline{distances} variable will help us calculate the heuristic value of the state quicker. We just make sure to update these values any time \lstinline{assignments} is changed.
 
 The creation of this problem, will generate a very big amount of states. With some calculus we can arrive to this solution. Assuming that there are N people in total and M drivers, we can know that
 the problem can generate different states with two reasons: the number of possibilities that has every person to be in a different car and the order of each car.
@@ -147,28 +147,28 @@ $$M^N < X < M^N*(2N)!$$
 \captionsetup{justification=centering}
 \centering
 \includegraphics[scale=0.35]{images/carsMoving.png}
-\caption{Visual respresentation of a moment of the state where the car is picking up and droping off people.}
+\caption{Visual representation of a moment of the state where the car is picking up and dropping off people.}
 \label{grid}
 \end{figure}
 
 \section{Generating an initial solution}
-We have to make a representation fo the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state: (The following examples will be done with 4 people Pi (excluding drivers), 2 drivers Di and each List will represent a car. The first time that a person appears in a List is when it is picked up and the second one when it is dropped out)
+We have to make a representation of the initial state, which at the same time is a solution state. We have implemented four different ways to generate our initial state: (The following examples will be done with 4 people Pi (excluding drivers), 2 drivers Di and each List will represent a car. The first time that a person appears in a List is when it is picked up and the second one when it is dropped out)
 \begin{enumerate}
-\item Assigning in a balanced way all the people that are not drivers in all cars, each car has the same number of people. Each person that isn't a driver will be picked up and droped of consecutively.
+\item Assigning in a balanced way all the people that are not drivers in all cars, each car has the same number of people. Each person that isn't a driver will be picked up and dropped of consecutively.
 $$[D1,P1,P1,P2,P2,D1]$$
 $$[D2,P3,P3,P4,P4,D2]$$
-\item Assigning in a balanced way all the people that are not drivers in all cars, each car has the same number of people. Each car will pick up all the people and then will drop thme in the inverse order.
+\item Assigning in a balanced way all the people that are not drivers in all cars, each car has the same number of people. Each car will pick up all the people and then will drop them in the inverse order.
 $$[D1,P1,P2,P2,P1,D1]$$
 $$[D2,P3,P4,P4,P3,D2]$$
 If the number of people that are not a driver is more than 2 times the number of drivers, this initial state will not be a goal state because the number of people in the same time in a car will be greater than 3.
-\item Taking all the people that are not drivers inside the first car's list. Each person that isn't a driver will be picked up and droped of consecutively.
+\item Taking all the people that are not drivers inside the first car's list. Each person that isn't a driver will be picked up and dropped of consecutively.
 $$[D1,P1,P1,P2,P2,P3,P3,P4,P4,D1]$$
 $$[D2,D2]$$
-Because of the fact that everybody that is not a driver is in the first car it is very probable that the distance traveled by the first car will be more than $30\ Km$ and that initial state won't be a goal state.
-\item Taking all the people that are not drivers inside the first car's list. Each car will pick up all the people and then will drop thme in the inverse order.
+Because everybody that is not a driver is in the first car it is very probable that the distance traveled by the first car will be more than $30\ Km$ and that initial state won't be a goal state.
+\item Taking all the people that are not drivers inside the first car's list. Each car will pick up all the people and then will drop them in the inverse order.
 $$[D1,P1,P2,P3,P4,P4,P3,P2,P1,D1]$$
 $$[D2,D2]$$
-If the number of people that are not a driver is more than 2, this initial state will not be a goal state because the number of people in the first car will be greater than 3. Although, because of the fact that everybody that is not a driver is in the first car it is very probable that the distance traveled by the first car will be more than $30\ Km$ and also, that initial state won't be a goal state.
+If the number of people that are not a driver is more than 2, this initial state will not be a goal state because the number of people in the first car will be greater than 3. Although, because everybody that is not a driver is in the first car it is very probable that the distance traveled by the first car will be more than $30\ Km$ and also, that initial state won't be a goal state.
 \end{enumerate} 
 
 \section{Analysis of our operators}
@@ -184,11 +184,11 @@ It is really important to cover all the space of solutions with our operators be
 
 At the beginning of everything we made a brainstorming session with all the operators we could think of, which we believed that could be useful and serve for something: swap the order of the people inside a car, swap outside people between cars, deleting cars, moving a person into another car, etc...
 
-Finally we decided to implement these 3 operators, which we think they would reach to all the possible solutions:
+Finally, we decided to implement these 3 operators, which we think they would reach to all the possible solutions:
 
 \begin{enumerate}
   \item \textbf{Swap inside}: this operator lets us swap the order of the people inside a car $i$, 
-  taking two indices from the route list of the car, and swapping them (independently of them being pick ups or drop offs).
+  taking two indices from the route list of the car, and swapping them (independently of them being pick-ups or drop offs).
   The branching factor for this operator is $c \cdot r^2$, with $c$ being the number of cars and $r$ being the route list size for a particular car (2 times the number of passengers it is carrying).
   \item \textbf{Move}: this operator lets us move any person that is not a driver from the car $i$ to another car $j$, in a pickup place $k$ and a drop off place $k+1$.  
   The branching factor for this operator is $c^2 \cdot r_1 \cdot r_2$, with $c$ being the number of cars and $r_1$ and $r_2$ being the route list size for two of the cars.
@@ -200,7 +200,7 @@ Finally we decided to implement these 3 operators, which we think they would rea
 The way we generate all the successor states really varies depending on the algorithm:
 \begin{itemize}
 \item \textbf{Hill Climbing}: we create a list with all the possible states that can be found from the given one. To do it, we create all the possible states that can be created using our operators, previously explained in section above. Then Hill Climbing will use our Heuristic Function to choose the best successor.
-\item \textbf{Simulated Annealing}: we return a random state that is a succesor of the given one. To do it, we choose a random operator with random values. Then we use it in order to change the initial state.  
+\item \textbf{Simulated Annealing}: we return a random state that is a successor of the given one. To do it, we choose a random operator with random values. Then we use it in order to change the initial state.  
 \end{itemize}
 
 \section{Goal State}
@@ -213,7 +213,7 @@ In our experiment we will have two conditions in order to determinate if a state
 \end{enumerate}
 
 \section{Heuristics Function} \label{heuristics}
-Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analysing the heuristic function. 
+Once the representation of the solution state has been defined, the generation of the initial solution state and the operators on which we are going to work, we proceed into analyzing the heuristic function. 
 
 In order to solve the two solution criteria given in the statement, we must perform two different heuristics, because the final result that must be returned has different priorities. The heuristic function that will solve the first criterion will be called Heuristic Function 1, and the one that resolves the second, Heuristic Function 2. 
 
@@ -234,7 +234,7 @@ For the second heuristic we have added another criterion in order to minimize al
 
 \begin{enumerate}
   \setcounter{enumi}{2}
-  \item Get the number of cars in each state. Adding the sum of previus criterias a ponderate value of the number of cars, we obtain this second heuristic.
+  \item Get the number of cars in each state. Adding the sum of previous criteria a penalty value of the number of cars, we obtain this second heuristic.
 \end{enumerate}
 
 \section{Experiments}
@@ -248,7 +248,7 @@ This experiment is going to be made using \textbf{200 people }($N$), and \textbf
 
 As we mentioned in the previous section \textit{Analysis of our operators}, we have three different operators. In order to try out which set of operators is the best one, we have automatized a process where all different operators are applied to the scenery using different seeds to see which one gives us better results and better time. 
 \\
-Our \textbf{hypothesis} is that a combination of all of them will gives us the best results because using all of them will let Hill Climbing find the path to the global maximum. 
+Our \textbf{hypothesis} is that a combination of all of them will give us the best results because using all of them will let Hill Climbing find the path to the global maximum. 
 
 \begin{figure}[H]
 \centering
@@ -258,7 +258,7 @@ Our \textbf{hypothesis} is that a combination of all of them will gives us the b
 \end{figure}
 \vspace{1cm}
 
-Finally after getting \textbf{the results}, clearly seen in the figure \ref{operators}, we can see that our hypothesis about the operators was wrong. Let's analyse our results for each parameter: 
+Finally after getting \textbf{the results}, clearly seen in the figure \ref{operators}, we can see that our hypothesis about the operators was wrong. Let's analyze our results for each parameter: 
 \\
 \smallskip
 
@@ -270,10 +270,10 @@ The total distance results are pretty similar in all the methods. The best one i
 \\
 \smallskip
 
-When we analyse the number of required cars we discover that the best solutions are the ones that uses \textbf{All Operators} and \textbf{Move} and \textbf{Delete}. The difference here between solutions is really huge because the other operators are not  able to delete cars. 
+When we analyze the number of required cars we discover that the best solutions are the ones that uses \textbf{All Operators} and \textbf{Move} and \textbf{Delete}. The difference here between solutions is really huge because the other operators are not  able to delete cars. 
 
 
-It is interesting to observe that we did not tried some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too much people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}). 
+It is interesting to observe that we did not try some operators alone like \textit{swap inside} or combination of them like \textit{swap inside} and \textit{delete} . The main reason for the decision is that the operator \textit{swap inside} alone would never give us a solution state since our first state includes a car with too many people in a single car(for more information about the initial solution please check \textit{Generating an initial solution, version 3}). 
 \\
 \smallskip
 
@@ -313,7 +313,7 @@ From now on, we will be only using initial solution nº 3 for our experiments.
 
 \subsection{Experiment 3}
 
-A really important part about this project is to be able to determine the parameters that are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
+A really important part about this project is to be able to determine the parameters that are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody gets to their workplace in a reasonable execution time. 
 \\
 \medskip
 
@@ -323,7 +323,7 @@ The algorithm works with 4 parameters:
 \item \textbf{Number of iterations for each temperature change}: Whenever there is a temperature change, a constant number of iterations will be made in which the probability of choosing a worse successor is kept. 
 \\
 Each time this number of iterations is executed, the probability of choosing a worse state decreases. 
-\item \textbf{k}: parameter of the state acceptance function that affects the probability of choosing a worse succesor state. We know that the higher the value of the parameter, the longer it takes for the probability of staying with a worse successor state to decrease. 
+\item \textbf{k}: parameter of the state acceptance function that affects the probability of choosing a worse successor state. We know that the higher the value of the parameter, the longer it takes for the probability of staying with a worse successor state to decrease. 
 
 \item \textbf{$\lambda$}: Another parameter of the state acceptance function that affects the probability of choosing a worse successor. The higher the value of $\lambda$, the less it will take to decrease the probability of accepting a worse successor state. 
 
@@ -410,11 +410,11 @@ As we can see in the previous figure \ref{timedifferentN}, there is a clear patt
 \subsection{Experiment 5}
 In the assignment we had two main objectives: minimize the distance driven and minimize the cars that are needed. To make it we have implemented two heuristic functions. 
 
-DUring some experiments we find that the best way in order to minimize the distance is minimizing also the cars. So we finally have chosen to apply all of the experiments with the second heuristic.
+DUring some experiments we find that the best way in order to minimize the distance is minimizing also the cars. So we finally have chosen to apply all the experiments with the second heuristic.
 
 In order to study how the heuristic functions work, we will observe the total distance driven, the execution time and the total number of cars. We will use the \textit{Hill Climbing} algorithm.
 
-As it is explained in the section \ref{heuristics} we have three diferent types of penalties. To do this experiment we will force the value of the max number of people in the same time and we will be varying the other two.
+As it is explained in the section \ref{heuristics} we have three different types of penalties. To do this experiment we will force the value of the max number of people in the same time, and we will be varying the other two.
 
 %MIRAR ENUNCIAT QUE DIU QUE En este caso tendréis que buscar como se han de ponderar los criterios de la segunda heurística. 
 
@@ -465,7 +465,7 @@ The las Figure of this experiment (Figure \ref{fig:data_5_4}) shows the correctn
 \paragraph{Conclusion}\mbox{}\\
 
 To conclude we will choose a penalty both ponderations. Watching the results we can abstract that a lower value of the number of cars penalty and with a value in the middle of the possible distance exceed penalty it might be the best one.
-Finally we have chosen tha value of 5 in the distance and 80 for the car penalty, because it is a correct solution for this seed and because the complexity and the solutions seems better.
+Finally, we have chosen tha value of 5 in the distance and 80 for the car penalty, because it is a correct solution for this seed and because the complexity and the solutions seems better.
 
 \subsection{Experiment 6}
 Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with the chosen heuristic.
@@ -525,7 +525,7 @@ Using the Simulated Annealing algorithm we obtained a very similar results than 
 The results obtained in this part are very similar than the before, unless the the Computation time. This shows us that in a lot of cases the Simulated Annealing algorithm will be a better decision than Hill Climbing.
 
 \subsection{Experiment 7}
-Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
+Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions fewer conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
 
 We have used the heuristic function and algorithm that gave us the best results which are \textbf{Hill Climbing} and the \textbf{Second Heuristic}, the one that minimizes the distance and the number of cars.
 \\
@@ -550,7 +550,7 @@ Normally we get the same results, or solutions that are really close, as we hypo
 
 \paragraph{Conclusion}\mbox{}\\
 
-Finally we can conclude that using an smaller proportion of driver, which is closer to the final solution value, gives us an increment of time. Also we have noticed that depending on the number of drivers set, we may not find the best solution possible. 
+Finally, we can conclude that using an smaller proportion of driver, which is closer to the final solution value, gives us an increment of time. Also we have noticed that depending on the number of drivers set, we may not find the best solution possible. 
 
 \subsection{Especial Experiment}
 
