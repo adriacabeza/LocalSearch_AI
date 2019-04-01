@@ -4,7 +4,7 @@
 \author{Carlos Bergillos, Roger Vilaseca, Adrià Cabeza}
 \title{\textbf{Sharing cars to get to work:\\ A Local Search approach}\\ \bigskip Artificial Intelligence}
 \date{\today}
-\usepackage[margin=1.4in]{geometry}
+\usepackage[margin=1.25in]{geometry}
 \usepackage{graphicx}
 \usepackage{subcaption}
 
@@ -229,7 +229,7 @@ For the second heuristic we have added another criterion in order to minimize al
 
 \section{Experiments}
 
-\subsection{Experiment 1: Operators}
+\subsection{Experiment 1}
 In this experiment we will decide which is the best operator of the different ones we have created using the \textit{Heuristic Function 1}. 
 \\
 \medskip 
@@ -270,7 +270,7 @@ It is interesting to observe that we did not tried some operators alone like \te
 \paragraph{Conclusion}\mbox{}\\
 The best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number of required cars and it gets good results in the total distance driven.
 
-\subsection{Experiment 2: Initial Solutions}
+\subsection{Experiment 2}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
 
 We will use \textbf{the same scenery that was used in the first experiment} ($N=200$ and $M=100$ and $10$ executions using random seeds).  In order to try all the different initial solution generators we have created a process where the same scenery is applied to different initial solution methods to see which one gives us better results and better time. 
@@ -301,7 +301,7 @@ but end up providing a much more optimal final solution, with almost half the nu
 Initial solution nº 3 seems to be the best initial solution out of the 4 we proposed.
 From now on, we will be only using initial solution nº 3 for our experiments.
 
-\subsection{Experiment 3: Simulated Annealing parameters}
+\subsection{Experiment 3}
 
 A really important part about this project is to be able to determine the parameters that are going to be used for the \textbf{Simulated Annealing algorithm}, so that its results are the best possible, that is, the minimum number of cars driving the shortest amount of distance and everybody getting to their workplace in a reasonable execution time. 
 \\
@@ -375,8 +375,8 @@ About the presence of states that are not solution: we believe that this happens
 So using this experiment we can confirm the affirmation of small values for lambdas and big number of iterations as the best options.
 From now on, we have chosen a $\lambda$ value of 0.0005 and a value of \emph{Number of Steps} of 250000.
 
-\subsection{Experiment 4: Problem size}
-\textbf{Using the same scenery we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
+\subsection{Experiment 4}
+\textbf{Using the same scenery we have used in the previous experiments}($N=200$ and $M=100$) we will be studying how the execution time changes to find the solution  assuming a proportion of $\frac{M}{N}$ of $\frac{1}{2}$. The experiment will be run using the     
  \textit{Hill Climbing} algorithm and a random seed that is fixed since at each iteration we are already varying the sizes of $N$ and $M$.
 
 We have started with $200$ users and then, each iteration, we have incremented by $1000$ the users until we have discovered a pattern. Our \textbf{hypothesis} is that the time is going to be heavily influenced by the size of $N$. Actually we think that they are going to be directly proportional. 
@@ -397,7 +397,7 @@ As we can see in the previous figure \ref{timedifferentN}, there is a clear patt
 
 
 
-\subsection{Experiment 5: Heuristic function}
+\subsection{Experiment 5}
 In the assignment we had two main objectives: minimize the distance driven and minimize the cars that are needed. To make it we have implemented two heuristic functions. 
 
 DUring some experiments we find that the best way in order to minimize the distance is minimizing also the cars. So we finally have chosen to apply all of the experiments with the second heuristic.
@@ -457,20 +457,12 @@ The las Figure of this experiment (Figure \ref{fig:data_5_4}) shows the correctn
 To conclude we will choose a penalty both ponderations. Watching the results we can abstract that a lower value of the number of cars penalty and with a value in the middle of the possible distance exceed penalty it might be the best one.
 Finally we have chosen tha value of 5 in the distance and 80 for the car penalty, because it is a correct solution for this seed and because the complexity and the solutions seems better.
 
-\subsection{Experiment 6: Simulated Annealing}
-Using some of the same scenarios as before, we repeat the experiments this time with Simulated Annealing.
+\subsection{Experiment 6}
+Using the same scenarios used before, we repeated the executions with the Simulated Annealing algorithm with the chosen heuristic.
 
-\subsubsection{Initial solutions}
+This time we have chosen the \emph{Initial Solution 1}, due to the way which are distributed the users of the service give us better results.
 
-\begin{figure}[H]
-  \captionsetup{justification=centering}
-  \centering
-  \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{Results/data_6-2.pdf}
-  \caption{Plots with different parameters measured for each intial solution.}
-  \label{operators}
-  \end{figure}
-
-We have obtained the following parameters for the Simulated Annealing:
+Also we have cathced the following parameters for the Simulated Annealing:
 
 \begin{itemize}
   \item Num Steps: 250000
@@ -522,7 +514,7 @@ Using the Simulated Annealing algorithm we obtained a very similar results than 
 
 The results obtained in this part are very similar than the before, unless the the Computation time. This shows us that in a lot of cases the Simulated Annealing algorithm will be a better decision than Hill Climbing.
 
-\subsection{Experiment 7: Drivers Proportion}
+\subsection{Experiment 7}
 Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
 
 We have used the heuristic function and algorithm that gave us the best results which are \textbf{Hill Climbing} and the \textbf{Second Heuristic}, the one that minimizes the distance and the number of cars.
@@ -534,18 +526,21 @@ First, we have run executions with a $N/2$ number of drivers. Then using the res
 \begin{figure}[H]
   \captionsetup{justification=centering}
    \centering
-    \includegraphics[scale=0.8]{Results/BLA.pdf}
-      \caption{BLABLA}
-      \label{fig:BLABLA}
+    \includegraphics[scale=0.8]{Results/data_7.pdf}
+      \caption{Plots with different parameters measured using different M proportions.}
+      \label{fig:data7}
   \end{figure}
     \vspace{1cm}
     
+ If we take a look into the plots from the figure \ref{fig:data7} we can see two executions for each value of N: one is executen with $M = N\div2$ (red color) and the other one with an smaller number of drivers, as we explained before(blue color). In terms of time we can say that setting a smaller value of drivers means an increment of execution time. An increment of time that grows along with the number of people. 
  
+ However it is interesting to look at the other plots:
+Normally we get the same results, or solutions that are really close, as we hypothesized; it can be seen in the plots of \textbf{Total distance driven} and \textbf{Number of required cars}. But sometimes it improves our solution, so we can confirm that depending on the proportion of drives we may not get to the best possible solution. 
     
 
 \paragraph{Conclusion}\mbox{}\\
 
-Finally we can conclude that..
+Finally we can conclude that using an smaller proportion of driver, which is closer to the final solution value, gives us an increment of time. Also we have noticed that depending on the number of drivers set, we may not find the best solution possible. 
 
 \subsection{Especial Experiment}
 
