@@ -4,7 +4,7 @@
 \author{Carlos Bergillos, Roger Vilaseca, Adrià Cabeza}
 \title{\textbf{Sharing cars to get to work:\\ A Local Search approach}\\ \bigskip Artificial Intelligence}
 \date{\today}
-\usepackage[margin=1.25in]{geometry}
+\usepackage[margin=1.4in]{geometry}
 \usepackage{graphicx}
 \usepackage{subcaption}
 
@@ -268,7 +268,7 @@ It is interesting to observe that we did not tried some operators alone like \te
 \smallskip
 
 \paragraph{Conclusion}\mbox{}\\
-The best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number or required cars and it gets good results in the total distance driven.
+The best set of operators for \textbf{Hill Climbing} is \textbf{Move} and \textbf{Delete}. Taking in account that the time taken is pretty acceptable, it is the best solution in the number of required cars and it gets good results in the total distance driven.
 
 \subsection{Experiment 2: Initial Solutions}
 We did this experiment in order to know which was the most suitable way to generate our initial solution. In this experiment we will use the best set of operators available found in the previous experiment.
@@ -342,7 +342,7 @@ In the figure \ref{fig:data2} we can see that there is a clear relation between 
     \end{figure}
         
         \vspace{1cm}
-In the figure \ref{fig:data3} we can see the relation between the total number of cars and the $\lambda$ and the number of iterations. In this case the relationship is not so  obvious as the previous case, a really small declining tendency is distinguished along the number of iterations, but as the lambda grows it becomes not so obvious. However if we just take a look into the $\lambda$ values we can see a higher number of cars the higher it is. So, taking in account that we want to minimize the numbers of cars, we can conclude that the best values are a small $\lambda$ and a big number of iterations. 
+In the figure \ref{fig:data3} we can see the relation between the total number of cars and the $\lambda$ and the number of iterations. In this case the relationship is not so  obvious as the previous case, a really small declining tendency is distinguished along the number of iterations, but as the lambda grows it becomes not so obvious. However if we just take a look into the $\lambda$ values we can see a higher number of cars the higher the $\lambda$. So, taking in account that we want to minimize the numbers of cars, we can conclude that the best values are a small $\lambda$ and a big number of iterations. 
        
        \begin{figure}[H]
        \captionsetup{justification=centering}
@@ -352,7 +352,9 @@ In the figure \ref{fig:data3} we can see the relation between the total number o
         \label{fig:data4}
     \end{figure}
       \vspace{1cm}
-In the figure \ref{fig:data4} we can see the relation between the total distance and the $\lambda$ and the number of iterations. In this case we can conclude that the higher the lambda the higher the total distance. Moreover, it happens exactly the same with the number of iterations. This observation supports the previous analysis with the number of cars since a smaller value of cars is heavily related to a smaller value of total distance.
+In the figure \ref{fig:data4} we can see the relation between the total distance and the $\lambda$ and the number of iterations. In this case we can conclude that the higher the lambda the higher the total distance. Moreover, it happens the inverse with the number of iterations: the higher the number of iterations the smaller the total distance. 
+\\
+This observation supports the previous analysis with the number of cars since a smaller number of cars is heavily related to a smaller value of total distance.
     
     
     \begin{figure}[H]
@@ -368,37 +370,6 @@ Also, we wanted to finally conclude with a plot showing how usually is not to ar
  \medskip
 About the presence of states that are not solution: we believe that this happens mainly due to the randomness that Simulated Annealing presents and because we pushed to the limit our heuristic in order to get the best solution and sometimes we get a car that drives slightly more than the maximum allowed. 
 
-
-%
-%\begin{figure}
-%\centering
-%
-%    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-%      %(or a blank line to force the subfigure onto a new line)
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \includegraphics[width=\textwidth]{Results/data_B_1.pdf}
-%        \caption{Time values ($ms$) related to lambda values and number of iterations}
-%        \label{fig:data2}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \includegraphics[width=\textwidth]{Results/data_B_2.pdf}
-%        \caption{Number of cars of the final state related to number of iterations and lambda values}
-%        \label{fig:data3}
-%        \end{subfigure}
-%            \\
-%            
-%       \begin{subfigure}[b]{0.3\textwidth}
-%        \includegraphics[width=\textwidth]{Results/data_B_3.pdf}
-%        \caption{Total distance of the final state ($hm$) related to the number of iterartions and lambda values.}
-%        \label{fig:data4}
-%        \end{subfigure}
-%     \begin{subfigure}[b]{0.3\textwidth}
-%      \includegraphics[width=\textwidth]{Results/data_B_4.pdf}
-%        \caption{Distribution of the final states that were solutions depending on the number of iterations and lambda values}
-%        \label{fig:data5}
-%    \end{subfigure}
-%    \caption{Plots of our experiments with Simulated Annealing parameters: Lambda and Number of total iterations (steps)}\label{fig:plotSimulated}
-%\end{figure}
 
 \paragraph{Conclusion}\mbox{}\\
 So using this experiment we can confirm the affirmation of small values for lambdas and big number of iterations as the best options.
@@ -554,13 +525,31 @@ The results obtained in this part are very similar than the before, unless the t
 \subsection{Experiment 7: Drivers Proportion}
 Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
 
-In order to discover the best proportion for each size we will experiment with different values. We have used the heuristic function and algorithm that gave us the best results which are BLABLABLA as we clearly showed in the previous experiments. 
+We have used the heuristic function and algorithm that gave us the best results which are \textbf{Hill Climbing} and the \textbf{Second Heuristic}, the one that minimizes the distance and the number of cars.
+\\
+
+First, we have run executions with a $N/2$ number of drivers. Then using the resulting value of number of cars (already minimized), we have rerun our code with that number of cars to see how the program behaves. Our \textbf{hypothesis} is that the results will not vary since we believe that in we found the best solution possible in the previous execution. 
+
+
+\begin{figure}[H]
+  \captionsetup{justification=centering}
+   \centering
+    \includegraphics[scale=0.8]{Results/BLA.pdf}
+      \caption{BLABLA}
+      \label{fig:BLABLA}
+  \end{figure}
+    \vspace{1cm}
+    
+ 
+    
 
 \paragraph{Conclusion}\mbox{}\\
 
+Finally we can conclude that..
+
 \subsection{Especial Experiment}
 
-At this point we have degined the best initial state, its operators, the heuristic algorithm and Hill Climbing and Simulated Annealing with the most appropiate parameters, so we can proceed to compare algorithms. 
+At this point we have designed the best initial state, its operators, the heuristic algorithm and Hill Climbing and Simulated Annealing with the most appropiate parameters, so we can proceed to compare algorithms. 
 
 
 \subsubsection{Hill Climbing}
@@ -609,7 +598,6 @@ The experiment was made configuring our environment with 200 people, 100 drivers
 
 The mean time of our executions using Simulated Annealing is 1709.76 ms. 
 
-\section{Conclusion}
 
-
+\newpage
 \end {document}
