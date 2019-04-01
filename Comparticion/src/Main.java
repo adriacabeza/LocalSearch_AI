@@ -7,7 +7,9 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.util.*;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import IA.Comparticion.Usuarios;
+import org.apache.commons.cli.*;
 
 public class Main {
 
@@ -70,11 +72,11 @@ public class Main {
         try {
             Problem problem;
             problem = new Problem(estat, new ComparticionSuccesorFunction2(), new ComparticionGoalTest(), new ComparticionHeuristicFunction2());
-            Search search = new SimulatedAnnealingSearch(steps, stiter,k,lamb);
+            Search search = new SimulatedAnnealingSearch(steps, stiter, k, lamb);
             SearchAgent agent = new SearchAgent(problem, search);
 
             ComparticionGoalTest test = new ComparticionGoalTest();
-            //System.out.print(((ComparticionState) search.getGoalState()).toString());
+
             System.out.println(test.isGoalState(search.getGoalState()));
 
             return (ComparticionState) search.getGoalState();
@@ -85,131 +87,122 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+        Options options = new Options();
 
-        /*
-        Scanner in = new Scanner(System.in);
-        Random random = new Random();
-        int ops = 0;
-        while (ops != -3) {
-            opcions(0);
-            ops = in.nextInt();
-            if (ops == -1) {
-                System.out.println("Introduce a seed number or '-1'  if you want to use a random seed");
-                Integer seed = in.nextInt();
-                if (seed < 0) seed = random.nextInt();
-                else seed = random.nextInt(10000);
-                Usuarios users = new Usuarios(90, 30, 1234);
-                ComparticionState state = new ComparticionState(users);
-                state.generateInitSol1();
-                ComparticionHillClimbingSearch(state);
+        Option opt_s = Option.builder("s")
+            .longOpt("seed")
+            .desc("seed to use for random")
+            .type(Number.class)
+            .required(false)
+            .hasArg()
+            .build();
+        options.addOption(opt_s);
 
-            }
+        Option opt_n = Option.builder("n")
+            .longOpt("n")
+            .desc("number of people")
+            .type(Number.class)
+            .required(false)
+            .hasArg()
+            .build();
+        options.addOption(opt_n);
 
-        }*/
+        Option opt_m = Option.builder("m")
+            .longOpt("m")
+            .desc("number of drivers")
+            .type(Number.class)
+            .required(false)
+            .hasArg()
+            .build();
+        options.addOption(opt_m);
 
+        Option opt_a = Option.builder("a")
+            .longOpt("algorithm")
+            .desc("algorithm to use. Valid options: 'HC' for Hill Climbing. 'SA' for Simulated Annealing")
+            .required(false)
+            .hasArg()
+            .build();
+        options.addOption(opt_a);
 
-            int i = 100;
-            double time4 = System.currentTimeMillis();
-            users = new Usuarios(i, i/2, 1234);
+        Option opt_i = Option.builder("i")
+            .longOpt("initial-solution")
+            .desc("initial solution to use. valid options: 1, 2, 3 or 4.")
+            .type(Number.class)
+            .required(false)
+            .hasArg()
+            .build();
+        options.addOption(opt_i);
+
+        CommandLineParser parser = new DefaultParser();
+        HelpFormatter formatter = new HelpFormatter();
+        CommandLine cmd;
+
+        double timeS, timeD;
+        int seed = 1234;
+        int n = 20;
+        int m = 10;
+        String a = "HC";
+        int i = 3;
+
+        try {
+            cmd = parser.parse(options, args);
+            if(cmd.hasOption("s"))
+                seed = ((Number) cmd.getParsedOptionValue("s")).intValue();
+            if(cmd.hasOption("n"))
+                n = ((Number) cmd.getParsedOptionValue("n")).intValue();
+            if(cmd.hasOption("m"))
+                m = ((Number) cmd.getParsedOptionValue("m")).intValue();
+            else
+                m = n/2;
+            if(cmd.hasOption("n"))
+                a = cmd.getOptionValue("a");
+            if(cmd.hasOption("i"))
+                i = ((Number) cmd.getParsedOptionValue("i")).intValue();
+
+            timeS = System.currentTimeMillis();
+            users = new Usuarios(n, m, seed);
             ComparticionState state = new ComparticionState(users);
-            state.generateInitSol3();
-            finalstate = ComparticionHillClimbingSearch(state);
-            time4 = (System.currentTimeMillis() - time4);
-            System.out.println(" people "+ i + " drivers:"+ i/2+ " time:" + time4+ " ms\n\n");
-             displayState(users, finalstate);
-            System.exit(0);
-        /*
-        }
 
-        for(int i = 0; i < 5; ++i) {
-            switch (i) {
-               case 0:
-                    double time1 = System.currentTimeMillis();
-                    System.out.println("Using first generate intial solution");
-                    state.generateInitSol1();
-                    System.out.println("\nHill Climbing\n");
-                    //ComparticionHillClimbingSearch(state);
-                    time1 = (System.currentTimeMillis() - time1)/1000;
-                    //double time11 = System.currentTimeMillis();
-                    // System.out.println("\nSimulated Annealing Search\n");
-                    ComparticionSimulatedAnnealingSearch(state,225000, 10, 5, 0.401);
-                    //time11 = (System.currentTimeMillis() - time11)/1000;
-                    //System.out.println("Time Simulated Annealing: "+ time11);
-                    System.out.println("Time Hill Climbing: "+ time1);
-                    break;
+            switch(i){
                 case 1:
-                    double time2 = System.currentTimeMillis();
-                    System.out.println("Using second generate intial solution");
+                    state.generateInitSol1();
+                    break;
+                case 2:
                     state.generateInitSol2();
-                    System.out.println("\nHill Climbing\n");
-                    ComparticionHillClimbingSearch(state);
-                   time2 = (System.currentTimeMillis() - time2)/1000;
-                    //double time21 = System.currentTimeMillis();
-                    //  System.out.println("\nSimulated Annealing Search\n");
-                   // ComparticionSimulatedAnnealingSearch(state, 100000, 10, 5, 0.01);
-                   // time21 = (System.currentTimeMillis() - time21)/1000;
-                    System.out.println("Time Hill Climbing: "+ time2);
-                    //System.out.println("Time Simulated Annealing: "+ time21);
-
                     break;
-               case 2:
-                    double time3 = System.currentTimeMillis();
-                    System.out.println("Using third generate intial solution");
+                case 3:
                     state.generateInitSol3();
-                    System.out.println("\nHill Climbing\n");
-                    ComparticionHillClimbingSearch(state);
-                    time3 = (System.currentTimeMillis() - time3)/1000;
-                    //double time31 =  System.currentTimeMillis();
-                    //System.out.println("\nSimulated Annealing Search\n");
-                    //ComparticionSimulatedAnnealingSearch(state);
-                   // time31 = (System.currentTimeMillis() - time31)/1000;
-                    System.out.println("Time Hill Climbing: "+ time3);
-                    //System.out.println("Time Simulated Annealing: "+ time31);
                     break;
-               case 3:
-                    double time4= System.currentTimeMillis();
-                    System.out.println("Using forth generate intial solution");
+                case 4:
                     state.generateInitSol4();
-                    System.out.println("\nHill Climbing\n");
-                    ComparticionHillClimbingSearch(state);
-                    time4 = (System.currentTimeMillis() - time4)/1000;
-                    //double time41= System.currentTimeMillis();
-                    //System.out.println("\nSimulated Annealing Search\n");
-                    //ComparticionSimulatedAnnealingSearch(state, 100000, 10, 5, 0.01);
-                    //time41 = (System.currentTimeMillis() - time41)/1000;
-                    System.out.println("Time Hill Climbing: "+ time4);
-                    //System.out.println("Time Simulated Annealing: "+ time41);
-
-
+                    break;
             }
-            System.out.println("\n\n");
-            System.out.println("-----------------------------------------------------------------");
 
+            switch(a){
+                case "HC":
+                    finalstate = ComparticionHillClimbingSearch(state);
+                    break;
+                case "SA":
+                    finalstate = ComparticionSimulatedAnnealingSearch(state, 250000, 10, 5, 0.5);
+                    break;
+            }
+
+            timeD = (System.currentTimeMillis() - timeS);
+            System.out.println(" people "+ n + " drivers:"+ m + " time:" + timeD+ " ms\n\n");
+
+            if(finalstate != null) displayState(users, finalstate);
+
+            //System.exit(0);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+            formatter.printHelp("utility-name", options);
+
+            System.exit(1);
         }
-
-
-
-        state.generateInitSol1();
-        for(int i = 50000; i < 250000; i+= 25000){
-            for(double l = 0.0001; l < 0.05; l += 0.0025){
-                        double timeSIMULATED= System.currentTimeMillis();
-                        System.out.println("\n Steps "+ i+ " Siter "+ 10+ " k "+ 5 + " Lambda "+String.format("%.4f",l));
-                        ComparticionSimulatedAnnealingSearch(state,i,10,5,l);
-                        timeSIMULATED = (System.currentTimeMillis() - timeSIMULATED);
-                        System.out.println("Time Simulated Annealing: "+ timeSIMULATED);
-                    }
-                }
-            }
-
-
-
-
-    */
-
     }
 
     private static void displayState(Usuarios usuarios, ComparticionState state) {
-    	EventQueue.invokeLater(new Runnable() {
+    	SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					JFrame frame = new JFrame();

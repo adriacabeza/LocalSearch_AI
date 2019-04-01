@@ -16,7 +16,7 @@ RCPATHS = $(BIN):$(JARS)
 CLASSES = \
 	src/*.java
 
-JARS = ./libs/AIMA.jar:./libs/Comparticion.jar
+JARS = ./libs/AIMA.jar:./libs/Comparticion.jar:./libs/commons-cli-1.4.jar
 
 default: bin classes
 
@@ -25,8 +25,14 @@ bin:
 
 classes: $(CLASSES:.java=.class)
 
+S = 1234
+N = 20
+M = 10
+A = HC
+I = 3
+
 run:
-	$(JVM) -cp $(RCPATHS) Main
+	$(JVM) -cp $(RCPATHS) Main -s $(S) -n $(N) -m $(M) -a $(A) -i $(I)
 
 
 clean:
