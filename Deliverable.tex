@@ -491,6 +491,16 @@ Using the same scenarios used before, we repeated the executions with the Simula
 
 This time we have chosen the \emph{Initial Solution 1}, due to the way which are distributed the users of the service give us better results.
 
+Also we have cathced the following parameters for the Simulated Annealing:
+
+\begin{itemize}
+  \item Num Steps: 250000
+  \item Number of iterations for each temperature change: 10
+  \item k: 5
+  \item $\lambda$: 0.0005
+\end{itemize}
+
+
 \begin{figure}[H]
   \captionsetup{justification=centering}
    \centering
@@ -527,9 +537,11 @@ This time we have chosen the \emph{Initial Solution 1}, due to the way which are
   \end{figure}
     \vspace{1cm}
     
-After sdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Using the Simulated Annealing algorithm we obtained a very similar results than in the Hill Climbing. But now the computation time is lower than before. 
 
 \paragraph{Conclusion}\mbox{}\\
+
+The results obtained in this part are very similar than the before, unless the the Computation time. This shows us that in a lot of cases the Simulated Annealing algorithm will be a better decision than Hill Climbing.
 
 \subsection{Experiment 7}
 Through all the previous experiments, we have been using the same proportion of drivers($M$) towards people($M$): $N/2$. For this experiment we will be testing another proportions less conservatives. Using a smaller value of drivers will make the algorithm start in a closer spot to the solution.
