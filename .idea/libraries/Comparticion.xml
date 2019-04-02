@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Comparticion">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Comparticion/libs/Comparticion.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
