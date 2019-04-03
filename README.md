@@ -7,7 +7,6 @@ title: |
     Artificial Intelligence
 ---
 
-![image](images/UPClogo.png)
 
   
 Introduction
@@ -21,6 +20,10 @@ After implementing states and operators for the algorithms, we have to
 do the second objective, which is comparing the different results
 obtained with both algorithms. Making different experiments and
 extracting results.
+
+![Visual representation of a moment of the state where the car is
+picking up and dropping off
+people.[]{data-label="grid"}](images/carsMoving.png)
 
 Description of the problem
 ==========================
@@ -168,9 +171,6 @@ compute an upper bound we can add the probability for being in each
 place of the car. $$O = M^N*(2N)!$$ So if we consider our total number
 of states X, we can confirm: $$M^N < X < M^N*(2N)!$$
 
-![Visual representation of a moment of the state where the car is
-picking up and dropping off
-people.[]{data-label="grid"}](images/carsMoving.png)
 
 Generating an initial solution
 ==============================
